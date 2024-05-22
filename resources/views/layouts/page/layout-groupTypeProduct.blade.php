@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - BachHoaXanh.com</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('/folderImages/images/logo/logo_icon.png') }}" />
+    <title>Loại Sản Phẩm - BachHoaXanh.com</title>
+    <link rel="shortcut icon" type="image/png" href="/folderImages/images/logo/logo_icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,27 +17,16 @@
     <link rel="stylesheet" href="../css/stylecss-footer.css" />
     <link rel="stylesheet" href="../css/stylecardsale.css" />
     <link rel="stylesheet" href="../css/stylebreadcrumb.css" />
-    <link rel="stylesheet" href="../css/stylecardmenu.css" />
-    <link rel="stylesheet" href="../css/stylenavmenu.css" />
-    <link rel="stylesheet" href="../css/styledetailproduct.css" />
-    <link rel="stylesheet" href="../scripts/slick-1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="../scripts/ui-5.0.36/dist/fancybox/fancybox.css" />
-    <link rel="stylesheet" href="../scripts/ui-5.0.36/dist/carousel/carousel.css" />
     <link rel="stylesheet" href="../css/styleSearchInput.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="../css/stylecardmenu.css" />
     <link rel="stylesheet" href="../css/styleSlickSliderAndFancybox.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../scripts/slick-1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript" src="../scripts/ui-5.0.36/dist/fancybox/fancybox.umd.js"></script>
 </head>
 
 <body>
     <div class="container-fluid g-0 m-auto">
         @include('layouts.header')
         @yield('content')
-        @include('layouts.footer-large')
+
     </div>
 </body>
 <!-- Thư viện JS -->
