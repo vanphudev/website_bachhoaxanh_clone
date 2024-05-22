@@ -1,0 +1,193 @@
+/* PHẦN STYLE DÀNH CHO CARD KHUYẾN MÃI*/
+
+.slider-card-group-item:hover {
+   cursor: pointer;
+}
+
+.slider-card-group-item-img {
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   background: var(--bgcolor-light);
+}
+
+.slider-card-group-item-product {
+   height: 50px;
+   padding: 5px;
+   background: var(--bgcolor-white);
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+
+.slider-card-group-item-product a {
+   text-decoration: none;
+}
+.slider-card-group-item-product a h6 {
+   font-weight: bold;
+   font-size: 16px;
+   color: var(--contentcolor-dark);
+}
+
+.slider-card-group-item-content {
+   width: 100%;
+   height: 23px;
+}
+
+.slider-card-group-item-top-sale {
+   margin-top: 5px;
+   margin-right: 5px;
+}
+
+/* PHẦN STYLE DÀNH CHO CARD SPEC NHÓM LOẠI SẢN PHẨM*/
+
+.slider-card-group-item-spec:hover {
+   cursor: pointer;
+}
+
+.slider-card-group-item-spec {
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+      rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.slider-card-group-item-product-spec {
+   height: 50px;
+   padding: 5px;
+   background: var(--bgcolor-white);
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+
+.slider-card-group-item-price-spec {
+   width: 100%;
+   height: 82px;
+}
+
+.slider-card-group-item-product-spec a {
+   text-decoration: none;
+}
+.slider-card-group-item-product-spec a h6 {
+   font-weight: bold;
+   font-size: 16px;
+   color: var(--contentcolor-dark);
+}
+
+.slider-card-group-item-product-spec {
+   text-align: center;
+}
+
+.animate-gradient {
+   background-size: 500% 100%;
+   animation: gradient 2s ease infinite;
+   background-image: radial-gradient(circle, #98c230 0, #59a646 49%, #22994f 75%, #007e42 100%);
+}
+
+@keyframes gradient {
+   0% {
+      background-position: 125% 50%;
+   }
+   100% {
+      background-position: 0 50%;
+   }
+}
+
+.slider-card-more {
+   width: 100%;
+   background: var(--bgcolor-items);
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
+}
+
+.slider-card-more:hover {
+   background-size: 500% 100%;
+   animation: gradient 2s ease infinite;
+   background-image: radial-gradient(circle, #98c230 0, #59a646 49%, #22994f 75%, #007e42 100%);
+}
+
+.slider-card-group-spec-title {
+   width: 40%;
+   background: #d8ecd4;
+   border: 1px solid #006133;
+   border-bottom-left-radius: 15px;
+   border-bottom-right-radius: 15px;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.before\:border-t-transparent:before {
+   content: var(--tw-content);
+   border-top-color: transparent;
+}
+.before\:border-r-\[\#00AC5B\]:before {
+   content: var(--tw-content);
+   --tw-border-opacity: 1;
+   border-right-color: #006133;
+}
+.before\:\!border-r-\[\#3b854e\]:before {
+   content: var(--tw-content);
+   --tw-border-opacity: 1 !important;
+   border-right-color: #006133 !important;
+}
+
+.before\:border-t-\[16px\]:before {
+   content: var(--tw-content);
+   border-top-width: 19px;
+}
+.before\:border-r-\[9px\]:before {
+   content: var(--tw-content);
+   border-right-width: 15px;
+}
+.before\:top-\[-1px\]:before {
+   content: var(--tw-content);
+   top: -1px;
+}
+.before\:left-\[-9px\]:before {
+   content: var(--tw-content);
+   left: -16px;
+}
+.before\:absolute:before {
+   content: var(--tw-content);
+   position: absolute;
+}
+:after,
+:before {
+   --tw-content: "";
+}
+*,
+:after,
+:before {
+   box-sizing: border-box;
+   border: 0 solid #f4f6f9;
+}
+
+.after\:border-t-transparent::after {
+   content: var(--tw-content);
+   border-top-color: transparent;
+}
+.after\:border-l-\[\#00AC5B\]:after {
+   content: var(--tw-content);
+   --tw-border-opacity: 1;
+   border-left-color: #006133;
+}
+.after\:\!border-l-\[\#3b854e\]:after {
+   content: var(--tw-content);
+   --tw-border-opacity: 1 !important;
+   border-left-color: #006133 !important;
+}
+.after\:border-t-\[16px\]:after {
+   content: var(--tw-content);
+   border-top-width: 19px;
+}
+.after\:border-l-\[9px\]:after {
+   content: var(--tw-content);
+   border-left-width: 15px;
+}
+.after\:top-\[-1px\]:after {
+   content: var(--tw-content);
+   top: -1px;
+}
+.after\:right-\[-9px\]:after {
+   content: var(--tw-content);
+   right: -16px;
+}
+.after\:absolute:after {
+   content: var(--tw-content);
+   position: absolute;
+}

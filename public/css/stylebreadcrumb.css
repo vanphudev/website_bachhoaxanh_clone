@@ -1,0 +1,9 @@
+.breadcrumb-item-text {
+   font-size: 23px;
+}
+
+.breadcrumb-item-icon {
+   width: 5%;
+   text-align: center;
+   border-right: 1px solid var(--bgcolor-light);
+}

@@ -1,0 +1,63 @@
+/* Sử dụng khi muốn các items trong trang web sẽ thay đổi khi đổi sang sáng và tối. */
+
+:root {
+   --bgcolor-hover-active: #d4eeda;
+   --bgcolor-cardmenu: linear-gradient(180deg, #8eca51, #2c8e5f 84.5%, #5e9329); /* Màu nền card */
+   --bgcolor-card-spec: #eaf8ed;
+   --bgcolor-gradient: radial-gradient(182% 103.54% at 43.63% 103.54%, #a8daaa 0, #fff298 100%);
+   --bgcolor-card: linear-gradient(180deg, #8eca51, #2c8e5f 84.5%, #5e9329); /* Màu nền card */
+   --bgcolor-table-detail: #e8eaec;
+   --bgcolor-sale: #effff2; /* Màu nền khi sale */
+   --bgcolor-hover: #d4eeda; /* Màu nền khi hover */
+   --bgcolor-white: #ffffff; /* Màu nền trắng */
+   --bgcolor-light: #e9edf0; /* Màu nền mặc định sáng */
+   --bgcolor-dark: #222b45; /* Màu nền mặc định tối*/
+   --contentcolor-red: #b10e0e;
+   --contentcolor-price: #fff066;
+   --contentcolor-dark: #222b45; /* Màu chữ content tối */
+   --contentcolor-light: #ffffff; /* Màu chữ content sáng*/
+   --contentsize: 14px; /* Font size content mặc định*/
+   --contentcolor: #007e42; /* Màu chữ content mặc định*/
+   --bgcolor-items: radial-gradient(
+      159.85% 367.97% at 150% 123.85%,
+      #ffe147 0,
+      #65ae17 38.76%,
+      #469c4b 59.65%,
+      #00713b 100%
+   ); /*Màu nền gradient cho các items (button, */
+   --width-menu: 300px; /* Chiều rộng menu bên trái*/
+   --width-search: 840px; /* Chiều rộng search*/
+   --margin-left: 10px; /* Margin left cho phần nội dung chính*/
+}
+html[data-theme="dark"] {
+   --bg-footer: #343541;
+   --bg-body: #343541;
+   --bg-header: #343541;
+   --border-post: #111827;
+   --text: #ffffff;
+   --text-content: #ffffff;
+}
+
+html[data-theme="light"] {
+   --bg-footer: #fff;
+   --bg-body: #e9edf0;
+   --bg-header: #fff;
+   --border-post: #e5e7eb;
+   --text: #080b16;
+   --text-content: #1f2937;
+}
+
+body::-webkit-scrollbar {
+   scrollbar-width: thin;
+   background-color: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+   background-color: darkgrey;
+   border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+   background-image: linear-gradient(180deg, #8eca51, #2c8e5f 84.5%, #5e9329);
+   box-shadow: inset 2px 2px 5px 0 rgba(#9e9e9e, 0.5);
+}

@@ -1,0 +1,12 @@
+.search_focus ul li a {
+   text-decoration: none;
+   color: black;
+}
+
+.search_focus ul li:hover {
+   background-color: #c1c3c7;
+}
+
+.search_focus ul li {
+   background-color: #e4e9f2;
+}

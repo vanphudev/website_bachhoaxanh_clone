@@ -1,0 +1,181 @@
+.animaiton-badges {
+   animation: wiggle 2s linear infinite;
+}
+
+body {
+   background: var(--bgcolor-light);
+}
+
+@keyframes wiggle {
+   0%,
+   7% {
+      transform: rotateZ(0);
+   }
+   15% {
+      transform: rotateZ(-15deg);
+   }
+   20% {
+      transform: rotateZ(10deg);
+   }
+   25% {
+      transform: rotateZ(-10deg);
+   }
+   30% {
+      transform: rotateZ(6deg);
+   }
+   35% {
+      transform: rotateZ(-4deg);
+   }
+   40%,
+   100% {
+      transform: rotateZ(0);
+   }
+}
+.truncate {
+   display: -webkit-box; /* Định dạng theo kiểu box */
+   -webkit-box-orient: vertical; /* Chiều dọc */
+   -webkit-line-clamp: 2; /* Số dòng bạn muốn hiển thị */
+   overflow: hidden; /* Ẩn nội dung vượt quá số dòng */
+}
+
+.slick-arrow {
+   border: none;
+   background: rgba(44, 82, 41, 0.369);
+   width: 27px;
+   height: 100px;
+}
+
+.slick-arrow:hover {
+   background: rgba(28, 53, 30, 0.5);
+}
+
+.slick-prev {
+   z-index: 10;
+   position: absolute;
+   left: 0;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+}
+
+.slick-next {
+   z-index: 10;
+   position: absolute;
+   right: 0;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+
+.slick-dots {
+   padding: 0px;
+   margin: 0px;
+   position: absolute;
+   bottom: 0;
+   z-index: 10000;
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.slick-dots button {
+   font-size: 0px;
+   width: 20px;
+   height: 20px;
+   border-radius: 100rem;
+   border: 1px solid var(--bgcolor-white);
+   outline: none;
+}
+
+.slick-dots li {
+   width: 20px;
+   height: 20px;
+}
+
+.slick-dots .slick-active button {
+   background: #007e42;
+}
+
+.slick-list {
+   width: 100%;
+   margin: 0px;
+   padding: 0px;
+}
+.slick-track {
+   width: 100%;
+   margin: 0px;
+   padding: 0px;
+}
+.fancybox__container {
+   --fancybox-color: #505050;
+   --fancybox-bg: rgba(26, 25, 25, 0.98);
+   --f-spinner-color-1: rgba(0, 0, 0, 0.1);
+   --f-spinner-color-2: rgba(17, 24, 28, 0.8);
+
+   flex-direction: column-reverse;
+}
+
+.fancybox__content {
+   width: 900px;
+   height: 900px;
+}
+
+.fancybox__content img {
+   max-width: 100%;
+   max-height: 100%;
+   object-fit: contain;
+}
+
+.fancybox__toolbar {
+   --f-button-bg: #f3f3f4;
+   --f-button-hover-bg: #e7e7e9;
+   --f-button-active-bg: #e7e7e9;
+   --f-button-color: #0d0c22;
+   --f-button-hover-color: #007e42;
+
+   --f-button-border-radius: 8px;
+
+   --f-button-svg-width: 20px;
+   --f-button-svg-height: 20px;
+
+   --f-button-svg-stroke-width: 1.5;
+   --f-button-svg-filter: none;
+
+   padding: 30px;
+   z-index: 10;
+}
+
+.fancybox__slide {
+   padding: 12px 0px;
+}
+
+.fancybox__thumbs.is-classic {
+   --f-thumb-gap: 3px;
+   --f-thumb-width: 88px;
+   --f-thumb-height: 66px;
+   --f-thumb-opacity: 1;
+   --f-thumb-outline: 3px;
+   --f-thumb-outline-color: #ea4c89;
+   --f-thumb-border-radius: 6px;
+   --f-thumb-offset: 4px;
+
+   padding: 10px 100px 10px 26px;
+   border-bottom: 2px solid #f3f3f4;
+}
+
+.f-thumbs__viewport:not(.is-draggable) .f-thumbs__track {
+   justify-content: flex-end;
+}
+
+.f-thumbs__slide__img {
+   border-radius: 7px;
+}
+.fancybox__toolbar__column {
+   gap: 10px;
+}
+
+.form-check-input:checked {
+   background-color: #006133;
+   border-color: #006133;
+}

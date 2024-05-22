@@ -1,0 +1,13 @@
+.form-login {
+   width: 600px;
+   margin: 0 auto;
+   margin-top: 10px;
+   background-color: white;
+   padding: 30px;
+   height: 500px;
+   border-radius: 15px;
+}
+
+.content-form-login {
+   text-align: center;
+}

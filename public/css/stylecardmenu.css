@@ -1,0 +1,16 @@
+.card-menu-items:hover {
+   background: var(--bgcolor-hover);
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.card-group-menu-active {
+   background: var(--bgcolor-hover-active);
+   border-radius: 10px;
+}
+
+.card-menu-items {
+   /* border: 1px solid red; */
+   margin-right: 5px;
+   margin-left: 5px;
+}
