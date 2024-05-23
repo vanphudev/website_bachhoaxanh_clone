@@ -1,8 +1,35 @@
 .navigation-menu {
-   display: none;
+    display: none;
 }
 
 .productportfolio:hover .navigation-menu {
-   transform: scale(2);
-   display: block;
+    transform: scale(2);
+    display: block;
+}
+
+#accordionExample > .accordion-item {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: none;
+}
+
+#accordionExample > .accordion-item:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#accordionExample ul > li a {
+    font-size: 18px;
+    color: #000;
+}
+
+#accordionExample ul > li:hover a {
+    color: #008120;
+}
+
+#menu {
+    overflow-y: hidden;
+}
+#menu:hover {
+    overflow-y: scroll;
 }

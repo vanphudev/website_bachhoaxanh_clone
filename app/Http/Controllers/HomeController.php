@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDO;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $users = DB::table('NHOM_LOAI_MATHANG')->get();
-        if (count($users) < 0) {
-            $str = 'Không có dữ liệu';
+        $groupTypeProduct = DB::table('nhom_loai_mathang')->get();
+
+        if (count($groupTypeProduct) < 1) {
+            $str = false;
             return view('Home/index', compact('str'));
         } else {
-            return view('Home/index', compact('users'));
+            return view('Home/index', compact('groupTypeProduct'));
         }
     }
 }
