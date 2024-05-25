@@ -12,5 +12,5 @@ Route::get('/GroupProduct', [GroupsTypeProductController::class, 'index']);
 Route::get('/TypeProduct', [TypeProductController::class, 'index']);
 Route::get('/GroupProduct/{nameGroupTypeProduct}', [GroupsTypeProductController::class, 'groupsTypeProducts']);
 Route::get('/TypeProduct/{nameTypeProduct}', [TypeProductController::class, 'typeProducts']);
-Route::get('/{nameTypeProduct}/{nameProduct}', [ProductsController::class, 'products']);
+Route::get('/Product/{nameProduct}', [ProductsController::class, 'products']);
 Route::get('/Search', [SearchController::class, 'search']);

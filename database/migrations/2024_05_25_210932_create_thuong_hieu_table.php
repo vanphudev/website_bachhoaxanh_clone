@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('thuong_hieu', function (Blueprint $table) {
-            $table->foreign(['MAMH'], 'FK_THUONG_HIEU_MATHANG')->references(['MAMH'])->on('mat_hang')->onUpdate('restrict')->onDelete('restrict');
+        Schema::create('thuong_hieu', function (Blueprint $table) {
+            $table->string('MA_TH', 30)->primary();
+            $table->string('TEN_TH', 200)->nullable();
+            $table->text('PICTURE')->nullable();
+            $table->string('MO_TA', 500)->nullable();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('thuong_hieu', function (Blueprint $table) {
-            $table->dropForeign('FK_THUONG_HIEU_MATHANG');
-        });
+        Schema::dropIfExists('thuong_hieu');
     }
 };

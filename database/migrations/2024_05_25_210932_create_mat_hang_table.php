@@ -16,11 +16,14 @@ return new class extends Migration
             $table->string('TENMH', 200)->nullable();
             $table->string('DONVITINH', 100)->nullable();
             $table->string('MALOAI', 30)->nullable()->index('fk_mathang_loai_mathang');
+            $table->text('MO_TA')->nullable();
             $table->decimal('GIA_BAN', 18)->nullable();
             $table->text('PICTURE')->nullable();
             $table->tinyInteger('TINHTRANG')->nullable();
             $table->boolean('KHOILUONG')->nullable();
             $table->integer('SOLUONG_TONKHO')->nullable();
+            $table->decimal('SO_GAM', 18)->nullable();
+            $table->string('MA_TH', 30)->nullable()->index('fk_mathang_thuonghieu');
         });
     }
 

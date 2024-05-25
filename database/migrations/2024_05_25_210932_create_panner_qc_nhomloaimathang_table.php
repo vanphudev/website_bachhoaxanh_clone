@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loai_mathang', function (Blueprint $table) {
-            $table->string('MALOAI', 30)->primary();
-            $table->string('TENLOAI', 200)->nullable();
-            $table->string('MANHOM_LOAI', 30)->nullable()->index('fk_loaimathang_nhomloaimathang');
+        Schema::create('panner_qc_nhomloaimathang', function (Blueprint $table) {
+            $table->string('MA_PN_QC', 30)->primary();
             $table->text('PICTURE')->nullable();
+            $table->string('MANHOM_LOAI', 30)->nullable()->index('fk_pannerqcnhomloaimathang_nhomloaimathang');
+            $table->text('URL')->nullable();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('loai_mathang');
+        Schema::dropIfExists('panner_qc_nhomloaimathang');
     }
 };

@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nhom_sanpham', function (Blueprint $table) {
-            $table->string('MANHOM', 30)->primary();
+            $table->integer('MANHOM', true);
+            $table->string('TEN_NHOM', 30)->nullable();
             $table->string('MAMH', 30)->nullable()->index('fk_nhomsanpham_mathang');
+            $table->string('MO_TA', 50)->nullable();
         });
     }
 
