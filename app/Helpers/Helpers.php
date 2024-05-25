@@ -26,3 +26,9 @@ function convertVietnamese($str)
 
     return $str;
 }
+
+
+function format_currency_vnd($number) {
+    $formatted_number = number_format($number, 0, '', '.');
+    return $formatted_number . ' đ';
+}
