@@ -77,7 +77,7 @@
                                                     <img class="object-fit-contain" src="{{ env('PATH_IMAGE_PRODUCT_AVT') }}/{{ $valueProduct->PICTURE }}" alt="" style="width: 100%; height: auto" />
                                                 </div>
                                                 <div class="slider-card-group-item-product-spec">
-                                                    <a href="#" class="stretched-link">
+                                                    <a href="/Product/{{ convertVietnamese($valueProduct->TENMH) . '--' . Str::lower($valueProduct->MAMH) }}" class="stretched-link">
                                                         <h6 class="m-0 truncate">{{ $valueProduct->TENMH }}</h6>
                                                     </a>
                                                 </div>
@@ -379,7 +379,9 @@
                             <span>MUA NGAY</span>
                         </button>
                     </div>
-                    <div class="response-product"></div>
+                    <div class="response-product">
+                        @include('layouts.warningNotification')
+                    </div>
                 </div>
             </div>
         </div>
