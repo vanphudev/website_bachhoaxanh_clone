@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phan_loai', function (Blueprint $table) {
-            $table->string('MA_PL', 30)->primary();
-            $table->string('TENPL', 200)->nullable();
-            $table->text('MO_TA')->nullable();
+        Schema::create('chi_tiet_phan_loai', function (Blueprint $table) {
+            $table->integer('MA_PL');
+            $table->string('MAMH', 30)->index('fk_chi_tiet_phan_loai_mathang');
+
+            $table->primary(['MA_PL', 'MAMH']);
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('phan_loai');
+        Schema::dropIfExists('chi_tiet_phan_loai');
     }
 };

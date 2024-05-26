@@ -141,76 +141,54 @@
                             </div>
                         </div>
                     @endif
-                    <div class="product-info g-0 m-0 p-3 mb-0" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
-                        <div class="detail-product-info g-0 m-0 p-0 mb-3" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
-                            <div class="p-2 mb-2">
-                                <h3 class="p-0 fw-bold">Thông tin sản phẩm</h3>
-                            </div>
-                            <div class="p-2 mb-2 g-0">
-                                <div class="content-product-info mb-3">
-                                    {{ $firstProduct->MO_TA }}
+                    @php
+                        $thomasProduct = DB::table('thong_tin_mat_hang')
+                            ->where('thong_tin_mat_hang.MAMH', $firstProduct->MAMH)
+                            ->get();
+                    @endphp
+                    @if ($thomasProduct->count() > 0)
+                        <div class="product-info g-0 m-0 p-3 mb-2" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
+                            <div class="detail-product-info g-0 m-0 p-0 mb-3" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
+                                <div class="p-2 mb-2">
+                                    <h3 class="p-0 fw-bold">Thông tin sản phẩm</h3>
                                 </div>
-                                <div class="table-content-product-info">
-                                    <table class="table table-bordered border-success table-hover">
-                                        <tbody class="align-middle" style="font-size: 20px">
-                                            <tr>
-                                                <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail); width: 180px">
-                                                    Độ đạm
-                                                </th>
-                                                <td>12 độ đạm</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail)">
-                                                    Thành phần
-                                                </th>
-                                                <td>
-                                                    Tinh cốt nước mắm cá cơm, muối, chất điều vị, hương nước mắm tổng hợp,
-                                                    chất
-                                                    tạo ngọt tổng hợp, chất ổn định, màu tự nhiên, chất bảo quản
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail)">
-                                                    Thương hiệu
-                                                </th>
-                                                <td>Barona (Việt Nam)</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail)">
-                                                    Sản xuất tại
-                                                </th>
-                                                <td>Việt Nam</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail)">
-                                                    Bảo quản
-                                                </th>
-                                                <td>
-                                                    Nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp, đậy kín sau khi sử
-                                                    dụng
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="p-2 mb-2 g-0">
+                                    <div class="content-product-info mb-3">
+                                        {{ $firstProduct->MO_TA }}
+                                    </div>
+                                    <div class="table-content-product-info">
+                                        <table class="table table-bordered table-hover">
+                                            <tbody class="align-middle" style="font-size: 16px">
+                                                @foreach ($thomasProduct as $valuesThomas)
+                                                    <tr>
+                                                        <th scope="row" class="text-center" style="background-color: var(--bgcolor-table-detail); width: 180px">
+                                                            {{ $valuesThomas->TEN_THONG_TIN }}
+                                                        </th>
+                                                        <td>{{ $valuesThomas->NOI_DUNG }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="posts-product-info g-0 m-0 p-2 mb-3" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
-                            <div class="p-0 mb-2">
-                                <h3 class="p-0 fw-bold">Bài viết sản phẩm</h3>
-                            </div>
-                            <div>
-                                Đôi nét về thương hiệu Barona Barona là thương hiệu thuộc công ty Nam Phương được thành
-                                lập vào năm 2013 chuyên cung cấp các sản phẩm nước mắm ngon, chất lượng được nhà nhà lựa
-                                chọn tin dùng. Đây là thương hiệu nước mắm đạt chuẩn quản lý ISO & FSSC nên đã xuất khẩu
-                                sang các thị trường khó tính như Mỹ và các nước Châu Âu và được người tiêu dùng bình chọn
-                                là hàng Việt Nam chất lượng cao. Thành phần dinh dưỡng có trong nước mắm Phan Thiết Barona
-                                Sản phẩm nước mắm Phan Thiết Barona 500ml có chứa các thành phần chính là: Tinh cốt nước
-                                mắm cá cơm 72%, muối, chất điều vị, protein đậu nành thủy phân, chất điều chỉnh độ acid,
-                                hương nước mắm tổng hợp, chất tạo ngọt,... Tất cả các thành phần đều an toàn và được kiểm
-                                nghiệm nghiêm ngặt. Theo thông tin trên bao bì, trong 100ml nước mắm Phan Thiết Barona sẽ
-                                cung cấp cho cơ thể khoảng 38,7 kcal.
-                            </div>
+                    @endif
+                    <div class="posts-product-info g-0 m-0 p-3 mb-2" style="width: 100%; background: var(--bgcolor-white); border-radius: 5px">
+                        <div class="p-2 mb-2">
+                            <h3 class="p-0 fw-bold">Bài viết sản phẩm</h3>
+                        </div>
+                        <div class="p-2">
+                            Đôi nét về thương hiệu Barona Barona là thương hiệu thuộc công ty Nam Phương được thành
+                            lập vào năm 2013 chuyên cung cấp các sản phẩm nước mắm ngon, chất lượng được nhà nhà lựa
+                            chọn tin dùng. Đây là thương hiệu nước mắm đạt chuẩn quản lý ISO & FSSC nên đã xuất khẩu
+                            sang các thị trường khó tính như Mỹ và các nước Châu Âu và được người tiêu dùng bình chọn
+                            là hàng Việt Nam chất lượng cao. Thành phần dinh dưỡng có trong nước mắm Phan Thiết Barona
+                            Sản phẩm nước mắm Phan Thiết Barona 500ml có chứa các thành phần chính là: Tinh cốt nước
+                            mắm cá cơm 72%, muối, chất điều vị, protein đậu nành thủy phân, chất điều chỉnh độ acid,
+                            hương nước mắm tổng hợp, chất tạo ngọt,... Tất cả các thành phần đều an toàn và được kiểm
+                            nghiệm nghiêm ngặt. Theo thông tin trên bao bì, trong 100ml nước mắm Phan Thiết Barona sẽ
+                            cung cấp cho cơ thể khoảng 38,7 kcal.
                         </div>
                     </div>
                 </div>

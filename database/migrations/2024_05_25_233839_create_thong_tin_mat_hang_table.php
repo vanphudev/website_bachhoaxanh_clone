@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('thong_tin_mat_hang', function (Blueprint $table) {
-            $table->string('MA_ID_TTMH', 30)->primary();
-            $table->string('TEN_THONG_TIN', 100)->nullable();
-            $table->string('NOI_DUNG', 100)->nullable();
-            $table->string('MAMH', 30)->nullable()->unique('mamh');
+            $table->integer('MA_ID_TTMH', true);
+            $table->text('TEN_THONG_TIN')->nullable();
+            $table->text('NOI_DUNG')->nullable();
+            $table->string('MAMH', 30)->nullable()->index('fk_chi_tiet_mat_hang_mathang');
         });
     }
 
