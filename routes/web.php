@@ -14,3 +14,12 @@ Route::get('/GroupProduct/{nameGroupTypeProduct}', [GroupsTypeProductController:
 Route::get('/TypeProduct/{nameTypeProduct}', [TypeProductController::class, 'typeProducts']);
 Route::get('/Product/{nameProduct}', [ProductsController::class, 'products']);
 Route::get('/Search', [SearchController::class, 'search']);
+
+
+// Route::get('/Admin', [AdminController::class, 'index']);
+// Route::get('/Admin/Product', [AdminController::class, 'index']);
+// Route::get('/Admin/Employee', [AdminController::class, 'index']);
+// Route::get('/Admin/TypeProduct', [AdminController::class, 'index']);
+// Route::get('/Admin/Order', [AdminController::class, 'index']);
+// Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
+// Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
