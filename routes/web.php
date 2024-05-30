@@ -6,6 +6,8 @@ use App\Http\Controllers\GroupsTypeProductController;
 use App\Http\Controllers\TypeProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerProductsController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/GroupProduct', [GroupsTypeProductController::class, 'index']);
@@ -16,10 +18,9 @@ Route::get('/Product/{nameProduct}', [ProductsController::class, 'products']);
 Route::get('/Search', [SearchController::class, 'search']);
 
 
-// Route::get('/Admin', [AdminController::class, 'index']);
-// Route::get('/Admin/Product', [AdminController::class, 'index']);
-// Route::get('/Admin/Employee', [AdminController::class, 'index']);
-// Route::get('/Admin/TypeProduct', [AdminController::class, 'index']);
+Route::get('/Admin', [AdminController::class, 'index']);
+Route::get('/ManagerProducts', [ManagerProductsController::class, 'index']);
+
 // Route::get('/Admin/Order', [AdminController::class, 'index']);
 // Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
 // Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
