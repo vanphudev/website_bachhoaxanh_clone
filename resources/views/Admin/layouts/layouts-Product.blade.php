@@ -22,9 +22,6 @@
         @include('Admin.nav')
         <div class="container-fluid py-4">
             <div class="row">
-                @include('Admin.main')
-            </div>
-            <div class="row">
                 @yield('content')
             </div>
         </div>
