@@ -28,7 +28,65 @@ function convertVietnamese($str)
 }
 
 
-function format_currency_vnd($number) {
+function format_currency_vnd($number)
+{
     $formatted_number = number_format($number, 0, '', '.');
     return $formatted_number . ' đ';
+}
+
+
+function customEncrypt($data, $key)
+{
+    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+    $encrypted = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
+    return base64_encode($encrypted . '::' . $iv);
+}
+
+
+function customDecrypt($data, $key)
+{
+    list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
+    return openssl_decrypt($encrypted_data, 'aes-256-cbc', $key, 0, $iv);
+}
+
+
+function setLoginCookie($data, $key, $expire_days = 15)
+{
+    $expire_time = time() + (86400 * $expire_days); // 86400 seconds in a day
+    $encrypted_data = customEncrypt(json_encode($data), $key);
+    setcookie('login_data', $encrypted_data, $expire_time, "/");
+    setcookie('last_access', time(), $expire_time, "/");
+}
+
+
+function checkAndRefreshLoginCookie($key, $expire_days = 15)
+{
+    if (isset($_COOKIE['login_data']) && isset($_COOKIE['last_access'])) {
+        $last_access = $_COOKIE['last_access'];
+        $current_time = time();
+
+        if (($current_time - $last_access) > (86400 * $expire_days)) {
+            // Cookie đã hết hạn.
+            setcookie('login_data', '', time() - 3600, "/");
+            setcookie('last_access', '', time() - 3600, "/");
+            return false;
+        } else {
+            // Làm mới thời gian hết hạn của cookie.
+            $expire_time = $current_time + (86400 * $expire_days);
+            setcookie('last_access', $current_time, $expire_time, "/");
+            return json_decode(customDecrypt($_COOKIE['login_data'], $key), true);
+        }
+    } else {
+        return false;
+    }
+}
+function formatPhoneNumber($phoneNumber)
+{
+    // Kiểm tra và chuyển đổi số điện thoại Việt Nam (bắt đầu bằng 0) sang định dạng quốc tế (+84)
+    if (substr($phoneNumber, 0, 1) === '0') {
+        return '+84' . substr($phoneNumber, 1);
+    }
+
+    // Thêm các điều kiện khác cho các quốc gia khác nếu cần
+    return $phoneNumber;
 }
