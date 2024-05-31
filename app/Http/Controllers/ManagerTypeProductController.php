@@ -8,14 +8,7 @@ class ManagerTypeProductController extends Controller
 {
     public function index()
     {
-        return view('ManagerTypeProductController.index');
+        return view('ManagerTypeProduct.index');
     }
-    public function create()
-    {
-        return view('ManagerTypeProductController.create');
-    }
-    public function edit()
-    {
-        return view('ManagerProductsManagerTypeProductController.edit');
-    }
+
 }

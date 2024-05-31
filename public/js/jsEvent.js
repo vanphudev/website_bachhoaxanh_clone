@@ -41,3 +41,19 @@ function showMenu() {
       menu.style.display = "block";
    });
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+   var rows = document.querySelectorAll('#table-select-row tbody tr');
+   rows.forEach(function (row) {
+      row.addEventListener('click', function () {
+         // Remove the background from all rows
+         rows.forEach(function (r) {
+            r.classList.remove('selected');
+         });
+         // Set the background for the clicked row
+         row.classList.add('selected');
+      });
+   });
+});

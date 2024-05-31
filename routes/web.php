@@ -24,8 +24,8 @@ Route::get('/ManagerProducts', [ManagerProductsController::class, 'index']);
 Route::get('/ManagerProducts/Create', [ManagerProductsController::class, 'create']);
 Route::get('/ManagerProducts/Edit', [ManagerProductsController::class, 'edit']);
 Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index']);
-Route::get('/ManagerProducts/Create', [ManagerTypeProductController::class, 'create']);
-Route::get('/ManagerProducts/Edit', [ManagerTypeProductController::class, 'edit']);
+Route::get('/ManagerTypeProduct/Create', [ManagerTypeProductController::class, 'create']);
+Route::get('/ManagerTypeProduct/Edit', [ManagerTypeProductController::class, 'edit']);
 
 // Route::get('/Admin/Order', [AdminController::class, 'index']);
 // Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
