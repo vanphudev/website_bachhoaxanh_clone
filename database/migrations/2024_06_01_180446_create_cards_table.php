@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users_login_egov', function (Blueprint $table) {
-            $table->foreign(['MANV'], 'FK_USERSLOGIN_NHANVIEN')->references(['MANV'])->on('nhanvien')->onUpdate('restrict')->onDelete('restrict');
+        Schema::create('cards', function (Blueprint $table) {
+            $table->integer('ID_CARD', true);
+            $table->integer('MAKH')->nullable()->unique('makh');
         });
     }
 
@@ -21,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users_login_egov', function (Blueprint $table) {
-            $table->dropForeign('FK_USERSLOGIN_NHANVIEN');
-        });
+        Schema::dropIfExists('cards');
     }
 };

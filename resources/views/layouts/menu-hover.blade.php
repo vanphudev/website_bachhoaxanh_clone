@@ -1,4 +1,4 @@
-<div id="menu-fixed-hover" class="menu-fixed-hover container-fluid g-0 m-auto pt-2" style=" width: 100%;height: 100vh;display: none; position: fixed; top: 0px; background-color: rgba(44, 44, 44, 0.5); z-index: 800;">
+<div id="menu-fixed-hover" class="menu-fixed-hover container-fluid g-0 m-auto pt-2" style=" width: 100%;height: 100vh;display: none; position: fixed; top: 0px; background-color: rgba(44, 44, 44, 0.5); z-index: 900;">
     <div class="row g-0 m-auto" style="width: calc(var(--width-menu) * 2 + var(--width-search))">
         <div id="productportfolio" class="g-0" style="width: var(--width-menu); padding-top: 96px">
             <div class="productportfolio g-0 text-white d-flex justify-content-center flex-nowrap" style="cursor: pointer; max-height: calc(100vh - 110px); padding: 2px">

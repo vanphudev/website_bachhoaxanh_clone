@@ -19,7 +19,7 @@
                     @endforeach
                 </div>
             @endif
-            <form action="{{ route('verifyOTP') }}" method="POST">
+            <form action="{{ route('verify-otp-createAccount-OTP') }}" method="POST">
                 @csrf
                 <form>
                     <div class="mb-3 form-login-textbox">

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_login_kh', function (Blueprint $table) {
-            $table->integer('ID', true);
-            $table->integer('MAKH')->unique('makh');
-            $table->text('KEYBYTES')->nullable();
-            $table->string('PASSWORD_USER')->nullable();
+        Schema::table('cards', function (Blueprint $table) {
+            $table->foreign(['MAKH'], 'FK_CARDS_KHACHHANG')->references(['MAKH'])->on('khachhang')->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_login_kh');
+        Schema::table('cards', function (Blueprint $table) {
+            $table->dropForeign('FK_CARDS_KHACHHANG');
+        });
     }
 };

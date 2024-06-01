@@ -23,6 +23,9 @@ return new class extends Migration
             $table->text('PICTURE')->nullable();
             $table->decimal('HESOLUONG', 10)->nullable();
             $table->string('PHONE', 15)->nullable();
+            $table->string('ACCOUNT', 100)->nullable();
+            $table->string('PASSWORD_USER')->nullable();
+            $table->string('ROLE', 80)->nullable();
         });
     }
 

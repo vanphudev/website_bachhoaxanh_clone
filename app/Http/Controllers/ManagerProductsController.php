@@ -8,6 +8,7 @@ class ManagerProductsController extends Controller
 {
     public function index()
     {
+
         return view('ManagerProducts.index');
     }
 }

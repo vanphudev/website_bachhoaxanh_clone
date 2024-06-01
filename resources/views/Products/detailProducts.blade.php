@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="slider-card-group-item-btnbuy g-0 p-0 mt-2">
                                             <div class="slider-card-group-item-btnprice g-0">
-                                                <button type="button" class=" btn d-flex justify-content-center align-items-center" style="color: #17c700; width: 100%; font-weight: bold; background-color: #E4F5E7">
+                                                <button id="buy_now" type="button" class=" btn d-flex justify-content-center align-items-center" style="color: #17c700; width: 100%; font-weight: bold; background-color: #E4F5E7">
                                                     <i class="fa-solid fa-cart-shopping"></i>
                                                     <span class="ms-2">MUA NGAY</span>
                                                 </button>
@@ -137,7 +137,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
                     @endif
@@ -375,7 +374,7 @@
                         </div>
                     @endif
                     <div class="btn-buy-product">
-                        <button type="button" class="animate-gradient btn d-flex justify-content-center align-items-center" style="  color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
+                        <button id="addToCards" data_product="{{ $firstProduct->MAMH }}" type="button" class="animate-gradient btn d-flex justify-content-center align-items-center" style="  color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
                             <span>MUA NGAY</span>
                         </button>
                     </div>

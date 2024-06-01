@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_login_egov', function (Blueprint $table) {
-            $table->integer('ID', true);
-            $table->string('MANV', 30)->unique('manv');
-            $table->text('KEYBYTES')->nullable();
-            $table->string('PASSWORD');
-            $table->string('ROLE', 80)->nullable();
+        Schema::create('detail_cards', function (Blueprint $table) {
+            $table->integer('ID_CARD');
+            $table->integer('SOLUONG')->nullable();
+            $table->string('MAMH', 30)->index('fk_detailcards_mathang');
+
+            $table->primary(['ID_CARD', 'MAMH']);
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_login_egov');
+        Schema::dropIfExists('detail_cards');
     }
 };

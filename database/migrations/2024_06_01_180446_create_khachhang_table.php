@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('DIA_CHI', 200)->nullable();
             $table->string('EMAIL', 100)->nullable()->unique('email');
             $table->string('PHONE', 15)->nullable();
+            $table->string('ACCOUNT', 100)->nullable();
+            $table->string('PASSWORD_USER')->nullable();
         });
     }
 

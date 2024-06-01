@@ -4,30 +4,22 @@
         <div class="form-login mb-5 mt-5" style="box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22), 0 5px 14px 0 rgba(0, 0, 0, 0.18)">
             <p class="content-form-login">
                 Để xem "Đơn hàng của bạn" vui lòng <br />
-                nhập số điện thoại đã đặt hàng
+                nhập Gmail đã đặt hàng
             </p>
             @if (session('error'))
-                <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">{{ session('error') }} !</div>
+                <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">Đã có lỗi - {{ session('error') }} !</div>
             @endif
-            @if ($errors->any())
-                <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold"">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}<br>
-                    @endforeach
-                </div>
+            @if (session('message'))
+                <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">{{ session('message') }}</div>
             @endif
             <form action="{{ route('sendOtp') }}" method="POST">
                 @csrf
                 <div class="mb-3 form-login-textbox">
                     <div class="input-group input-group-lg">
-                        <span class="input-group-text" style="background-color: white"><i class="icon fa-solid fa-phone"
-                                style="
-                              font-size: 25px;
-                              background: var(--bgcolor-items);
-                              background-clip: text;
-                              color: transparent;
-                           "></i></span>
-                        <input type="text" class="form-control" id="phonenumber" value="{{ old('phonenumber') }}" name="phonenumber" placeholder="Nhập số điện thoại của bạn" required />
+                        <span class="input-group-text" style="background-color: white">
+                            <img src="./folderImages/images/icons/gmail.png" alt="" style="width: 50px; height: 50px;">
+                        </span>
+                        <input type="email" class="form-control" id="gmail" name="gmail" placeholder="Nhập Gmail của bạn" required />
                     </div>
                 </div>
                 <button type="submit" class="animate-gradient btn mb-2"
@@ -38,11 +30,17 @@
                      font-size: 24px;
                      border-radius: 10px;
                   ">
-                    Tiếp tục Với Số Điện Thoại
+                    Tiếp tục Với Gmail
                 </button>
                 <hr>
                 <div class="form-text mb-4 d-flex justify-content-between" style="width: 100%;">
-                    <a class="btn btn-outline-success d-flex justify-content-between align-items-center gap-2" href="{{ route('loginGmail') }}" style="color: black;"><img src="./folderImages/images/icons/gmail.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Gmail.</a>
+                    <a class="btn btn-outline-success d-flex justify-content-between align-items-center gap-2" href="{{ route('Login') }}" style="color: black;"><i class="icon fa-solid fa-phone"
+                            style="
+                      font-size: 40px;
+                      background: var(--bgcolor-items);
+                      background-clip: text;
+                      color: transparent;
+                   "></i>Đăng nhập bằng Phone.</a>
                     <a class="btn btn-outline-success  d-flex justify-content-between align-items-center gap-2" href="{{ route('Login') }}" style="color: black; "><img src="./folderImages/images/icons/account.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Account.</a>
                 </div>
                 <div class="form-text mb-4 text-center">
@@ -51,7 +49,7 @@
                 </div>
                 <div class="form-text">
                     Bằng cách đăng ký tài khoản, bạn đã đồng ý với
-                    <a>Điều khoản sử dụng và Chính sách bảo mật</a> của Bachoaxanh.com.
+                    <a href="">Điều khoản sử dụng và Chính sách bảo mật</a> của Bachoaxanh.com.
                 </div>
             </form>
         </div>

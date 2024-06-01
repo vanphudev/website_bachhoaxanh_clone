@@ -80,13 +80,13 @@ function checkAndRefreshLoginCookie($key, $expire_days = 15)
         return false;
     }
 }
+
 function formatPhoneNumber($phoneNumber)
 {
     // Kiểm tra và chuyển đổi số điện thoại Việt Nam (bắt đầu bằng 0) sang định dạng quốc tế (+84)
     if (substr($phoneNumber, 0, 1) === '0') {
         return '+84' . substr($phoneNumber, 1);
     }
-
     // Thêm các điều kiện khác cho các quốc gia khác nếu cần
     return $phoneNumber;
 }

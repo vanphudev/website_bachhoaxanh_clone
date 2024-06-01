@@ -10,9 +10,9 @@
                     </span>
                     <input id="search_input" type="text" class="form-control" style="background: var(--bgcolor-light)" placeholder="Nhập tên sản phẩm cần tìm" />
                     <span class="input-group-text p-0">
-                        <button class="btn" type="button" style="background: var(--bgcolor-light)">
+                        <a class="btn" href="{{ route('Cart') }}" style="background: var(--bgcolor-light)">
                             <i class="fa-solid fa-cart-shopping" style="  background: var(--bgcolor-items);  background-clip: text; color: transparent; font-size: 22px; "></i>
-                        </button>
+                        </a>
                     </span>
                 </div>
                 <div id="search_popup" class="search_focus container-fluid g-0 m-auto p-3"
@@ -62,10 +62,20 @@
                 </div>
             </div>
             <div class="col g-0 d-flex justify-content-center flex-nowrap align-items-center" style="width: var(--width-menu)">
-                <button id="popup_Login" type="button" class="btn animaiton-badges" style="background: #006133; color: var(--contentcolor-light)">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="ms-3" style="font-weight: bold; font-size: 18px">Đăng Nhập</span>
-                </button>
+                @if (Cookie::has('user_data'))
+                    @php
+                        $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
+                        $shortened_name = strlen($user_data['name']) > 10 ? substr($user_data['name'], 0, 10) . '...' : $user_data['name'];
+                    @endphp
+                    <button id="popup_Login" type="button" class="btn" style="background: #006133; color: var(--contentcolor-light)">
+                        <span class="ms-3" style="font-weight: bold; font-size: 15px">Tài Khoản của, {{ $shortened_name }}</span>
+                    </button>
+                @else
+                    <a href="{{ route('Login') }}" type="button" class="btn animaiton-badges" style="background: #006133; color: var(--contentcolor-light)">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="ms-3" style="font-weight: bold; font-size: 18px">Đăng Nhập</span>
+                    </a>
+                @endif
             </div>
         </div>
         <div class="row g-0 m-auto" style="width: calc(var(--width-menu) * 2 + var(--width-search))">
