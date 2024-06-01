@@ -7,6 +7,7 @@ use App\Http\Controllers\TypeProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerEmployeesController;
 use App\Http\Controllers\ManagerProductsController;
 use App\Http\Controllers\ManagerTypeProductController;
 
@@ -23,10 +24,7 @@ Route::get('/Admin', [AdminController::class, 'index']);
 Route::get('/ManagerProducts', [ManagerProductsController::class, 'index']);
 Route::get('/ManagerProducts/Create', [ManagerProductsController::class, 'create']);
 Route::get('/ManagerProducts/Edit', [ManagerProductsController::class, 'edit']);
+Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index']);
+Route::get('/ManagerEmployees/Create', [ManagerEmployeesController::class, 'create']);
+Route::get('/ManagerEmployees/Edit', [ManagerEmployeesController::class, 'edit']);
 Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index']);
-Route::get('/ManagerTypeProduct/Create', [ManagerTypeProductController::class, 'create']);
-Route::get('/ManagerTypeProduct/Edit', [ManagerTypeProductController::class, 'edit']);
-
-// Route::get('/Admin/Order', [AdminController::class, 'index']);
-// Route::get('/Admin/NhapHang', [AdminController::class, 'index']);
-// Route::get('/Admin/NhapHang', [AdminController::class, 'index']);

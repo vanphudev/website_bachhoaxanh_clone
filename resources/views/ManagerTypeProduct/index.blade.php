@@ -57,7 +57,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Mã nhóm loại mặt hàng:</label>
                                                 <input type="text" name="" class="form-control"
-                                                    placeholder="Mã nhóm loại mặt hàng tạo tự động" readonly>
+                                                    placeholder="Mã nhóm loại mặt hàng" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Tên nhóm loại mặt hàng:</label>
@@ -72,7 +72,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Đóng</button>
-                                            <button type="submit" class="btn btn-primary">Thêm</button>
+                                            <button type="submit" class="btn btn-primary">Sửa thông tin</button>
                                         </div>
                                     </form>
                                 </div>
@@ -314,7 +314,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary">Sữa</button>
+                            <button type="submit" class="btn btn-primary">Sữa thông tin</button>
                         </div>
                     </form>
                 </div>
