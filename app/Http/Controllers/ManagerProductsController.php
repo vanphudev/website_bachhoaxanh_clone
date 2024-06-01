@@ -11,4 +11,12 @@ class ManagerProductsController extends Controller
 
         return view('ManagerProducts.index');
     }
+    public function create()
+    {
+        return view('ManagerProducts.create');
+    }
+    public function edit()
+    {
+        return view('ManagerProducts.edit');
+    }
 }

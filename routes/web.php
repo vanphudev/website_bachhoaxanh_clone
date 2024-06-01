@@ -7,11 +7,16 @@ use App\Http\Controllers\TypeProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerEmployeesController;
 use App\Http\Controllers\ManagerProductsController;
+<<<<<<< HEAD
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UpdateInfoController;
 use App\Http\Controllers\CardsController;
+=======
+use App\Http\Controllers\ManagerTypeProductController;
+>>>>>>> f53438d7e289a615076360a6ef0efee88126ad98
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home');
@@ -25,6 +30,7 @@ Route::get('/Search', [SearchController::class, 'search']);
 
 Route::get('/Admin', [AdminController::class, 'index']);
 Route::get('/ManagerProducts', [ManagerProductsController::class, 'index']);
+<<<<<<< HEAD
 
 // Đăng nhập.
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
@@ -58,3 +64,11 @@ Route::post('/cap-nhat-thong-tin', [UpdateInfoController::class, 'update'])->nam
 // Giỏ hàng
 Route::get('/cart', [CardsController::class, 'index'])->name('Cart');
 Route::post('/AddToCart', [CardsController::class, 'AddToCart'])->name('AddToCart');
+=======
+Route::get('/ManagerProducts/Create', [ManagerProductsController::class, 'create']);
+Route::get('/ManagerProducts/Edit', [ManagerProductsController::class, 'edit']);
+Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index']);
+Route::get('/ManagerEmployees/Create', [ManagerEmployeesController::class, 'create']);
+Route::get('/ManagerEmployees/Edit', [ManagerEmployeesController::class, 'edit']);
+Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index']);
+>>>>>>> f53438d7e289a615076360a6ef0efee88126ad98

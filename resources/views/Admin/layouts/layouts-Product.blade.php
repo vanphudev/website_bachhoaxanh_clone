@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <link type="image/png" sizes="32x32" rel="icon" href=".../icons8-refresh-32.png">
     <title>Mặt hàng - Quản lý mặt hàng</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/stylecss-products-admin.css') }}" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
@@ -212,6 +214,20 @@
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+    {{-- <!-- Thư viện JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="../../../js/jsEvent.js"></script>
+    <script type="text/javascript" src="../../../js/jsSearch.js "></script>
+    <script type="text/javascript" src="../../../js/jsPopup.js"></script>
+    <script type="text/javascript" src="../../../js/jsSlickSlider.js"></script>
+    <script type="text/javascript" src="../../../js/jsFancybox.js"></script> --}}
+
 </body>
 
 </html>
