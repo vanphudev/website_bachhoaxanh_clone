@@ -58,7 +58,7 @@ class ManagerTypeProductController extends Controller
             return redirect()->route('ManagerTypeProduct')->with('error', 'Nhóm loại sản phẩm không tồn tại !');
         }
         DB::table('loai_mathang')->insert([
-            'TENLOAI' => $nameTypeProduct,
+            'TENLOAI' => $nameTypeProduct,  
             'MANHOM_LOAI' => $group_type_product->MANHOM_LOAI
         ]);
         return redirect()->route('ManagerTypeProduct')->with('success', 'Thêm loại sản phẩm thành công !');

@@ -35,7 +35,6 @@ Route::get('/admin-login', [LoginManagerController::class, 'index'])->name('Logi
 Route::get('/Admin', [AdminController::class, 'index'])->name('Dashboard');
 Route::get('/ManagerProducts', [ManagerProductsController::class, 'index'])->name('ManagerProducts');
 
-<<<<<<< HEAD
 
 // Xử lí với nhóm loại mặt hàng.
 Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
@@ -48,25 +47,6 @@ Route::post('/ManagerTypeProductDelete', [ManagerTypeProductController::class, '
 Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index'])->name('ManagerEmployees');
 
 // Xử lí với nhóm loại mặt hàng.
-=======
-Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
-
-Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index'])->name('ManagerEmployees');
-
-
-Route::get('/ManagerCustommers', [ManagerCustommersController::class, 'index'])->name('ManagerCustommers');
-Route::get('/ManagerCustommers/create', [ManagerCustommersController::class, 'create'])->name('ManagerCustommers');
-Route::get('/ManagerCustommers/edit', [ManagerCustommersController::class, 'edit'])->name('ManagerCustommers');
-
-Route::get('/ManagerSuppliers', [ManagerSuppliersController::class, 'index'])->name('ManagerSuppliers');
-Route::get('/ManagerSuppliers/create', [ManagerSuppliersController::class, 'create'])->name('ManagerSuppliers');
-Route::get('/ManagerSuppliers/edit', [ManagerSuppliersController::class, 'edit'])->name('ManagerSuppliers');
-
-Route::get('/ManagerBrands', [ManagerBrandsController::class, 'index'])->name('ManagerBrands');
-Route::get('/ManagerBrands/create', [ManagerBrandsController::class, 'create'])->name('ManagerBrands');
-Route::get('/ManagerBrands/edit', [ManagerBrandsController::class, 'edit'])->name('ManagerBrands');
-
->>>>>>> a498e1eca679cefda634adfbef26fcde243da828
 Route::get('/ManagerGroupTypeProducts', [ManagerGroupTypeProductsController::class, 'index'])->name('ManagerGroupTypeProduct');
 
 
