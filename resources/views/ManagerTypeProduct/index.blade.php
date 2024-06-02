@@ -1,5 +1,17 @@
 @extends('Admin.layouts.layouts-TypeProduct')
 @section('content')
+    @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ $success }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if (Session::get('error'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ $error }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="col" style="margin-top: 20px;">
         <div class="container-fluid g-0 m-0 p-3 mb-5" style="position: sticky; top: 0px; z-index: 1000; background-color: white; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;">
             <h3 style="margin-bottom: 20px;">Loại mặt hàng</h3>
@@ -69,12 +81,12 @@
                             <td>{{ $values->TENNHOM_LOAI }}</td>
                             <td>{{ $values->TOP_MUASAM == 1 && $values->TOP_MUASAM != null ? 'TOP' : 'NO' }}</td>
                             <td>
-                                <button class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#loai-mat-hang-update" style="margin-right: 20px; margin-bottom: 0">
+                                <button data-bs-IDTYPE="{{ $values->MALOAI }}" class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#loai-mat-hang-update" style="margin-right: 20px; margin-bottom: 0">
                                     <img width="24px"
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVR4nNXVsU5UURDG8YUeYzB0JBRLQ8IWvIDB2oaEBxALCqx4AunhAQy9UqpZTCwo7E2goHMLDFiQQIkkFpifmTjKzXrv7mEDMUxymrln/t+c79y5t9W6D4FpbGMHC7cNn8U3fMc5LvGkbuM4VtHFXmW9x6MGeDvhZ+hgCocpstAP3/U7eiUCruER65X8VAq+rm6OziPWCm1p4yRBB/iBp/msk3a9qhaELb0R4B08xOcUWc98nGy6WvQp1k3hret8iOynCwGf7S8cKqABXrHlT+ftuuKBApjB1wb4HE5rOy8RwAMc5fGXGjo/qe28UGADVzlEfy0ohg8SyPk4xgfMV3xeKoYPEVisWpNdx0kUw4cIbOECk1jGR/zMO6mFx9T/M/kDBN7lVMa3Rb5JLzExoNkY2m6pwDzeYhOP405GcqN0kkvivwns4MstCfSC1598fpPPdVPgRXKe1Q1Ut+GHs1e4oi4iOGN16mNYSbtGEXgTndfC7zJ+AQTYPuOM4fZdAAAAAElFTkSuQmCC">
 
                                 </button>
-                                <button id="btnDelete" class="btn btn-danger text-center" style="margin-bottom: 0">
+                                <button data_IDTYPE='{{ $values->MALOAI }}' class="btnDelete btn btn-danger text-center" style="margin-bottom: 0">
                                     <img
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPElEQVR4nO2UsUpDQRBFo5b5gnSmipUWGjv9gQhqkUIbsVEbS2Ot2ESIhXZqGVEERdIEWxtBu2Bv8APSpFQ4snAXh0B0dw2pcmF4y8zcOY9ldzOZkf4rYAI4ATr8yK1rwPggADv019YgAHUNewHKCrd2qqcMXAW6xKsLLIcALkjXeQggDzSMqQHc9onevsnQbSoaYx7YBWaBFcWccq7mNR80XIApY5wG3oAD8+eHys2YvkIMIGeMC8ArUDWAY+UWTV8uBpA1xhLwBJwawJlyS6YvGwMYAz5lXAMedbo84FK5dfV8OU8wQBD/NGwDD7pwHnClnL/lnajhArRlrgA3wJ0B3APXwL563lMALZmPtNdlff26pJpTKwXQlPnZvEG94WpOzRTApjkhf2kjGiBIBfj4ZbCr7SUNH2lo+gbukw7mXFPP3AAAAABJRU5ErkJggg==">
                                 </button>
@@ -89,29 +101,14 @@
     <!-- Modal cập nhật -->
     <div class="modal fade" id="loai-mat-hang-update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin-top: 100px">
-            <div class="modal-content">
-                <form action="">
+            <div class="modal-content" id="showDataUpdate">
+                <form id="updateTypeProductForm" action="{{ route('TypeProductUpdate') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin mặt hàng</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin loại mặt hàng</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Mã mặt hàng:</label>
-                            <input type="text" name="ma" class="form-control" placeholder="Mã loại mặt hàng tạo tự động" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tên mặt hàng:</label>
-                            <input type="text" name="tenMH" class="form-control" placeholder="Tên mặt hàng" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mã nhóm loại mặt hàng:</label>
-                            <input type="text" name="" class="form-control" placeholder="Mã nhóm loại mặt hàng" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Thêm ảnh mặt hàng:</label>
-                            <input class="form-control" name="" type="file" required>
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>

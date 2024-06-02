@@ -1,7 +1,7 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="m-0" target="_blank">
+        <a class="m-0" style="text-decoration: none; font-size: 20px; font-weight: bold">
             <img src="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" style="width: 60px; height: 60px; border-radius: 50%" />
             <span class="ms-1 font-weight-bold">ADMIN MANAGER</span>
         </a>

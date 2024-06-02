@@ -31,8 +31,19 @@ Route::get('/Search', [SearchController::class, 'search']);
 Route::get('/admin-login', [LoginManagerController::class, 'index'])->name('LoginAdmin');
 Route::get('/Admin', [AdminController::class, 'index'])->name('Dashboard');
 Route::get('/ManagerProducts', [ManagerProductsController::class, 'index'])->name('ManagerProducts');
+
+
+// Xử lí với nhóm loại mặt hàng.
 Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
+Route::post('/TypeProductGetById', [ManagerTypeProductController::class, 'getID'])->name('TypeProductGetById');
+Route::post('/ManagerTypeProductCreate', [ManagerTypeProductController::class, 'create'])->name('ManagerTypeProductCreate');
+Route::post('/TypeProductUpdate', [ManagerTypeProductController::class, 'update'])->name('TypeProductUpdate');
+Route::post('/ManagerTypeProductDelete', [ManagerTypeProductController::class, 'delete'])->name('ManagerTypeProductDelete');
+
+// Xử lí với nhân viên.
 Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index'])->name('ManagerEmployees');
+
+// Xử lí với nhóm loại mặt hàng.
 Route::get('/ManagerGroupTypeProducts', [ManagerGroupTypeProductsController::class, 'index'])->name('ManagerGroupTypeProduct');
 
 
