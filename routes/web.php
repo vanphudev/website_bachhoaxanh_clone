@@ -59,3 +59,5 @@ Route::post('/cap-nhat-thong-tin', [UpdateInfoController::class, 'update'])->nam
 // Giỏ hàng
 Route::get('/cart', [CardsController::class, 'index'])->name('Cart');
 Route::post('/AddToCart', [CardsController::class, 'AddToCart'])->name('AddToCart');
+// Xóa sản phẩm trong giỏ hàng.
+Route::get('/cart/delete', [CardsController::class, 'RemoveProductFromCart'])->name('DeleteCart');

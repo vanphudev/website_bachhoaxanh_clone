@@ -92,7 +92,25 @@
                     <span class="ms-3" style="font-weight: bold; font-size: 16px">THÔNG TIN GIỎ HÀNG</span>
                     <div class="position-absolute top-0 start-100 p-2 translate-middle badge rounded-pill bg-danger">
                         <div class="animaiton-badges">
-                            <span>có 5sp</span>
+                            <span>
+                                @php
+                                    if (Cookie::get('user_data')) {
+                                        $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
+                                        if ($user_data) {
+                                            $cart = DB::table('cards')
+                                                ->where('MAKH', $user_data['id'])
+                                                ->first();
+                                            if (isset($cart)) {
+                                                $detail_cart = DB::table('detail_cards')
+                                                    ->where('ID_CARD', $cart->ID_CARD)
+                                                    ->get();
+                                                $count = count($detail_cart);
+                                            }
+                                        }
+                                    }
+                                @endphp
+                                {{ $count }} sản phẩm
+                            </span>
                         </div>
                     </div>
                 </div>

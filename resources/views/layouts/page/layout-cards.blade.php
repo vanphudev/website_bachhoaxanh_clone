@@ -43,5 +43,59 @@
 <script type="text/javascript" src="../../../js/jsPopup.js"></script>
 <script type="text/javascript" src="../../../js/jsSlickSlider.js"></script>
 <script type="text/javascript" src="../../../js/jsFancybox.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const formTangGiamElements = document.querySelectorAll('.form-tangGiam');
+
+        formTangGiamElements.forEach(function(formElement) {
+            const tangButton = formElement.querySelector('#tang');
+            const giamButton = formElement.querySelector('#giam');
+            const inputElement = formElement.querySelector('#soluong');
+
+            tangButton.addEventListener('click', function() {
+                let soluong = parseInt(inputElement.value);
+                if (soluong < 15) {
+                    soluong++;
+                    inputElement.value = soluong;
+                }
+            });
+
+            giamButton.addEventListener('click', function() {
+                let soluong = parseInt(inputElement.value);
+                if (soluong > 1) {
+                    soluong--;
+                    inputElement.value = soluong;
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.delete_item_card').on('click', function() {
+            var productId = this.getAttribute('data_product');
+            $.ajax({
+                type: "GET",
+                url: "{{ route('DeleteCart') }}",
+                data: {
+                    product_id: productId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert('Xóa sản phẩm không thành công!');
+                    }
+                },
+                error: function() {
+                    alert('Có lỗi xảy ra. Vui lòng thử lại sau!');
+                }
+            });
+        });
+    });
+</script>
+
 
 </html>
