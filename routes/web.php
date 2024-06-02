@@ -13,6 +13,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UpdateInfoController;
 use App\Http\Controllers\CardsController;
+use App\Http\Controllers\ManagerTypeProductController;
+use App\Http\Controllers\LoginManagerController;
+use App\Http\Controllers\ManagerGroupTypeProductsController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home');
@@ -24,8 +27,14 @@ Route::get('/Product/{nameProduct}', [ProductsController::class, 'products']);
 Route::get('/Search', [SearchController::class, 'search']);
 
 
-Route::get('/Admin', [AdminController::class, 'index']);
-Route::get('/ManagerProducts', [ManagerProductsController::class, 'index']);
+// Trang quản lí Admin và các trang quản lí.
+Route::get('/admin-login', [LoginManagerController::class, 'index'])->name('LoginAdmin');
+Route::get('/Admin', [AdminController::class, 'index'])->name('Dashboard');
+Route::get('/ManagerProducts', [ManagerProductsController::class, 'index'])->name('ManagerProducts');
+Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
+Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index'])->name('ManagerEmployees');
+Route::get('/ManagerGroupTypeProducts', [ManagerGroupTypeProductsController::class, 'index'])->name('ManagerGroupTypeProduct');
+
 
 // Đăng nhập.
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');

@@ -1,5 +1,6 @@
 @extends('Admin.layouts.layouts-home')
 @section('content')
-    // Nội dung nằm trong này
-    <h1>TRANG HOME</h1>
+    <div class="container-fluid g-0 m-auto w-100">
+        <h1 class="mt-5 text-center">TRANG HOME</h1>
+    </div>
 @endsection

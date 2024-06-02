@@ -1,23 +1,18 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
-    id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
     <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-            target="_blank">
-            <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo" />
-            <span class="ms-1 font-weight-bold">ADIM MANAGER</span>
+        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <a class="m-0" target="_blank">
+            <img src="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" style="width: 60px; height: 60px; border-radius: 50%" />
+            <span class="ms-1 font-weight-bold">ADMIN MANAGER</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0" />
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="../pages/dashboard.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <a class="nav-link {{ $active == 'dashboard' ? 'active' : '' }}" href="{{ route('Dashboard') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>shop</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -42,9 +37,8 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Nghiệp Vụ</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../ManagerProducts">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <a class="nav-link {{ $active == 'product' ? 'active' : '' }}" href="{{ route('ManagerProducts') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR4nN3UwSrEURQG8F9CwsoTkGSlbCw8hR3lBaSJpbWwkJSNGmxshGxYyQPYISsWSpQkCyJKYuavqbOYxphm/iMLp766595zvnvvd78u3+MUSQ3IIaNCJCmwWgvhfMl6C+7qIXzBcRHO6j1h8ttXTv4/YS4FYbYSYSZ2rBZZ9PuLaMc4DnCCPQyVqRuMtV30YATdxQWFZAlPP+gzh0Z0YA35MPcyHvGJBUxhuED4UIXo99jHFhZDu8L8OWZxG/m1OF0tL5qPnpXYIAm8x/V14uOH5k2sYwM7gRmM4aao7gh9xTpupzT0G6bRVPpyA1FwGRpdVUF2iN5KthlFa4ybMVHm3yvgFZNoSOPNtrDDBZ5Dw65KHV9q4uVuom4jSQAAAABJRU5ErkJggg==">
                     </div>
@@ -52,19 +46,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../ManagerTypeProduct">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <a class="nav-link {{ $active == 'Typeproduct' ? 'active' : '' }}" href="{{ route('ManagerTypeProduct') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR4nN3UwSrEURQG8F9CwsoTkGSlbCw8hR3lBaSJpbWwkJSNGmxshGxYyQPYISsWSpQkCyJKYuavqbOYxphm/iMLp766595zvnvvd78u3+MUSQ3IIaNCJCmwWgvhfMl6C+7qIXzBcRHO6j1h8ttXTv4/YS4FYbYSYSZ2rBZZ9PuLaMc4DnCCPQyVqRuMtV30YATdxQWFZAlPP+gzh0Z0YA35MPcyHvGJBUxhuED4UIXo99jHFhZDu8L8OWZxG/m1OF0tL5qPnpXYIAm8x/V14uOH5k2sYwM7gRmM4aao7gh9xTpupzT0G6bRVPpyA1FwGRpdVUF2iN5KthlFa4ybMVHm3yvgFZNoSOPNtrDDBZ5Dw65KHV9q4uVuom4jSQAAAABJRU5ErkJggg==">
                     </div>
-                    <span class="nav-link-text ms-1">Loại và nhóm loại</span>
+                    <span class="nav-link-text ms-1">Loại mặt hàng</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../ManagerEmployees">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <a class="nav-link {{ $active == 'Employees' ? 'active' : '' }}" href="{{ route('ManagerEmployees') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXUlEQVR4nNWTQSuEYRDHfxKliNA6LFFOSsmBqxS58CEckHLzAVxcNjcXdxdFOQipLe3FN+CwJ2ySFotasZFXo3k1Tc+u141/TT0z85//O88888J/Qj+QAcrACTBYgzsGnCo3A7R5wgzwDkTGzoC6gFgzcO+4B56UdQSxY6ARaAXGgRHldgMXjvvsBc8d4Q5o185LJr4DDAEDQMXEb73gtRPcAJqAx0Dnl0A9sGdiRS9YdEXLwHBALLY+fYxIbd2KtQBvrmAN6AjExV61+031S0DaCkpyBcgBD0o60px/zXi+gn31t6mBnJKW1N8NCG5pLq/+jdmAb4wCh6boBZjWWT2ZuJx7gYnAh7Lx1eUBPgKEKyAFzJuYnDsDexipyRi+ZuITBWBW12PRxOXcAMwpJ3ImN6iKHmBV/4K4oKwxyf0KC7oe1fawopxE6PpBzO5jKongVAKx2CaT9fiX8AlHI7VGosZ1pwAAAABJRU5ErkJggg==">
                     </div>
@@ -72,11 +64,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/virtual-reality.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <a class="nav-link {{ $active == 'GroupTypeProduct' ? 'active' : '' }}" href="{{ route('ManagerGroupTypeProduct') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>box-3d-50</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -97,23 +87,19 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Tài Khoản</span>
+                    <span class="nav-link-text ms-1">Nhóm loại mặt hàng</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/rtl.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>settings</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF"
-                                    fill-rule="nonzero">
+                                <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
                                         <g transform="translate(304.000000, 151.000000)">
-                                            <polygon class="color-background opacity-6"
-                                                points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
+                                            <polygon class="color-background opacity-6" points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
                                             </polygon>
                                             <path class="color-background opacity-6"
                                                 d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z">
@@ -135,14 +121,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/profile.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>customer-support</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
-                                    fill-rule="nonzero">
+                                <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
                                         <g transform="translate(1.000000, 0.000000)">
                                             <path class="color-background opacity-6"
@@ -151,8 +134,7 @@
                                             <path class="color-background"
                                                 d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z">
                                             </path>
-                                            <path class="color-background"
-                                                d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
+                                            <path class="color-background" d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
                                             </path>
                                         </g>
                                     </g>
@@ -165,18 +147,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/sign-in.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>document</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF"
-                                    fill-rule="nonzero">
+                                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
                                         <g transform="translate(154.000000, 300.000000)">
-                                            <path class="color-background opacity-6"
-                                                d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z">
+                                            <path class="color-background opacity-6" d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z">
                                             </path>
                                             <path class="color-background"
                                                 d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z">

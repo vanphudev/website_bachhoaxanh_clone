@@ -5,8 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    <link type="image/png" sizes="32x32" rel="icon" href=".../icons8-refresh-32.png">
+    <link rel="icon" type="image/png" href="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" />
     <title>Mặt hàng - Quản lý mặt hàng</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -19,9 +18,9 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-    @include('Admin.sidenav')
+    @include('Admin.sidenav', ['active' => 'product'])
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-        @include('Admin.nav')
+        @include('Admin.nav', ['title' => 'Trang quản lý mặt hàng.'])
         <div class="container-fluid py-4">
             <div class="row">
                 @yield('content')

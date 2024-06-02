@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/png" href="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" />
-    <title>Loại mặt hàng - Quản lý loại mặt hàng</title>
+    <title>Nhân Viên - Quản lý nhân viên</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -16,9 +16,9 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-    @include('Admin.sidenav', ['active' => 'Typeproduct'])
+    @include('Admin.sidenav', ['active' => 'Employees'])
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-        @include('Admin.nav', ['title' => 'Trang quản lý loại sản phẩm.'])
+        @include('Admin.nav', ['title' => 'Trang quản lý nhân viên.'])
         <div class="container-fluid py-4">
             <div class="row">
                 @yield('content')

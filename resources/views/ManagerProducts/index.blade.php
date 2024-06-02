@@ -5,15 +5,11 @@
         <div class="accordion">
             <div class="accordion-item" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-top: none">
                 <h2 class="accordion-header" id="heading1">
-                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true"
-                        aria-controls="collapse1">
+                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                         <span>Loại Hàng</span>
-
                     </div>
                 </h2>
-                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
-                    data-bs-parent="#accordionExample">
+                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-action">Không có dữ liệu</li>
@@ -28,14 +24,11 @@
         <div class="accordion">
             <div class="accordion-item" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-top: none">
                 <h2 class="accordion-header" id="heading2">
-                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true"
-                        aria-controls="collapse2">
+                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
                         Nhóm Hàng
                     </div>
                 </h2>
-                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                    data-bs-parent="#accordionExample">
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-action">Không có dữ liệu</li>
@@ -50,14 +43,11 @@
         <div class="accordion">
             <div class="accordion-item" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-top: none">
                 <h2 class="accordion-header" id="heading3">
-                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true"
-                        aria-controls="collapse3">
+                    <div style="color: #000000; background: transparent;" class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
                         Xắp Xếp
                     </div>
                 </h2>
-                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                    data-bs-parent="#accordionExample">
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-action">Không có dữ liệu</li>
@@ -77,11 +67,8 @@
 
         <div style="display: flex; flex-wrap: wrap; float: right;">
             <button class="btn btn-success" style="margin-right: 20px;">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256"
-                    style="fill:#000000;">
-                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none"
                         style="mix-blend-mode: normal">
                         <g transform="scale(4,4)">
                             <path
@@ -93,11 +80,8 @@
             </button>
             <a class="btn btn-success" href="./ManagerProducts/Create" style="margin-right: 20px;">
                 <Span>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
-                        viewBox="0,0,256,256" style="fill:#000000;">
-                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none"
                             style="mix-blend-mode: normal">
                             <g transform="scale(10.66667,10.66667)">
                                 <path
@@ -131,13 +115,11 @@
                     <td>LH000001</td>
                     <td>20000</td>
                     <td>
-                        <img style="width: 60px; margin: auto" src="{{ env('PATH_IMAGE_PRODUCT_AVT') }}sanpham1.png"
-                            alt="" />
+                        <img style="width: 60px; margin: auto" src="{{ env('PATH_IMAGE_PRODUCT_AVT') }}sanpham1.png" alt="" />
                     </td>
                     <td>TH00001</td>
                     <td>
-                        <a class="btn btn-primary text-center" href="./ManagerProducts/Edit"
-                            style="margin-right: 20px; margin-bottom: 0">
+                        <a class="btn btn-primary text-center" href="./ManagerProducts/Edit" style="margin-right: 20px; margin-bottom: 0">
                             <img width="24px"
                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVR4nNXVsU5UURDG8YUeYzB0JBRLQ8IWvIDB2oaEBxALCqx4AunhAQy9UqpZTCwo7E2goHMLDFiQQIkkFpifmTjKzXrv7mEDMUxymrln/t+c79y5t9W6D4FpbGMHC7cNn8U3fMc5LvGkbuM4VtHFXmW9x6MGeDvhZ+hgCocpstAP3/U7eiUCruER65X8VAq+rm6OziPWCm1p4yRBB/iBp/msk3a9qhaELb0R4B08xOcUWc98nGy6WvQp1k3hret8iOynCwGf7S8cKqABXrHlT+ftuuKBApjB1wb4HE5rOy8RwAMc5fGXGjo/qe28UGADVzlEfy0ohg8SyPk4xgfMV3xeKoYPEVisWpNdx0kUw4cIbOECk1jGR/zMO6mFx9T/M/kDBN7lVMa3Rb5JLzExoNkY2m6pwDzeYhOP405GcqN0kkvivwns4MstCfSC1598fpPPdVPgRXKe1Q1Ut+GHs1e4oi4iOGN16mNYSbtGEXgTndfC7zJ+AQTYPuOM4fZdAAAAAElFTkSuQmCC">
 
@@ -155,13 +137,11 @@
                     <td>LH000001</td>
                     <td>20000</td>
                     <td>
-                        <img style="width: 60px; margin: auto" src="{{ env('PATH_IMAGE_PRODUCT_AVT') }}sanpham1.png"
-                            alt="" />
+                        <img style="width: 60px; margin: auto" src="{{ env('PATH_IMAGE_PRODUCT_AVT') }}sanpham1.png" alt="" />
                     </td>
                     <td>TH00001</td>
                     <td>
-                        <a class="btn btn-primary text-center" href="./ManagerProducts/Edit"
-                            style="margin-right: 20px; margin-bottom: 0">
+                        <a class="btn btn-primary text-center" href="./ManagerProducts/Edit" style="margin-right: 20px; margin-bottom: 0">
                             <img width="24px"
                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVR4nNXVsU5UURDG8YUeYzB0JBRLQ8IWvIDB2oaEBxALCqx4AunhAQy9UqpZTCwo7E2goHMLDFiQQIkkFpifmTjKzXrv7mEDMUxymrln/t+c79y5t9W6D4FpbGMHC7cNn8U3fMc5LvGkbuM4VtHFXmW9x6MGeDvhZ+hgCocpstAP3/U7eiUCruER65X8VAq+rm6OziPWCm1p4yRBB/iBp/msk3a9qhaELb0R4B08xOcUWc98nGy6WvQp1k3hret8iOynCwGf7S8cKqABXrHlT+ftuuKBApjB1wb4HE5rOy8RwAMc5fGXGjo/qe28UGADVzlEfy0ohg8SyPk4xgfMV3xeKoYPEVisWpNdx0kUw4cIbOECk1jGR/zMO6mFx9T/M/kDBN7lVMa3Rb5JLzExoNkY2m6pwDzeYhOP405GcqN0kkvivwns4MstCfSC1598fpPPdVPgRXKe1Q1Ut+GHs1e4oi4iOGN16mNYSbtGEXgTndfC7zJ+AQTYPuOM4fZdAAAAAElFTkSuQmCC">
 

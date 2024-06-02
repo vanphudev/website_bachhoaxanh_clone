@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-use PDO;
 
 class CardsController extends Controller
 {
-
     public function index()
     {
         // Kiểm tra xem người dùng đã đăng nhập chưa.
@@ -26,8 +24,7 @@ class CardsController extends Controller
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
         // Lấy thông tin giỏ hàng từ database dựa vào id người dùng.
         $cart = DB::table('cards')->where('MAKH', $user->MAKH)->first();
-
-
+        
         if (isset($cart)) {
             $detail_cart = DB::table('detail_cards')
                 ->where('ID_CARD', $cart->ID_CARD)

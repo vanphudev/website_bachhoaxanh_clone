@@ -1,11 +1,10 @@
-@extends('Admin.layouts.layouts-Employees')
+@extends('Admin.layouts.layouts-GroupTypeProduct')
 @section('content')
-    <h3 style="margin-bottom: 20px;">Nhân viên</h3>
+    <h3 style="margin-bottom: 20px;">Nhóm loại mặt hàng</h3>
     <div class="col-12" style="">
         <div class="mb-3" style="width: 500px; float: left;">
-            <input type="text" class="form-control" placeholder="Theo mã, tên nhân viên">
+            <input type="text" class="form-control" placeholder="Theo tên nhóm loại">
         </div>
-
         <div style="display: flex; flex-wrap: wrap; float: right;">
             <a class="btn btn-success" href="./ManagerEmployees" style="margin-right: 20px;">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
@@ -99,8 +98,6 @@
                         </a>
                     </td>
                 </tr>
-
-
             </tbody>
         </table>
     </div>

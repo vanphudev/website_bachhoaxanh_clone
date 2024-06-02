@@ -89,7 +89,7 @@
             @endif
         </div>
     </div>
-    @if (isset($user) && isset($cart) && isset($detail_cart))
+    @if (isset($user) && isset($cart) && isset($detail_cart) && $count > 0)
         <div class="container-fluid g-0 m-auto p-3" style=" width: 400px; position: fixed;  top: 120px;  right: 30px; max-height: 85vh; overflow: auto; background-color: white; border-radius: 10px; z-index: 99; box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); ">
             <h3 class="fw-bold">Thông tin thanh toán</h3>
             <h6 class="float-end">Tổng tiền đơn hàng:
