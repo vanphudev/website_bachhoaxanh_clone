@@ -191,8 +191,6 @@ class ManagerTypeProductController extends Controller
         return response()->json(['success' => true,  'message' => 'Cập nhật loại sản phẩm thành công !']);
     }
 
-
-
     public function delete($ID)
     {
         if (!isset($ID)) {

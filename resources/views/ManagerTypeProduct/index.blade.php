@@ -125,7 +125,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Tên loại mặt hàng:</label>
-                            <input type="text" name="tenLMH" class="form-control" value="0" placeholder="Tên mặt hàng" required>
+                            <input type="text" name="tenLMH" class="form-control" value="" placeholder="Tên loại mặt hàng" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nhóm loại mặt hàng:</label>
