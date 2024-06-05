@@ -11,6 +11,7 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
+        "mckenziearts/laravel-notify": "^2.5",
         "twilio/sdk": "^8.1",
         "yajra/laravel-datatables-oracle": "^11.1"
     },

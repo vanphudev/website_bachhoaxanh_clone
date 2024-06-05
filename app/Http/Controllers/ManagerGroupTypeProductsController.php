@@ -52,7 +52,7 @@ class ManagerGroupTypeProductsController extends Controller
             if ($request->hasFile('picture')) {
                 $file = $request->file('picture');
                 if ($file->isValid() && strpos($file->getMimeType(), 'image/') !== false) {
-                    $filePath_ = env('PATH_IMAGE_GROUP_TYPE_PRODUCT');
+                    $filePath_ = env('UPLOAD_PATH_IMAGE_GROUP_TYPE_PRODUCT');
                     $imageName = uniqid() . '.' . $file->getClientOriginalExtension();
                     $file->move($filePath_, $imageName);
                 } else {

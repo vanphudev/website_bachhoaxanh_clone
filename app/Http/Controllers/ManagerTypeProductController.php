@@ -35,7 +35,7 @@ class ManagerTypeProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $imagePath = env('PATH_IMAGE_TYPE_PRODUCT');
+            $imagePath = env('UPLOAD_PATH_IMAGE_TYPE_PRODUCT');
             $type_product = DB::table('loai_mathang')
                 ->leftJoin('nhom_loai_mathang', 'loai_mathang.MANHOM_LOAI', '=', 'nhom_loai_mathang.MANHOM_LOAI')
                 ->select(
@@ -71,7 +71,7 @@ class ManagerTypeProductController extends Controller
             if ($request->hasFile('picture')) {
                 $file = $request->file('picture');
                 if ($file->isValid() && strpos($file->getMimeType(), 'image/') !== false) {
-                    $filePath_ = env('PATH_IMAGE_TYPE_PRODUCT');
+                    $filePath_ = env('UPLOAD_PATH_IMAGE_TYPE_PRODUCT');
                     $imageName = uniqid() . '.' . $file->getClientOriginalExtension();
                     $file->move($filePath_, $imageName);
                 } else {
@@ -110,7 +110,6 @@ class ManagerTypeProductController extends Controller
                 'TOP_MUASAM' => $topmuasam == 1 ? 1 : 0,
                 'PICTURE' => $imageName
             ]);
-
             if (!$check) {
                 return response()->json(['success' => false, 'message' => 'Thêm loại sản phẩm thất bại !']);
             }
@@ -145,7 +144,7 @@ class ManagerTypeProductController extends Controller
             if ($request->hasFile('picture')) {
                 $file = $request->file('picture');
                 if ($file->isValid() && strpos($file->getMimeType(), 'image/') !== false) {
-                    $filePath_ = env('PATH_IMAGE_TYPE_PRODUCT');
+                    $filePath_ = env('UPLOAD_PATH_IMAGE_TYPE_PRODUCT');
                     $imageName = uniqid() . '.' . $file->getClientOriginalExtension();
                     $file->move(public_path($filePath_), $imageName);
                 } else {
@@ -204,7 +203,6 @@ class ManagerTypeProductController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['success' => false, 'message' => 'Loại sản phẩm không tồn tại !']);
         }
-
         try {
             $index =  DB::table('loai_mathang')->where('MALOAI', $ID)->delete();
             if ($index == 0) {
