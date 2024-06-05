@@ -24,7 +24,7 @@ class CardsController extends Controller
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
         // Lấy thông tin giỏ hàng từ database dựa vào id người dùng.
         $cart = DB::table('cards')->where('MAKH', $user->MAKH)->first();
-        
+
         if (isset($cart)) {
             $detail_cart = DB::table('detail_cards')
                 ->where('ID_CARD', $cart->ID_CARD)
@@ -170,9 +170,13 @@ class CardsController extends Controller
         }
     }
 
+    public function UpdateToCart($mamh, $action)
+    {
+    }
+
+
     public function AddToCart(Request $request)
     {
-        // Kiểm tra xem người dùng đã đăng nhập chưa.
         if (!Cookie::get('user_data')) {
             return response()->json([
                 'success' => false,
@@ -189,7 +193,7 @@ class CardsController extends Controller
             ]);
         }
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
-        $product_id = $request->input('product_id');
+        $product_id = $request->product_id;
         $cart = DB::table('cards')->where('MAKH', $user->MAKH)->first();
         if (!isset($cart)) {
             // Nếu chưa có giỏ hàng thì tạo giỏ hàng mới.
@@ -201,32 +205,38 @@ class CardsController extends Controller
                 'MAMH' => $product_id,
                 'SOLUONG' => 1
             ]);
-            // Chuyển hướng về trang giỏ hàng.
             return response()->json([
                 'success' => true,
                 'redirect_url' => route('Cart'),
-                'message' => 'Sản phẩm đã được thêm vào giỏ hàng.'
+                'message' => 'Sản phẩm đã được thêm vào giỏ hàng thành công.'
             ]);
         } else {
-            //  Nếu đã có giỏ hàng rồi.
-            $detail_card = DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->first();
-            if (isset($detail_card)) {
-                // Nếu sản phẩm đã có trong giỏ hàng thì tăng số lượng lên 1.
-                DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->increment('SOLUONG');
-            } else {
-                // Nếu sản phẩm chưa có trong giỏ hàng thì thêm mới vào giỏ hàng.
-                DB::table('detail_cards')->insert([
-                    'ID_CARD' => $cart->ID_CARD,
-                    'MAMH' => $product_id,
-                    'SOLUONG' => 1
+            try {
+                //  Nếu đã có giỏ hàng rồi.
+                $detail_card = DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->first();
+                if (isset($detail_card)) {
+                    // công số lượng sản phẩm trong giỏ hàng lên với số lượng mới.
+                    DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->increment('SOLUONG');
+                } else {
+                    // Nếu sản phẩm chưa có trong giỏ hàng thì thêm mới vào giỏ hàng.
+                    DB::table('detail_cards')->insert([
+                        'ID_CARD' => $cart->ID_CARD,
+                        'MAMH' => $product_id,
+                        'SOLUONG' => 1
+                    ]);
+                }
+                // Chuyển hướng về trang giỏ hàng.
+                return response()->json([
+                    'success' => true,
+                    'redirect_url' => route('Cart'),
+                    'message' => 'Sản phẩm đã được thêm vào giỏ hàng.'
+                ]);
+            } catch (\Throwable $th) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Lỗi xử lý dữ liệu trong quá trình thêm vào giỏ hàng !' . $th->getMessage()
                 ]);
             }
-            // Chuyển hướng về trang giỏ hàng.
-            return response()->json([
-                'success' => true,
-                'redirect_url' => route('Cart'),
-                'message' => 'Sản phẩm đã được thêm vào giỏ hàng.'
-            ]);
         }
     }
 }

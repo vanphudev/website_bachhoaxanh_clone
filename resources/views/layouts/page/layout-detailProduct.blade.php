@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta ame="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', 'Chi tiết sản phẩm - BachHoaXanh.com')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('/folderImages/images/logo/logo_icon.png') }}" />
@@ -25,6 +27,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="../scripts/slick-1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="../scripts/ui-5.0.36/dist/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" type="text/css" href="path-to-css/pexx.alert.css">
+    <script type="text/javascript" src="path-to-js/jquery.js"></script>
+    <script type="text/javascript" src="path-to-js/pexx.alert.js"></script>
 </head>
 
 <body>
@@ -48,24 +53,30 @@
     document.addEventListener('DOMContentLoaded', function() {
         $('#addToCards').on('click', function() {
             var productId = this.getAttribute('data_product');
-            alert('Product ID: ' + productId);
-            var url = '{{ route('AddToCart') }}';
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
-                url: url,
+                url: '{{ route('AddToCart') }}',
                 type: 'POST',
                 data: {
                     product_id: productId,
                     _token: '{{ csrf_token() }}'
                 },
+                dataType: 'json',
                 success: function(response) {
                     if (response.success == true) {
-                        if (response.redirect_url != null && response.redirect_url != '')
-                            window.location.href = response.redirect_url;
-                        alert(response.message);
-                    }
+                        if (response.redirect_url != null && response.redirect_url != '') {}
+                        // window.location.href = response.redirect_url;
+                    } else {}
                 },
                 error: function(xhr, status, error) {
-                    alert('Failed to add product to cart.');
+                    new Alert({
+                        type: 'error',
+                        message: 'Có lỗi xảy ra, vui lòng thử lại sau!',
+                    })
                 }
             });
         });

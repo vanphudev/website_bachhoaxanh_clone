@@ -1,4 +1,4 @@
-<div id="menu" class="g-0 p-0" style="width: calc(var(--width-menu)) ; max-height: calc(100vh - 115px); position: fixed; top: 105px; z-index: 99999; border-bottom-left-radius: 12px;
+<div id="menu" class="g-0 p-0" style="width: calc(var(--width-menu)) ; max-height: calc(100vh - 115px); position: fixed; top: 105px; z-index: 900; border-bottom-left-radius: 12px;
 border-bottom-right-radius: 12px;">
     @php
         $groupTypeProduct = DB::table('nhom_loai_mathang')->get();

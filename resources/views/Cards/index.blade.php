@@ -62,11 +62,11 @@
                                             </div>
                                             <h5 class="m-0 fw-bold">Số lượng sản phẩm</h5>
                                             <div class="form-tangGiam d-flex justify-content-start align-items-center">
-                                                <button id="tang" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <button id="tang" onclick="updateSoLuong({{ $valueProduct->MAMH }}, 'tang')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-plus" style="font-weight: bold; font-size: 25px; color: white"></i>
                                                 </button>
                                                 <input id="soluong" type="text" value="{{ $valueProduct->SOLUONG }}" class="form-control" style="width: 70px; height: 40px; text-align: center; margin-left: 4px; margin-right: 4px; font-size: 25px;" />
-                                                <button id="giam" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <button id="giam" onclick="updateSoLuong({{ $valueProduct->MAMH }}, 'giam')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-minus" style="font-weight: bold; font-size: 25px; color: white"></i>
                                                 </button>
                                             </div>
@@ -122,3 +122,39 @@
         </div>
     @endif
 @endsection
+<script>
+    function updateSoLuong(mamh, action) {
+        var inputSoluong = document.getElementById("soluong");
+        var soluong = parseInt(inputSoluong.value);
+        if (action === 'tang') {
+            if (soluong < 15) {
+                soluong++;
+            }
+        } else if (action === 'giam') {
+            if (soluong > 1) {
+                soluong--;
+            }
+        }
+        inputSoluong.value = soluong;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: "{{ url('/UpdateToCart') }}{{ '/' }}${mamh}/${action}",
+            data: {
+                mamh: mamh,
+                soluong: soluong,
+                _token: "{{ csrf_token() }}",
+                action: action
+            },
+            dataType: "json",
+            success: function(response) {
+
+            },
+            error: function() {}
+        });
+    }
+</script>

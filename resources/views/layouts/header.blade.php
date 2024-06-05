@@ -118,3 +118,18 @@
             </div>
         </div>
     </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var searchInput = document.getElementById("search_input");
+            searchInput.addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    var searchTerm = searchInput.value.trim();
+                    if (searchTerm !== "") {
+                        var url = "/Search?key=" + encodeURIComponent(searchTerm);
+                        window.location.href = url;
+                    }
+                }
+            });
+        });
+    </script>

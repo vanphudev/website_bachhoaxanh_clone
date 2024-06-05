@@ -90,6 +90,8 @@ Route::post('/cap-nhat-thong-tin', [UpdateInfoController::class, 'update'])->nam
 
 // Giỏ hàng
 Route::get('/cart', [CardsController::class, 'index'])->name('Cart');
+// Cập nhật sản phẩm vào giỏ hàng.
+Route::get('/UpdateToCart/{mamh}/{action}', [CardsController::class, 'UpdateToCart'])->name('UpdateToCart');
 // Thêm sản phẩm vào giỏ hàng.
 Route::post('/AddToCart', [CardsController::class, 'AddToCart'])->name('AddToCart');
 // Xóa sản phẩm trong giỏ hàng.

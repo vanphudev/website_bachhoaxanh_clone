@@ -196,7 +196,7 @@
                         <h1 style="font-size: 27px; font-weight: bold">{{ $firstProduct->TENMH }}</h1>
                     </div>
                     <div class="shared-link-product d-flex justify-content-end align-items-center mb-3">
-                        <button type="button" class="btn btn-outline-success d-flex justify-content-center align-items-center gap-1">
+                        <button type="button" id="shareButton" class="btn btn-outline-success d-flex justify-content-center align-items-center gap-1">
                             <i class="fa-solid fa-copy" style="font-size: 20px"></i>
                             <span class="ms-2" style="font-size: 20px; font-weight: bold">Chia sẻ</span>
                         </button>
@@ -374,7 +374,8 @@
                         </div>
                     @endif
                     <div class="btn-buy-product">
-                        <button id="addToCards" data_product="{{ $firstProduct->MAMH }}" type="button" class="animate-gradient btn d-flex justify-content-center align-items-center" style="  color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
+                        <button id="addToCards" data_product="{{ $firstProduct->MAMH }}" type="button" class="animate-gradient btn d-flex justify-content-center align-items-center"
+                            style="  color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
                             <span>MUA NGAY</span>
                         </button>
                     </div>
@@ -385,4 +386,24 @@
             </div>
         </div>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var copyUrlButton = document.getElementById("shareButton");
+            copyUrlButton.addEventListener("click", function() {
+                var currentUrl = window.location.href;
+                copyToClipboard(currentUrl);
+                copyUrlButton.innerHTML = '<i class="fa-solid fa-check" style="font-size: 20px"></i><span class="ms-2" style="font-size: 20px; font-weight: bold">Đã sao chép</span>';
+            });
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text)
+                    .then(function() {
+                        console.log("Copied to clipboard successfully: " + text);
+                    })
+                    .catch(function(error) {
+                        console.error("Failed to copy to clipboard: ", error);
+                    });
+            }
+        });
+    </script>
 @endsection

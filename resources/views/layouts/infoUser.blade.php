@@ -3,7 +3,7 @@
         $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
         $shortened_name = strlen($user_data['name']) > 18 ? substr($user_data['name'], 0, 18) . '...' : $user_data['name'];
     @endphp
-    <div id="popup_Login_show" class="menu-fixed-hover container-fluid g-0 m-auto pt-2" style=" width: 100%; height: 100vh; display: none; position: fixed; top: 0px; background-color: rgba(44, 44, 44, 0.5); z-index: 990;">
+    <div id="popup_Login_show" class="menu-fixed-hover container-fluid g-0 m-auto pt-2" style=" width: 100%; height: 100vh; display: none; position: fixed; top: 0px; background-color: rgba(44, 44, 44, 0.5); z-index: 1000;">
         <div class="row g-0 m-auto" style="width: calc(var(--width-menu) * 2 + var(--width-search)); padding-top: 105px; position: relative">
             <button id="popup_Login_hide" class="btn d-flex justify-content-center align-items-center" style="position: absolute; right: calc(var(--width-menu) + 60px);  top: 105px;  width: 50px; height: 50px;  border-radius: 50%; background-color: white; ">
                 <i class="fa-solid fa-xmark" style="font-size: 40px"></i>
