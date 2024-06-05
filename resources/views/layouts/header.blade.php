@@ -94,6 +94,7 @@
                         <div class="animaiton-badges">
                             <span>
                                 @php
+                                    $count = 0;
                                     if (Cookie::get('user_data')) {
                                         $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
                                         if ($user_data) {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-main navbar-expand-lg p-3 border-radius-xl" id="navbarBlur" navbar-scroll="true" style="box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; background-color: white">
+<nav class="navbar navbar-main navbar-expand-lg p-3 border-radius-xl" style="box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; background-color: white; position: sticky; top: 3px; z-index: 1000;">
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
             <h4 class="font-weight-bolder mb-0">{{ $title }}</h4>

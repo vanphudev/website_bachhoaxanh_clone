@@ -7,162 +7,214 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Yajra\DataTables\Facades\DataTables;
 
 class ManagerTypeProductController extends Controller
 {
-    public function index()
-    {
-        // // Kiểm tra xem người dùng đã đăng nhập chưa.
-        // if (!Cookie::get('user_Admin')) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ cookie.
-        // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
-        // if (!$user_Admin) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ database.
-        // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
+    // // Kiểm tra xem người dùng đã đăng nhập chưa.
+    // if (!Cookie::get('user_Admin')) {
+    //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
+    // }
+    // // Lấy thông tin người dùng từ cookie.
+    // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
+    // if (!$user_Admin) {
+    //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
+    // }
+    // // Lấy thông tin người dùng từ database.
+    // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
 
-        // Lấy danh sách loại sản phẩm join với bảng nhóm sản phẩm.
-        $type_products = DB::table('loai_mathang')
-            ->join('nhom_loai_mathang', 'loai_mathang.MANHOM_LOAI', '=', 'nhom_loai_mathang.MANHOM_LOAI')
-            ->select('loai_mathang.*', 'nhom_loai_mathang.*')
-            ->get();
-        return view('ManagerTypeProduct.index', ['type_products' => $type_products]);
+    public function randomMALMH(): string
+    {
+        $id = "ML";
+        for ($i = 0; $i < 10; $i++) {
+            $id .= rand(0, 9);
+        }
+        return $id;
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->ajax()) {
+            $imagePath = env('PATH_IMAGE_TYPE_PRODUCT');
+            $type_product = DB::table('loai_mathang')
+                ->leftJoin('nhom_loai_mathang', 'loai_mathang.MANHOM_LOAI', '=', 'nhom_loai_mathang.MANHOM_LOAI')
+                ->select(
+                    'loai_mathang.MALOAI',
+                    'loai_mathang.TENLOAI',
+                    DB::raw("CONCAT('$imagePath', loai_mathang.PICTURE) as PICTURE"),
+                    'nhom_loai_mathang.MANHOM_LOAI',
+                    'nhom_loai_mathang.TENNHOM_LOAI',
+                    'loai_mathang.TOP_MUASAM'
+                )
+                ->get();
+            return DataTables::of($type_product)
+                ->addColumn('action', function ($data) {
+                    $button = '<a href="javascript:void(0)" onclick="editTypeProduct(\'' . trim($data->MALOAI) . '\')" class="edit btn btn-primary btn m-0">Sửa</a>';
+                    $button .= '&nbsp;&nbsp;&nbsp;<a  href="javascript:void(0)" onclick="deleteTypeProduct(\'' . trim($data->MALOAI) . '\')" class="delete btn btn-danger m-0">Xóa</a>';
+                    return $button;
+                })
+                ->rawColumns(['action'])
+                ->addIndexColumn()
+                ->make(true);
+        }
+        return view('ManagerTypeProduct.index');
     }
 
     public function create(Request $request)
     {
-        // // Kiểm tra xem người dùng đã đăng nhập chưa.
-        // if (!Cookie::get('user_Admin')) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ cookie.
-        // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
-        // if (!$user_Admin) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ database.
-        // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
-
-        // Thêm loại sản phẩm.
-        $nameTypeProduct = $request->nameTypeProduct;
-        $nameGroupTypeProduct = $request->nameGroupTypeProduct;
-        $type_product = DB::table('loai_mathang')->where('TENLOAI', $nameTypeProduct)->first();
-        if ($type_product) {
-            return redirect()->route('ManagerTypeProduct')->with('error', 'Loại sản phẩm đã tồn tại !');
-        }
-        $group_type_product = DB::table('nhom_loai_mathang')->where('TENNHOM_LOAI', $nameGroupTypeProduct)->first();
-        if (!$group_type_product) {
-            return redirect()->route('ManagerTypeProduct')->with('error', 'Nhóm loại sản phẩm không tồn tại !');
-        }
-        DB::table('loai_mathang')->insert([
-            'TENLOAI' => $nameTypeProduct,  
-            'MANHOM_LOAI' => $group_type_product->MANHOM_LOAI
-        ]);
-        return redirect()->route('ManagerTypeProduct')->with('success', 'Thêm loại sản phẩm thành công !');
-    }
-
-    public function getID(Request $request)
-    {
-        // // Kiểm tra xem người dùng đã đăng nhập chưa.
-        // if (!Cookie::get('user_Admin')) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ cookie.
-        // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
-        // if (!$user_Admin) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ database.
-        // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
-
-        // Lấy thông tin loại sản phẩm.
-        $idTypeProduct = $request->data_IDTYPE;
-        $type_product = DB::table('loai_mathang')->where('MALOAI', $idTypeProduct)->first();
-
-        if (isset($type_product)) {
-            $returnHTML = view('ManagerTypeProduct.update', ['type_product' => $type_product])->render();
-            return response()->json(['success' => true, 'html' => $returnHTML]);
-        } else {
-            return response()->json(['success' => false, 'message' => 'Product type not found.']);
-        }
-    }
-
-    public function update(Request $request)
-    {
-        // // Kiểm tra xem người dùng đã đăng nhập chưa.
-        // if (!Cookie::get('user_Admin')) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ cookie.
-        // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
-        // if (!$user_Admin) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ database.
-        // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
-
-        $maLMH = $request->maLMH;
-        $tenLMH = $request->tenLMH;
-        $maNLMH = $request->maNLMH;
+        $nameTypeProduct = $request->tenLMH;
+        $nameGroupTypeProduct = $request->maNLMH;
         $topmuasam = $request->topmuasam;
-
-        $file = $request->file('picture');
-        $fileName = null;
-
-        if ($file) {
-            $fileName = $file->getClientOriginalName();
-            $destinationPath = public_path(env('PATH_IMAGE_TYPE_PRODUCT'));
-            if (File::exists($destinationPath . $fileName)) {
-                return response()->json(['success' => false, 'message' => 'File already exists in the directory.']);
+        $imageName = null;
+        $MALMH = null;
+        try {
+            if ($request->hasFile('picture')) {
+                $file = $request->file('picture');
+                if ($file->isValid() && strpos($file->getMimeType(), 'image/') !== false) {
+                    $filePath_ = env('PATH_IMAGE_TYPE_PRODUCT');
+                    $imageName = uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move($filePath_, $imageName);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Tệp không hợp lệ - Vui lòng chọn tệp hình ảnh!']);
+                }
+            } else {
+                return response()->json(['success' => false, 'message' => 'Vui lòng chọn tệp hình ảnh!']);
             }
-            $file->move($destinationPath, $fileName);
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Load hình ảnh đã bị lỗi !' . $th->getMessage()]);
         }
 
-        $type_product = DB::table('loai_mathang')->where('MALOAI', $maLMH)->first();
+        try {
+            $nameGroupTypeProduct_ = DB::table('nhom_loai_mathang')->where('MANHOM_LOAI', $nameGroupTypeProduct)->first();
+            if (!$nameGroupTypeProduct_) {
+                return response()->json(['success' => false, 'message' => 'Nhóm loại mặt hàng không tồn tại !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Nhóm loại mặt hàng không  tồn tại !']);
+        }
 
+        $MALMH = $this->randomMALMH();
+        while (DB::table('loai_mathang')->where('MALOAI', $MALMH)->count() > 0) {
+            $MALMH = $this->randomMALMH();
+        }
+
+        if (empty($nameTypeProduct) || empty($nameGroupTypeProduct)) {
+            return response()->json(['success' => false, 'message' => 'Vui lòng nhập đầy đủ thông tin Tên loại và chọn nhóm loại !']);
+        }
+
+        try {
+            $check = DB::table('loai_mathang')->insert([
+                'MALOAI' => $MALMH,
+                'TENLOAI' => $nameTypeProduct,
+                'MANHOM_LOAI' => $nameGroupTypeProduct,
+                'TOP_MUASAM' => $topmuasam == 1 ? 1 : 0,
+                'PICTURE' => $imageName
+            ]);
+
+            if (!$check) {
+                return response()->json(['success' => false, 'message' => 'Thêm loại sản phẩm thất bại !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Lỗi xử lý dữ liệu !' . $th->getMessage()]);
+        }
+
+        return response()->json(['success' => true,  'message' => 'Thêm loại sản phẩm thành công !']);
+    }
+
+    public function update($id)
+    {
+        if (!isset($id)) {
+            return response()->json(['success' => false, 'message' => 'ID loại sản phẩm không tồn tại !']);
+        }
+        $type_product = DB::table('loai_mathang')->where('MALOAI', $id)->first();
         if (!$type_product) {
             return response()->json(['success' => false, 'message' => 'Loại sản phẩm không tồn tại !']);
         }
-
-        $check =  DB::table('loai_mathang')->where('MALOAI', $maLMH)->update([
-            'TENLOAI' => $tenLMH,
-            'MANHOM_LOAI' => $maNLMH,
-            'TOP_MUASAM' => $topmuasam == 1 ? 1 : 0,
-            'PICTURE' => $fileName
-        ]);
-
-        if (!$check) {
-            return response()->json(['success' => false, 'message' => 'Cập nhật loại sản phẩm thất bại!']);
-        }
-
-        return response()->json(['success' => true, 'message' => 'Cập nhật loại sản phẩm thành công!']);
+        return response()->json(['success' => true, 'product' => $type_product, 'message' => 'Lấy thông tin loại sản phẩm thành công !']);
     }
 
 
-    public function delete(Request $request)
+    public function edit(Request $request)
     {
-        // // Kiểm tra xem người dùng đã đăng nhập chưa.
-        // if (!Cookie::get('user_Admin')) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ cookie.
-        // $user_Admin = json_decode(Crypt::decryptString(Cookie::get('user_Admin')), true);
-        // if (!$user_Admin) {
-        //     return redirect()->route('LoginAdmin')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
-        // }
-        // // Lấy thông tin người dùng từ database.
-        // $user = DB::table('nhanvien')->where('MANV', $user_Admin['id'])->first();
-
-        // Xóa loại sản phẩm.
-        $idTypeProduct = $request->idTypeProduct;
-        $type_product = DB::table('loai_mathang')->where('MALOAI', $idTypeProduct)->first();
-        if (!$type_product) {
-            return redirect()->route('ManagerTypeProduct')->with('error', 'Loại sản phẩm không tồn tại !');
+        $ID = $request->input('id');
+        $nameTypeProduct = $request->input('tenLMH');
+        $nameGroupTypeProduct = $request->input('maNLMH');
+        $topmuasam = $request->has('topmuasam') ? $request->input('topmuasam') : 0;
+        $imageName = null;
+        try {
+            if ($request->hasFile('picture')) {
+                $file = $request->file('picture');
+                if ($file->isValid() && strpos($file->getMimeType(), 'image/') !== false) {
+                    $filePath_ = env('PATH_IMAGE_TYPE_PRODUCT');
+                    $imageName = uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path($filePath_), $imageName);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Tệp không hợp lệ - Vui lòng chọn tệp hình ảnh!']);
+                }
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Load hình ảnh đã bị lỗi !' . $th->getMessage()]);
         }
-        DB::table('loai_mathang')->where('MALOAI', $idTypeProduct)->delete();
-        return redirect()->route('ManagerTypeProduct')->with('success', 'Xóa loại sản phẩm thành công !');
+
+        try {
+            $nameGroupTypeProduct_ = DB::table('nhom_loai_mathang')->where('MANHOM_LOAI', $nameGroupTypeProduct)->first();
+            if (!$nameGroupTypeProduct_) {
+                return response()->json(['success' => false, 'message' => 'Nhóm loại mặt hàng không tồn tại !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Nhóm loại mặt hàng không tồn tại !']);
+        }
+
+        if (empty($nameTypeProduct) || empty($nameGroupTypeProduct)) {
+            return response()->json(['success' => false, 'message' => 'Vui lòng nhập đầy đủ thông tin Tên loại và chọn nhóm loại !']);
+        }
+
+        try {
+            if ($imageName == null) {
+                $type_product = DB::table('loai_mathang')->where('MALOAI', $ID)->first();
+                $imageName = $type_product->PICTURE;
+            }
+            $check = DB::table('loai_mathang')->where('MALOAI', $ID)->update([
+                'TENLOAI' => $nameTypeProduct,
+                'MANHOM_LOAI' => $nameGroupTypeProduct,
+                'TOP_MUASAM' => $topmuasam,
+                'PICTURE' => $imageName
+            ]);
+
+            if (!$check) {
+                return response()->json(['success' => false, 'message' => 'Cập nhật loại sản phẩm thất bại - không có sự thay đổi nào !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Lỗi xử lý dữ liệu trong quá trình cập nhật !' . $th->getMessage()]);
+        }
+
+        return response()->json(['success' => true,  'message' => 'Cập nhật loại sản phẩm thành công !']);
+    }
+
+
+
+    public function delete($ID)
+    {
+        if (!isset($ID)) {
+            return response()->json(['success' => false, 'message' => 'ID loại sản phẩm không tồn tại !' . $ID]);
+        }
+        try {
+            $type_product = DB::table('loai_mathang')->where('MALOAI', $ID)->first();
+            if (!$type_product) {
+                return response()->json(['success' => false, 'message' => 'Loại sản phẩm không tồn tại !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Loại sản phẩm không tồn tại !']);
+        }
+
+        try {
+            $index =  DB::table('loai_mathang')->where('MALOAI', $ID)->delete();
+            if ($index == 0) {
+                return response()->json(['success' => false, 'message' => 'Xóa loại sản phẩm thất bại !']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Xóa loại sản phẩm thất bại !' . $th->getMessage()]);
+        }
+        return response()->json(['success' => true, 'message' => 'Xóa loại sản phẩm thành công !']);
     }
 }

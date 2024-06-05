@@ -37,11 +37,11 @@ Route::get('/ManagerProducts', [ManagerProductsController::class, 'index'])->nam
 
 
 // Xử lí với nhóm loại mặt hàng.
-Route::get('/ManagerTypeProduct', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
-Route::post('/TypeProductGetById', [ManagerTypeProductController::class, 'getID'])->name('TypeProductGetById');
-Route::post('/ManagerTypeProductCreate', [ManagerTypeProductController::class, 'create'])->name('ManagerTypeProductCreate');
-Route::post('/TypeProductUpdate', [ManagerTypeProductController::class, 'update'])->name('TypeProductUpdate');
-Route::post('/ManagerTypeProductDelete', [ManagerTypeProductController::class, 'delete'])->name('ManagerTypeProductDelete');
+Route::get('/loai-mat-hang', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');
+Route::post('/loai-mat-hang-create', [ManagerTypeProductController::class, 'create'])->name('ManagerTypeProductCreate');
+Route::get('/loai-mat-hang-update/{id}', [ManagerTypeProductController::class, 'update'])->name('ManagerTypeProductUpdate');
+Route::post('/loai-mat-hang-edit', [ManagerTypeProductController::class, 'edit'])->name('ManagerTypeProductEdit');
+Route::get('/loai-mat-hang-delete/{ID}', [ManagerTypeProductController::class, 'delete'])->name('ManagerTypeProductDelete');
 
 // Xử lí với nhân viên.
 Route::get('/ManagerEmployees', [ManagerEmployeesController::class, 'index'])->name('ManagerEmployees');

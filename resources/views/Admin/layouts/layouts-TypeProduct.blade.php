@@ -3,18 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta ame="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/png" href="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" />
     <title>Loại mặt hàng - Quản lý loại mặt hàng</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -29,181 +32,7 @@
     </main>
     @include('Admin.settings')
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "#fff",
-                    data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-                    maxBarThickness: 6,
-                }, ],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-                interaction: {
-                    intersect: false,
-                    mode: "index",
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 15,
-                            font: {
-                                size: 14,
-                                family: "Open Sans",
-                                style: "normal",
-                                lineHeight: 2,
-                            },
-                            color: "#fff",
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                        },
-                        ticks: {
-                            display: false,
-                        },
-                    },
-                },
-            },
-        });
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
-        gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
-
-        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
-        gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                        label: "Mobile apps",
-                        tension: 0.4,
-                        borderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: "#cb0c9f",
-                        borderWidth: 3,
-                        backgroundColor: gradientStroke1,
-                        fill: true,
-                        data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                        maxBarThickness: 6,
-                    },
-                    {
-                        label: "Websites",
-                        tension: 0.4,
-                        borderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: "#3A416F",
-                        borderWidth: 3,
-                        backgroundColor: gradientStroke2,
-                        fill: true,
-                        data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                        maxBarThickness: 6,
-                    },
-                ],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-                interaction: {
-                    intersect: false,
-                    mode: "index",
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: "#b2b9bf",
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: "normal",
-                                lineHeight: 2,
-                            },
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                        },
-                        ticks: {
-                            display: true,
-                            color: "#b2b9bf",
-                            padding: 20,
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: "normal",
-                                lineHeight: 2,
-                            },
-                        },
-                    },
-                },
-            },
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         var win = navigator.platform.indexOf("Win") > -1;
         if (win && document.querySelector("#sidenav-scrollbar")) {
@@ -213,56 +42,282 @@
             Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
         }
     </script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
-
     <script>
-        var exampleModal = document.getElementById('loai-mat-hang-update')
-        exampleModal.addEventListener('show.bs.modal', function(event) {
-            var button = event.relatedTarget
-            $(exampleModal).find('.modal-body').html('');
-            var recipient = button.getAttribute('data-bs-IDTYPE')
-            $.ajax({
-                type: "POST",
-                url: "{{ route('TypeProductGetById') }}",
-                data: {
-                    data_IDTYPE: recipient,
-                    _token: '{{ csrf_token() }}'
+        document.getElementById('topmuasamedit').addEventListener('change', function() {
+            this.value = this.checked ? 1 : 0;
+        });
+    </script>
+    <script>
+        document.getElementById('topmuasamcreate').addEventListener('change', function() {
+            this.value = this.checked ? 1 : 0;
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#ajax-table-typeProduct').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('ManagerTypeProduct') }}",
+                    type: 'GET'
                 },
-                success: function(response) {
-                    if (response.success) {
-                        $(exampleModal).find('.modal-body').html(response.html);
-                        $('#updateTypeProductForm').on('submit', function(e) {
-                            e.preventDefault();
-                            var formData = new FormData(this);
-                            $.ajax({
-                                type: "POST",
-                                url: "{{ route('TypeProductUpdate') }}",
-                                data: formData,
-                                contentType: false,
-                                processData: false,
-                                success: function(response) {
-                                    if (response.success) {
-                                        alert(response.message);
-                                        location.reload();
-                                    } else {
-                                        alert(response.message);
-                                    }
-                                },
-                                error: function() {
-                                    alert('Cập nhật không thành công! Vui lòng thử lại sau 6.');
-                                }
-                            });
-                        });
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    }, {
+                        data: 'MALOAI',
+                        name: 'MALOAI'
+                    },
+                    {
+                        data: 'TENLOAI',
+                        name: 'TENLOAI'
+                    },
+                    {
+                        data: 'PICTURE',
+                        name: 'PICTURE',
+                        render: function(data, type, full, meta) {
+                            return '<img src="' + data + '" style="width: 60px; margin: auto""/>';
+                        },
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'MANHOM_LOAI',
+                        name: 'MANHOM_LOAI'
+                    },
+                    {
+                        data: 'TENNHOM_LOAI',
+                        name: 'TENNHOM_LOAI'
+                    },
+                    {
+                        data: 'TOP_MUASAM',
+                        name: 'TOP_MUASAM'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                lengthMenu: [{
+                    label: 'Hiển thị 5 loại.',
+                    value: 5
+                }, {
+                    label: 'Hiển thị 10 loại.',
+                    value: 10
+                }, {
+                    label: 'Hiển thị 15 loại.',
+                    value: 15
+                }, {
+                    label: 'Hiển thị 20 loại.',
+                    value: 20
+                }, {
+                    label: 'Hiển thị 30 loại.',
+                    value: 30
+                }, {
+                    label: 'Hiển thị 60 loại.',
+                    value: 60
+                }, {
+                    label: 'All',
+                    value: -1
+                }],
+                language: {
+                    "emptyTable": "Không có dữ liệu trong bảng",
+                    "info": "Hiển thị _START_ đến _END_ của _TOTAL_ bản ghi.",
+                    "infoEmpty": "Hiển thị 0 đến 0 của 0 bản ghi",
+                    "infoFiltered": "(Lọc từ _MAX_ tổng số bản ghi)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Hiển thị bản ghi _MENU_ ",
+                    "loadingRecords": "Đang tải...",
+                    "processing": "Đang xử lý...",
+                    "search": "Tìm kiếm thông tin:",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                }
+            });
+        });
+
+        function addTypeProduct() {
+            $('#createTypeProductFrom').trigger('reset');
+            $('#loai-mat-hang-create').modal('show');
+        }
+
+        function editTypeProduct(id) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "GET",
+                url: `{{ url('/loai-mat-hang-update') }}/${id}`,
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function(data) {
+                    if (data.success) {
+                        $('#updateTypeProductFrom').trigger('reset');
+                        $('#loai-mat-hang-update').modal('show');
+                        $('#updateTypeProductFrom').find('input[name="tenLMH"]').val(data.product.TENLOAI);
+                        $('#updateTypeProductFrom').find('select[name="maNLMH"]').val(data.product.MANHOM_LOAI);
+                        $('#updateTypeProductFrom').find('input[name="topmuasam"]').val(data.product.TOP_MUASAM);
+                        if (data.product.TOP_MUASAM == 1) {
+                            $('#updateTypeProductFrom').find('input[name="topmuasam"]').prop('checked', true);
+                            $('#updateTypeProductFrom').find('input[name="topmuasam"]').val(1);
+                        }
+                        $('#updateTypeProductFrom').find('input[name="id"]').val(data.product.MALOAI);
+                        var imagePath = `{{ env('PATH_IMAGE_TYPE_PRODUCT') }}`;
+                        $('#updateTypeProductFrom').find('img[name="picture"]').attr('src', imagePath + data.product.PICTURE);
                     } else {
-                        alert('Load dữ liệu không thành công! Vui lòng thử lại sau 5.');
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "warning"
+                        });
                     }
                 },
                 error: function() {
-                    alert('Load dữ liệu không thành công! Vui lòng thử lại sau 44.');
+                    Swal.fire({
+                        title: "Thông Báo !",
+                        text: "Có lỗi xảy ra !",
+                        icon: "error"
+                    });
                 }
             });
-        })
+        }
+
+
+        function deleteTypeProduct(id) {
+            Swal.fire({
+                title: "Bạn có muốn xóa loại mặt hàng này không?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "GET",
+                        url: `{{ url('/loai-mat-hang-delete') }}/${id}`,
+                        data: {
+                            id: id
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            if (data.success) {
+                                Swal.fire({
+                                    title: "Thông Báo !",
+                                    text: data.message,
+                                    icon: "success"
+                                });
+                                $('#ajax-table-typeProduct').DataTable().ajax.reload();
+                            } else {
+                                Swal.fire({
+                                    title: "Thông Báo !",
+                                    text: data.message,
+                                    icon: "warning"
+                                });
+                            }
+                        },
+                        error: function() {
+                            Swal.fire({
+                                title: "Thông Báo !",
+                                text: "Có lỗi xảy ra trong quá trình xóa !",
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            });
+        }
+
+        $('#updateTypeProductFrom').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('ManagerTypeProductEdit') }}",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data.success) {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "success"
+                        });
+                        $('#loai-mat-hang-update').modal('hide');
+                        $('#ajax-table-typeProduct').DataTable().ajax.reload();
+                        $('#updateTypeProductFrom').trigger('reset');
+                    } else {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "warning"
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        title: "Thông Báo !",
+                        text: "Có lỗi xảy ra !",
+                        icon: "error"
+                    });
+                }
+            });
+        });
+
+        $('#createTypeProductFrom').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('ManagerTypeProductCreate') }}",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data.success) {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "success"
+                        });
+                        $('#loai-mat-hang-create').modal('hide');
+                        $('#ajax-table-typeProduct').DataTable().ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "warning"
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        title: "Thông Báo !",
+                        text: data.message,
+                        icon: "error"
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
