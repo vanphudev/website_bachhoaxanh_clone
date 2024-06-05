@@ -16,12 +16,8 @@ return new class extends Migration
             $table->string('TENNV', 50)->nullable();
             $table->date('NGAYSINH')->nullable();
             $table->string('GIOITINH', 4)->nullable();
-            $table->string('TRINHDOHOCVAN', 15)->nullable();
             $table->string('CHUCVU', 30)->nullable();
-            $table->string('CCCD', 15)->nullable();
-            $table->date('NGAYVAOLAM')->nullable();
             $table->text('PICTURE')->nullable();
-            $table->decimal('HESOLUONG', 10)->nullable();
             $table->string('PHONE', 15)->nullable();
             $table->string('ACCOUNT', 100)->nullable();
             $table->string('PASSWORD_USER')->nullable();
