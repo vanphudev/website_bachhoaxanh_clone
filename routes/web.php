@@ -12,6 +12,7 @@ use App\Http\Controllers\ManagerCustommersController;
 use App\Http\Controllers\ManagerSuppliersController;
 use App\Http\Controllers\ManagerBrandsController;
 use App\Http\Controllers\ManagerProductsController;
+use App\Http\Controllers\ManagerPostProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UpdateInfoController;
@@ -39,9 +40,21 @@ Route::get('/Admin', [AdminController::class, 'index'])->name('Dashboard');
 Route::get('/mat-hang', [ManagerProductsController::class, 'index'])->name('ManagerProducts');
 Route::post('/mat-hang-create', [ManagerProductsController::class, 'create'])->name('ManagerProductsCreate');
 Route::get('/mat-hang-update/{id}', [ManagerProductsController::class, 'update'])->name('ManagerProductsUpdate');
+Route::get('/thong-tin-mat-hang-create/{id}', [ManagerProductsController::class, 'addDataProduct'])->name('ManagerAddDataProducts');
+Route::post('/thong-tin-mat-hang-create', [ManagerProductsController::class, 'addData'])->name('ManagerAddData');
+Route::get('/list-image-mat-hang-create/{id}', [ManagerProductsController::class, 'addListImageProduct'])->name('ManageraddListImageProducts');
+Route::post('/list-image-mat-hang-create', [ManagerProductsController::class, 'addListImage'])->name('ManageraddListImage');
 Route::post('/mat-hang-edit', [ManagerProductsController::class, 'edit'])->name('ManagerProductsEdit');
-Route::get('/mat-hang-delete/{ID}', [ManagerProductsController::class, 'delete'])->name('ManagerProductsDelete');
+Route::get('/mat-hang-delete/{ID}', [ManagerProductsController::class, 'delete'])->name('ManagerProductsDelete');   
 
+//xử lý bai viết sản phẩm
+Route::get('/bai-viet-mat-hang', [ManagerPostProductController::class, 'index'])->name('ManagerPostProducts');
+Route::get('/bai-viet-mat-hang-create/{id}', [ManagerPostProductController::class, 'createPost'])->name('ManagerPostProductsNew');
+Route::post('/bai-viet-create', [ManagerPostProductController::class, 'createPostRequest'])->name('ManagerPostProductsCreate');
+Route::get('/chi-tiet-bai-viet-create/{id}', [ManagerPostProductController::class, 'createPostDetail'])->name('ManagerPostDetail');
+Route::post('/chi-tiet-bai-viet-item', [ManagerPostProductController::class, 'createPostDetailRequest'])->name('ManagerPostDetaiCreate');
+
+Route::get('/chi-tiet-bai-viet-delete/{ID}', [ManagerPostProductController::class, 'delete'])->name('ManagerPostDelete');  
 
 // Xử lí với nhóm loại mặt hàng.
 Route::get('/loai-mat-hang', [ManagerTypeProductController::class, 'index'])->name('ManagerTypeProduct');

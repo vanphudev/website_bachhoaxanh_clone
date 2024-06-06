@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png"
         href="https://static.ybox.vn/2021/5/3/1621424753923-Logo%20chuan-7%20copy.jpg" />
-    <title>Mặt hàng - Quản lý mặt hàng</title>
+    <title>Bài viết - Quản lý bài viết mặt hàng</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -29,9 +29,9 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-    @include('Admin.sidenav', ['active' => 'product'])
+    @include('Admin.sidenav', ['active' => 'post'])
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-        @include('Admin.nav', ['title' => 'Trang quản lý mặt hàng.'])
+        @include('Admin.nav', ['title' => 'Trang quản lý bài viết mặt hàng.'])
         <div class="container-fluid py-4">
             <div class="row">
                 @yield('content')
@@ -73,7 +73,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('ManagerProducts') }}",
+                    url: "{{ route('ManagerPostProducts') }}",
                     type: 'GET'
                 },
                 columns: [{
@@ -89,18 +89,7 @@
                         data: 'TENMH',
                         name: 'TENMH'
                     },
-                    {
-                        data: 'DONVITINH',
-                        name: 'DONVITINH'
-                    },
-                    {
-                        data: 'MALOAI',
-                        name: 'MALOAI'
-                    },
-                    {
-                        data: 'GIA_BAN',
-                        name: 'GIA_BAN'
-                    },
+
                     {
                         data: 'PICTURE',
                         name: 'PICTURE',
@@ -109,10 +98,6 @@
                         },
                         orderable: false,
                         searchable: false
-                    },
-                    {
-                        data: 'MA_TH',
-                        name: 'MA_TH'
                     },
                     {
                         data: 'action',
@@ -159,12 +144,7 @@
             });
         });
 
-        function addProduct() {
-            $('#createProductFrom').trigger('reset');
-            $('#mat-hang-create').modal('show');
-        }
-
-        function addDataProduct(id) {
+        function createPost(id) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -172,15 +152,16 @@
             });
             $.ajax({
                 type: "GET",
-                url: `{{ url('/thong-tin-mat-hang-create') }}/${id}`,
+                url: `{{ url('/bai-viet-mat-hang-create') }}/${id}`,
                 data: {
                     id: id
                 },
                 dataType: "json",
                 success: function(data) {
                     if (data.success) {
-                        $('#thong-tin-mat-hang-create').modal('show');
-                        $('#createDataProductFrom').find('input[name="maMH"]').val(id);
+                        $('#bai-viet-mat-hang-create').modal('show');
+                        $('#createPostProductFrom').find('input[name="maBV"]').val(data.maBV);
+                        $('#createPostProductFrom').find('input[name="maMH"]').val(id);
                     } else {
                         Swal.fire({
                             title: "Thông Báo !",
@@ -198,8 +179,43 @@
                 }
             });
         }
+        $('#createPostProductFrom').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('ManagerPostProductsCreate') }}",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data.success) {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "success"
+                        });
+                        $('#bai-viet-mat-hang-create').modal('hide');
+                        $('#createPostProductFrom').trigger('reset');
+                    } else {
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "warning"
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        title: "Thông Báo !",
+                        text: "Có lỗi xảy ra !",
+                        icon: "error"
+                    });
+                }
+            });
+        });
 
-        function addListImageProduct(id) {
+        function createPostDetail(id) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -207,15 +223,16 @@
             });
             $.ajax({
                 type: "GET",
-                url: `{{ url('/list-image-mat-hang-create') }}/${id}`,
+                url: `{{ url('/chi-tiet-bai-viet-create') }}/${id}`,
                 data: {
                     id: id
                 },
                 dataType: "json",
                 success: function(data) {
                     if (data.success) {
-                        $('#list-image-create').modal('show');
-                        $('#createListImageProductFrom').find('input[name="maMH"]').val(id);
+                        $('#chi-tiet-bai-viet-create').modal('show');
+                        $('#createPostDetailProductFrom').find('input[name="maBVTag"]').val(data.maBVTag);
+                        $('#createPostDetailProductFrom').find('input[name="maBV"]').val(data.maBV);
                     } else {
                         Swal.fire({
                             title: "Thông Báo !",
@@ -233,36 +250,24 @@
                 }
             });
         }
-
-        function editProduct(id) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        $('#createPostDetailProductFrom').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
             $.ajax({
-                type: "GET",
-                url: `{{ url('/mat-hang-update') }}/${id}`,
-                data: {
-                    id: id
-                },
-                dataType: "json",
+                type: "POST",
+                url: "{{ route('ManagerPostDetaiCreate') }}",
+                data: formData,
+                contentType: false,
+                processData: false,
                 success: function(data) {
                     if (data.success) {
-                        $('#updateProductFrom').trigger('reset');
-                        $('#mat-hang-update').modal('show');
-                        $('#updateProductFrom').find('input[name="maMH"]').val(data.product.MAMH);
-                        $('#updateProductFrom').find('input[name="tenMH"]').val(data.product.TENMH);
-                        $('#updateProductFrom').find('input[name="maLMH"]').val(data.product.MALOAI);
-                        $('#updateProductFrom').find('input[name="maTH"]').val(data.product.MA_TH);
-                        $('#updateProductFrom').find('input[name="donvitinh"]').val(data.product.DONVITINH);
-                        $('#updateProductFrom').find('input[name="giaban"]').val(data.product.GIA_BAN);
-                        $('#updateProductFrom').find('input[name="khoiluong"]').val(data.product.KHOILUONG);
-                        $('#updateProductFrom').find('input[name="sogam"]').val(data.product.SO_GAM);
-                        $('#updateProductFrom').find('input[name="mota"]').val(data.product.MO_TA);
-                        var imagePath = `{{ env('PATH_IMAGE_TYPE_PRODUCT') }}`;
-                        $('#updateProductFrom').find('img[name="picture"]').attr('src', imagePath + data
-                            .product.PICTURE);
+                        Swal.fire({
+                            title: "Thông Báo !",
+                            text: data.message,
+                            icon: "success"
+                        });
+                        $('#chi-tiet-bai-viet-create').modal('hide');
+                        $('#createPostDetailProductFrom').trigger('reset');
                     } else {
                         Swal.fire({
                             title: "Thông Báo !",
@@ -279,12 +284,10 @@
                     });
                 }
             });
-        }
-
-
+        });
         function deleteProduct(id) {
             Swal.fire({
-                title: "Bạn có muốn xóa mặt hàng này không?",
+                title: "Bạn có muốn xóa tất cả thông tin về tin tức của mặt hàng này không?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -299,7 +302,7 @@
                     });
                     $.ajax({
                         type: "GET",
-                        url: `{{ url('/mat-hang-delete') }}/${id}`,
+                        url: `{{ url('/chi-tiet-bai-viet-delete') }}/${id}`,
                         data: {
                             id: id
                         },
@@ -311,7 +314,7 @@
                                     text: data.message,
                                     icon: "success"
                                 });
-                                $('#ajax-table-Product').DataTable().ajax.reload();
+                                // $('#ajax-table-Product').DataTable().ajax.reload();
                             } else {
                                 Swal.fire({
                                     title: "Thông Báo !",
@@ -331,147 +334,6 @@
                 }
             });
         }
-
-        $('#updateProductFrom').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('ManagerProductsEdit') }}",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    if (data.success) {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "success"
-                        });
-                        $('#mat-hang-update').modal('hide');
-                        $('#ajax-table-Product').DataTable().ajax.reload();
-                        $('#updateProductFrom').trigger('reset');
-                    } else {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "warning"
-                        });
-                    }
-                },
-                error: function() {
-                    Swal.fire({
-                        title: "Thông Báo !",
-                        text: "Có lỗi xảy ra !",
-                        icon: "error"
-                    });
-                }
-            });
-        });
-
-        $('#createProductFrom').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('ManagerProductsCreate') }}",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    if (data.success) {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "success"
-                        });
-                        $('#mat-hang-create').modal('hide');
-                        $('#ajax-table-Product').DataTable().ajax.reload();
-                    } else {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "warning"
-                        });
-                    }
-                },
-                error: function() {
-                    Swal.fire({
-                        title: "Thông Báo !",
-                        text: data.message,
-                        icon: "error"
-                    });
-                }
-            });
-        });
-        $('#createDataProductFrom').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('ManagerAddData') }}",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    if (data.success) {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "success"
-                        });
-                        $('#thong-tin-mat-hang-create').modal('hide');
-                    } else {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "warning"
-                        });
-                    }
-                },
-                error: function() {
-                    Swal.fire({
-                        title: "Thông Báo !",
-                        text: data.message,
-                        icon: "error"
-                    });
-                }
-            });
-        });
-        $('#createListImageProductFrom').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('ManageraddListImage') }}",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    if (data.success) {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "success"
-                        });
-                        $('#list-image-create').modal('hide');
-                    } else {
-                        Swal.fire({
-                            title: "Thông Báo !",
-                            text: data.message,
-                            icon: "warning"
-                        });
-                    }
-                },
-                error: function() {
-                    Swal.fire({
-                        title: "Thông Báo !",
-                        text: data.message,
-                        icon: "error"
-                    });
-                }
-            });
-        });
     </script>
 
 </body>
