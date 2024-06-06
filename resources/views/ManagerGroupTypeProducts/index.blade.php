@@ -100,6 +100,9 @@
                             <input type="text" name="tenNLMH" class="form-control" value="" placeholder="Tên nhóm mặt hàng" required>
                         </div>
                         <div class="mb-3">
+                            <img class="p-2" name="picture" alt="" style="width: 100p; height: 100px; object-fit: cover; border-radius: 10px">
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label text-danger">Thêm ảnh nhóm loại mặt hàng nếu muốn thay đổi:</label>
                             <input class="form-control" name="picture" type="file" required>
                         </div>

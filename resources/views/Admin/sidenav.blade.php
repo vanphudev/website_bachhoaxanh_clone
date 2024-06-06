@@ -46,6 +46,15 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ $active == 'post' ? 'active' : '' }}" href="{{ route('ManagerPostProducts') }}">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR4nN3UwSrEURQG8F9CwsoTkGSlbCw8hR3lBaSJpbWwkJSNGmxshGxYyQPYISsWSpQkCyJKYuavqbOYxphm/iMLp766595zvnvvd78u3+MUSQ3IIaNCJCmwWgvhfMl6C+7qIXzBcRHO6j1h8ttXTv4/YS4FYbYSYSZ2rBZZ9PuLaMc4DnCCPQyVqRuMtV30YATdxQWFZAlPP+gzh0Z0YA35MPcyHvGJBUxhuED4UIXo99jHFhZDu8L8OWZxG/m1OF0tL5qPnpXYIAm8x/V14uOH5k2sYwM7gRmM4aao7gh9xTpupzT0G6bRVPpyA1FwGRpdVUF2iN5KthlFa4ybMVHm3yvgFZNoSOPNtrDDBZ5Dw65KHV9q4uVuom4jSQAAAABJRU5ErkJggg==">
+                    </div>
+                    <span class="nav-link-text ms-1">Bài viết</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ $active == 'Typeproduct' ? 'active' : '' }}" href="{{ route('ManagerTypeProduct') }}">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <img

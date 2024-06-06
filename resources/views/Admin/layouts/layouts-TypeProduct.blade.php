@@ -12,9 +12,14 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -32,7 +37,9 @@
     </main>
     @include('Admin.settings')
     <!--   Core JS Files   -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script>
         var win = navigator.platform.indexOf("Win") > -1;
         if (win && document.querySelector("#sidenav-scrollbar")) {
@@ -169,14 +176,16 @@
                         $('#loai-mat-hang-update').modal('show');
                         $('#updateTypeProductFrom').find('input[name="tenLMH"]').val(data.product.TENLOAI);
                         $('#updateTypeProductFrom').find('select[name="maNLMH"]').val(data.product.MANHOM_LOAI);
-                        $('#updateTypeProductFrom').find('input[name="topmuasam"]').val(data.product.TOP_MUASAM);
+                        $('#updateTypeProductFrom').find('input[name="topmuasam"]').val(data.product
+                        .TOP_MUASAM);
                         if (data.product.TOP_MUASAM == 1) {
                             $('#updateTypeProductFrom').find('input[name="topmuasam"]').prop('checked', true);
                             $('#updateTypeProductFrom').find('input[name="topmuasam"]').val(1);
                         }
                         $('#updateTypeProductFrom').find('input[name="id"]').val(data.product.MALOAI);
                         var imagePath = `{{ env('PATH_IMAGE_TYPE_PRODUCT') }}`;
-                        $('#updateTypeProductFrom').find('img[name="picture"]').attr('src', imagePath + data.product.PICTURE);
+                        $('#updateTypeProductFrom').find('img[name="picture"]').attr('src', imagePath + data
+                            .product.PICTURE);
                     } else {
                         Swal.fire({
                             title: "Thông Báo !",
