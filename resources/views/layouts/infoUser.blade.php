@@ -24,7 +24,7 @@
                                 <p class="p-0 m-0">Lịch sử mua hàng</p>
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="text-align: start; font-size: 18px">
+                            <a href="{{ route('UpdateAddress') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="text-align: start; font-size: 18px">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <p class="p-0 m-0">Địa chỉ nhận hàng</p>
                                 <i class="fa-solid fa-chevron-right"></i>

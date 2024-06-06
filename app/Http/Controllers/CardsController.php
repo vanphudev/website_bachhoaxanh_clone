@@ -84,9 +84,8 @@ class CardsController extends Controller
         return view('cards.index');
     }
 
-    public function RemoveProductFromCart(Request $request)
+    public function RemoveProductFromCart($mamh)
     {
-        // Kiểm tra xem người dùng đã đăng nhập chưa.
         if (!Cookie::get('user_data')) {
             return response()->json([
                 'success' => false,
@@ -94,6 +93,7 @@ class CardsController extends Controller
                 'message' => 'Vui lòng đăng nhập để xóa sản phẩm khỏi giỏ hàng !'
             ]);
         }
+
         $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
         if (!$user_data) {
             return response()->json([
@@ -104,7 +104,7 @@ class CardsController extends Controller
         }
 
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
-        $product_id = $request->input('product_id');
+        $product_id = $mamh;
         $cart = DB::table('cards')->where('MAKH', $user->MAKH)->first();
         if (isset($cart)) {
             $detail_card = DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->first();
@@ -123,15 +123,18 @@ class CardsController extends Controller
                 'success' => false
             ]);
         }
+        return response()->json([
+            'success' => false
+        ]);
     }
 
-    public function UpdateProductQuantity(Request $request)
+    public function UpdateToCart($mamh, $action)
     {
         if (!Cookie::get('user_data')) {
             return response()->json([
                 'success' => false,
                 'redirect_url' => route('Login'),
-                'message' => 'Vui lòng đăng nhập để cập nhật số lượng sản phẩm trong giỏ hàng !'
+                'message' => 'Vui lòng đăng nhập để cập nhật giỏ hàng !'
             ]);
         }
         $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
@@ -139,39 +142,95 @@ class CardsController extends Controller
             return response()->json([
                 'success' => false,
                 'redirect_url' => route('Login'),
-                'message' => 'Vui lòng đăng nhập để cập nhật số lượng sản phẩm trong giỏ hàng !'
+                'message' => 'Vui lòng đăng nhập để cập nhật giỏ hàng !'
             ]);
         }
+
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
-        $product_id = $request->input('product_id');
-        $quantity = $request->input('quantity');
         $cart = DB::table('cards')->where('MAKH', $user->MAKH)->first();
         if (isset($cart)) {
-            $detail_card = DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->first();
+            $detail_card = DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $mamh)->first();
             if (isset($detail_card)) {
-                DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $product_id)->update([
-                    'SOLUONG' => $quantity
-                ]);
+                if ($action == 'tang') {
+                    DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $mamh)->increment('SOLUONG');
+                } else if ($action == 'giam') {
+                    DB::table('detail_cards')->where('ID_CARD', $cart->ID_CARD)->where('MAMH', $mamh)->decrement('SOLUONG');
+                }
+
+                $detail_cart = DB::table('detail_cards')
+                    ->where('ID_CARD', $cart->ID_CARD)
+                    ->join('MAT_HANG', 'MAT_HANG.MAMH', '=', 'detail_cards.MAMH')
+                    ->leftJoin('GIAM_GIA', function ($join) {
+                        $join->on('GIAM_GIA.MAMH', '=', 'MAT_HANG.MAMH')
+                            ->where('GIAM_GIA.LAN_GIAM_GIA', DB::raw('(SELECT MAX(LAN_GIAM_GIA) FROM GIAM_GIA WHERE GIAM_GIA.MAMH = MAT_HANG.MAMH)'));
+                    })
+                    ->select(
+                        'MAT_HANG.MAMH',
+                        'MAT_HANG.TENMH',
+                        'MAT_HANG.PICTURE',
+                        'MAT_HANG.DONVITINH',
+                        'MAT_HANG.GIA_BAN',
+                        'MAT_HANG.SO_GAM',
+                        'MAT_HANG.KHOILUONG',
+                        'detail_cards.SOLUONG',
+                        'GIAM_GIA.TILE_GIAM_GIA',
+                        DB::raw('CASE
+                    WHEN MAT_HANG.KHOILUONG = 0 THEN
+                        CASE
+                            WHEN GIAM_GIA.TILE_GIAM_GIA IS NOT NULL THEN (1 - (GIAM_GIA.TILE_GIAM_GIA / 100)) * MAT_HANG.GIA_BAN * detail_cards.SOLUONG
+                            ELSE MAT_HANG.GIA_BAN * detail_cards.SOLUONG
+                        END
+                    WHEN MAT_HANG.KHOILUONG = 1 THEN
+                        CASE
+                            WHEN GIAM_GIA.TILE_GIAM_GIA IS NOT NULL THEN (((MAT_HANG.SO_GAM * MAT_HANG.GIA_BAN)/1000) * detail_cards.SOLUONG) * (1 - (GIAM_GIA.TILE_GIAM_GIA / 100))
+                            ELSE ((MAT_HANG.SO_GAM * MAT_HANG.GIA_BAN)/1000) * detail_cards.SOLUONG
+                        END
+                    ELSE
+                        NULL
+                    END AS THANH_TIEN'),
+                        DB::raw('CASE
+                    WHEN MAT_HANG.KHOILUONG = 0 THEN
+                        CASE
+                            WHEN GIAM_GIA.TILE_GIAM_GIA IS NOT NULL THEN (1 - (GIAM_GIA.TILE_GIAM_GIA / 100)) * MAT_HANG.GIA_BAN
+                            ELSE MAT_HANG.GIA_BAN
+                        END
+                    WHEN MAT_HANG.KHOILUONG = 1 THEN
+                        CASE
+                            WHEN GIAM_GIA.TILE_GIAM_GIA IS NOT NULL THEN ((MAT_HANG.SO_GAM * MAT_HANG.GIA_BAN)/1000) * (1 - (GIAM_GIA.TILE_GIAM_GIA / 100))
+                            ELSE ((MAT_HANG.SO_GAM * MAT_HANG.GIA_BAN)/1000)
+                        END
+                    ELSE
+                        NULL
+                    END AS GIA_BAN_NEW')
+                    )
+                    ->get();
+                $tongtien = 0;
+                $count = 0;
+                foreach ($detail_cart as $item) {
+                    $tongtien += $item->THANH_TIEN;
+                }
+                $count = count($detail_cart);
                 return response()->json([
                     'success' => true,
-                    'message' => 'Số lượng sản phẩm đã được cập nhật.'
+                    'count' => isset($count) ? $count : null,
+                    'tongtien' => isset($tongtien) ? format_currency_vnd($tongtien) : null,
                 ]);
             } else {
                 return response()->json([
                     'success' => false,
-                    'message' => 'Sản phẩm không tồn tại trong giỏ hàng.'
+                    'message' => 'Sản phẩm không tồn tại trong giỏ hàng !'
                 ]);
             }
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'Giỏ hàng không tồn tại.'
+                'message' => 'Giỏ hàng không tồn tại !'
             ]);
         }
-    }
-
-    public function UpdateToCart($mamh, $action)
-    {
+        return response()->json([
+            'success' => false,
+            'message' => 'Lỗi xử lý dữ liệu trong quá trình cập nhật giỏ hàng !'
+        ]);
     }
 
 

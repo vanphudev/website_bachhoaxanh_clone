@@ -111,9 +111,6 @@
                     <li>
                         <a href="#"><img src="/folderImages/images/icons/ankhang.png" alt="" /></a>
                     </li>
-                    <li>
-                        <a href="#"><img src="/folderImages/images/icons/" alt="" /></a>
-                    </li>
                 </ul>
             </div>
         </footer>

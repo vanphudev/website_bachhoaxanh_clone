@@ -13,12 +13,14 @@ use App\Http\Controllers\ManagerSuppliersController;
 use App\Http\Controllers\ManagerBrandsController;
 use App\Http\Controllers\ManagerProductsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CapNhatDiaChiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UpdateInfoController;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ManagerTypeProductController;
 use App\Http\Controllers\LoginManagerController;
 use App\Http\Controllers\ManagerGroupTypeProductsController;
+use App\Http\Controllers\DonHangController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home');
@@ -86,6 +88,8 @@ Route::post('/verify-otp-createAccount', [LoginController::class, 'verifyOtpCrea
 
 Route::get('/cap-nhat-thong-tin', [UpdateInfoController::class, 'index'])->name('UpdateInfo');
 Route::post('/cap-nhat-thong-tin', [UpdateInfoController::class, 'update'])->name('SetUpdateInfo');
+Route::get('/cap-nhat-dia-chi', [CapNhatDiaChiController::class, 'index'])->name('UpdateAddress');
+Route::post('/cap-nhat-dia-chi-update', [CapNhatDiaChiController::class, 'update'])->name('SubmitUpdateAddress');
 
 
 // Giỏ hàng
@@ -95,4 +99,8 @@ Route::get('/UpdateToCart/{mamh}/{action}', [CardsController::class, 'UpdateToCa
 // Thêm sản phẩm vào giỏ hàng.
 Route::post('/AddToCart', [CardsController::class, 'AddToCart'])->name('AddToCart');
 // Xóa sản phẩm trong giỏ hàng.
-Route::get('/cart/delete', [CardsController::class, 'RemoveProductFromCart'])->name('DeleteCart');
+Route::get('/DeleteCart/{mamh}', [CardsController::class, 'RemoveProductFromCart'])->name('DeleteCart');
+
+
+// Đặt hàng
+Route::get('/dat-hang', [DonHangController::class, 'index'])->name('Order');

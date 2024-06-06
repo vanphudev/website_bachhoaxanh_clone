@@ -375,7 +375,7 @@
                     @endif
                     <div class="btn-buy-product">
                         <button id="addToCards" data_product="{{ $firstProduct->MAMH }}" type="button" class="animate-gradient btn d-flex justify-content-center align-items-center"
-                            style="  color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
+                            style="color: var(--contentcolor-light);  width: 100%;  font-weight: bold;  font-size: 24px;  border-radius: 10px; ">
                             <span>MUA NGAY</span>
                         </button>
                     </div>

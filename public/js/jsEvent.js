@@ -26,14 +26,14 @@ window.addEventListener("scroll", function () {
    }
 });
 
-document.querySelector(".stretched-link-card").addEventListener("click", function () {
-   var link = this.querySelector("a");
-   if (link) {
-      var url = link.getAttribute("href");
-      window.location.href = url;
-      alert("msg");
-   }
-});
+// document.querySelector(".stretched-link-card").addEventListener("click", function () {
+//    var link = this.querySelector("a");
+//    if (link) {
+//       var url = link.getAttribute("href");
+//       window.location.href = url;
+//       alert("msg");
+//    }
+// });
 
 function showMenu() {
    var menus = document.querySelectorAll(".navigation-menu");

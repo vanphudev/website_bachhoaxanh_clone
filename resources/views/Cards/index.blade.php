@@ -20,13 +20,13 @@
                     <div class="text-center w-50" style="z-index: 99">
                         <h4 class="fw-bold" style="color: white">Tổng số sản phẩm trong giỏ</h4>
                         <h5 class="fw-bold" style="color: white">
-                            Có <span style="color: #ebb319; font-size: 40px"> {{ $count }} </span> sản phẩm trong giỏ
+                            Có <span id="soLuongCard" style="color: #ebb319; font-size: 40px"> {{ $count }} </span> sản phẩm trong giỏ
                         </h5>
                     </div>
                     <div class="text-center w-50" style="z-index: 99">
                         <h4 class="fw-bold" style="color: white">Tổng tiền tiền khi thanh toán</h4>
                         <h5 class="fw-bold" style="color: white">
-                            <span style="color: #ebb319; font-size: 40px">{{ format_currency_vnd($tongtien) }}</span>
+                            <span id="tongTienCard" style="color: #ebb319; font-size: 40px">{{ format_currency_vnd($tongtien) }}</span>
                         </h5>
                     </div>
                 </div>
@@ -56,22 +56,23 @@
                                         </div>
                                         <div class="col-6 d-flex flex-column justify-content-end gap-1 align-items-center">
                                             <div class="d-flex justify-content-end align-items-center">
-                                                <button data_product="{{ $valueProduct->MAMH }}" class="delete_item_card btn btn-danger" style="position: absolute; right: 7px; top: 7px; border-radius: 50%">
+                                                <a href="javascript:void(0)" onclick="deleteItemCards('{{ $valueProduct->MAMH }}')" class="btn btn-danger d-flex justify-content-center align-items-center"
+                                                    style="position: absolute; right: 7px; top: 7px; border-radius: 50%; width: 30px; height: 30px; box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;">
                                                     <i class="fa-solid fa-xmark"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                             <h5 class="m-0 fw-bold">Số lượng sản phẩm</h5>
                                             <div class="form-tangGiam d-flex justify-content-start align-items-center">
-                                                <button id="tang" onclick="updateSoLuong({{ $valueProduct->MAMH }}, 'tang')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <a href="javascript:void(0)" id="tang" onclick="updateSoLuong('{{ $valueProduct->MAMH }}', 'tang')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-plus" style="font-weight: bold; font-size: 25px; color: white"></i>
-                                                </button>
+                                                </a>
                                                 <input id="soluong" type="text" value="{{ $valueProduct->SOLUONG }}" class="form-control" style="width: 70px; height: 40px; text-align: center; margin-left: 4px; margin-right: 4px; font-size: 25px;" />
-                                                <button id="giam" onclick="updateSoLuong({{ $valueProduct->MAMH }}, 'giam')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <a id="giam" href="javascript:void(0)" onclick="updateSoLuong('{{ $valueProduct->MAMH }}', 'giam')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-minus" style="font-weight: bold; font-size: 25px; color: white"></i>
-                                                </button>
+                                                </a>
                                             </div>
-                                            <h5 class="m-0 fw-bold mt-2 p-2" style="background: var(--bgcolor-items); border-radius: 10px; color: white">
-                                                Thành tiền {{ format_currency_vnd($valueProduct->THANH_TIEN) }}
+                                            <h5 id="tongThanhTien" class="m-0 fw-bold mt-2 p-2" style="background: var(--bgcolor-items); border-radius: 10px; color: white">
+                                                {{ format_currency_vnd($valueProduct->THANH_TIEN) }}
                                             </h5>
                                         </div>
                                     </div>
@@ -93,12 +94,12 @@
         <div class="container-fluid g-0 m-auto p-3" style=" width: 400px; position: fixed;  top: 120px;  right: 30px; max-height: 85vh; overflow: auto; background-color: white; border-radius: 10px; z-index: 99; box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); ">
             <h3 class="fw-bold">Thông tin thanh toán</h3>
             <h6 class="float-end">Tổng tiền đơn hàng:
-                <span class="fw-bold">
+                <span id="tongTienCardTwo" class="fw-bold">
                     {{ format_currency_vnd($tongtien) }}.
                 </span>
             </h6>
             <div class="clearfix"></div>
-            <h6 class="float-end">Tổng số lượng sản phẩm: <span class="fw-bold"> {{ $count }} </span></h6>
+            <h6 class="float-end">Tổng số lượng sản phẩm: <span id="soLuongCardTwo" class="fw-bold"> {{ $count }} </span></h6>
             <div class="clearfix"></div>
             <h6 class="float-end">Phụ phí/Phí giao hàng: <span class="fw-bold text-danger">Miễn Phí.</span></h6>
             <div class="clearfix mb-3"></div>
@@ -109,52 +110,33 @@
             </div>
             <div class="mb-4 d-flex justify-content-around align-items-center">
                 <h5 class="fw-bold float-start m-0">Hình thức thanh toán:</h5>
-                <button type="button" class="btn btn-success float-end">Đổi hình thức.</button>
             </div>
             <div class="clearfix mb-3"></div>
             <div class="mb-4 d-flex justify-content-center gap-3 align-items-center">
                 <i class="fa-regular fa-credit-card" style="font-size: 20px"></i>
                 <h6 class="fw-bold m-0">Thanh toán khi nhận hàng (COD)</h6>
             </div>
-            <button type="button" class="animate-gradient btn d-flex justify-content-center align-items-center" style=" color: var(--contentcolor-light); width: 100%; font-weight: bold; font-size: 18px; border-radius: 10px;  ">
+            <a href="javascript:void(0)" onclick="thanhToanGiohang()" class="animate-gradient btn d-flex justify-content-center align-items-center" style=" color: var(--contentcolor-light); width: 100%; font-weight: bold; font-size: 18px; border-radius: 10px;  ">
                 <span><i class="fa-solid fa-truck-moving mx-3"></i>ĐẶT HÀNG NGAY {{ format_currency_vnd($tongtien) }}</span>
-            </button>
+            </a>
         </div>
     @endif
 @endsection
 <script>
-    function updateSoLuong(mamh, action) {
-        var inputSoluong = document.getElementById("soluong");
-        var soluong = parseInt(inputSoluong.value);
-        if (action === 'tang') {
-            if (soluong < 15) {
-                soluong++;
+    function thanhToanGiohang() {
+        Swal.fire({
+            title: 'Bạn có chắc chắn muốn đặt hàng không?',
+            text: "Hãy kiểm tra kỹ thông tin trước khi đặt hàng!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đặt hàng ngay',
+            cancelButtonText: 'Hủy bỏ'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ route('Order') }}';
             }
-        } else if (action === 'giam') {
-            if (soluong > 1) {
-                soluong--;
-            }
-        }
-        inputSoluong.value = soluong;
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "GET",
-            url: "{{ url('/UpdateToCart') }}{{ '/' }}${mamh}/${action}",
-            data: {
-                mamh: mamh,
-                soluong: soluong,
-                _token: "{{ csrf_token() }}",
-                action: action
-            },
-            dataType: "json",
-            success: function(response) {
-
-            },
-            error: function() {}
         });
     }
 </script>
