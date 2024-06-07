@@ -86,34 +86,10 @@
                 </div>
             </div>
             <div class="g-0 ps-4 px-4" style="width: var(--width-search)"></div>
-            <div class="g-0 text-center" style="width: var(--width-menu)">
+            <div class="g-0 text-center" style="width: var(--width-menu);">
                 <div class="g-0 p-1 m-auto text-white d-flex justify-content-center flex-nowrap align-items-center gap-2 position-relative" style=" width: var(--width-menu); cursor: pointer; border-top-left-radius: 12px; border-top-right-radius: 12px; background: #006133;  ">
-                    <i class="fa-solid fa-basket-shopping" style="font-size: 27px"></i>
-                    <span class="ms-3" style="font-weight: bold; font-size: 16px">THÔNG TIN GIỎ HÀNG</span>
-                    <div class="position-absolute top-0 start-100 p-2 translate-middle badge rounded-pill bg-danger">
-                        <div class="animaiton-badges">
-                            <span>
-                                @php
-                                    $count = 0;
-                                    if (Cookie::get('user_data')) {
-                                        $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
-                                        if ($user_data) {
-                                            $cart = DB::table('cards')
-                                                ->where('MAKH', $user_data['id'])
-                                                ->first();
-                                            if (isset($cart)) {
-                                                $detail_cart = DB::table('detail_cards')
-                                                    ->where('ID_CARD', $cart->ID_CARD)
-                                                    ->get();
-                                                $count = count($detail_cart);
-                                            }
-                                        }
-                                    }
-                                @endphp
-                                {{ $count }} sản phẩm
-                            </span>
-                        </div>
-                    </div>
+                    <i class="fa-solid fa-basket-shopping" style="font-size: 27px;  color: #ffffff"></i>
+                    <a href="{{ route('Cart') }}"  class="ms-3 text-decoration-none" style="font-weight: bold; font-size: 16px;  color: #ffffff">THÔNG TIN GIỎ HÀNG</a>
                 </div>
             </div>
         </div>

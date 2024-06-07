@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string('GIOITINH', 4)->nullable();
             $table->string('DIA_CHI', 200)->nullable();
             $table->string('EMAIL', 100)->nullable()->unique('email');
-            $table->boolean('VERIFIEDEMAIL')->nullable();
-            $table->string('PHONE', 15)->nullable();
-            $table->string('ACCOUNT', 100)->nullable();
-            $table->string('PASSWORD_USER')->nullable();
+            $table->string('PHONE', 15)->nullable()->unique('phone');
         });
     }
 

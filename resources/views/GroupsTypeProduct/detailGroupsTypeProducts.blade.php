@@ -125,7 +125,6 @@
                                                 </div>
                                             </div>
                                             <div class="slider-card-group-item-bottom g-0 p-0">
-                                                {{-- <div class="slider-card-group-item-content"></div> --}}
                                                 <div class="slider-card-group-item-prices g-0 p-0 d-flex justify-content-center flex-column">
                                                     <div class="slider-card-group-item-price-spec g-0">
                                                         @php
@@ -137,30 +136,35 @@
                                                         @endphp
                                                         @if (isset($discount))
                                                             @if ($valueProduct->KHOILUONG == 1)
-                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000) * (100 - $discount->TILE_GIAM_GIA)) }}<span
-                                                                        style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000) * (1 - $discount->TILE_GIAM_GIA / 100)) }}<span
+                                                                        style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} gam.</span></span>
                                                             @else
-                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * (100 - $discount->TILE_GIAM_GIA)) }}</span>
+                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * (1 - $discount->TILE_GIAM_GIA / 100)) }}
+                                                                    /{{ $valueProduct->DONVITINH }}
+                                                                </span>
                                                             @endif
                                                         @else
                                                             @if ($valueProduct->KHOILUONG == 1)
                                                                 <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}<span
-                                                                        style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                                        style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} gam.</span></span>
                                                             @else
-                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                                <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}<span style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->DONVITINH }}.</span></span>
                                                             @endif
+                                                            <br>
+                                                        @endif
+                                                        @if (isset($discount))
+                                                            <div class="animaiton-badges badge bg-danger">- {{ $discount->TILE_GIAM_GIA }}%</div>
+                                                            <br>
                                                         @endif
                                                         @if (isset($discount))
                                                             @if ($valueProduct->KHOILUONG == 1)
-                                                                <span class="ms-2 text-decoration-line-through" style="font-size: 14px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}<span
-                                                                        style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                                <span class="ms-2 fw-bold text-decoration-line-through" style="font-size: 16px;  color: #9DA7BC">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}</span>
+                                                                <br>
                                                             @else
-                                                                <span class="ms-2 text-decoration-line-through" style="font-size: 13px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                                <span class="ms-2 fw-bold text-decoration-line-through" style="font-size: 16px;  color: #9DA7BC">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                                <br>
                                                             @endif
-                                                            <br />
-                                                            <div class="animaiton-badges badge bg-danger">- {{ $discount->TILE_GIAM_GIA }}%</div>
                                                         @endif
-                                                        <br />
                                                         @if ($valueProduct->KHOILUONG == 1)
                                                             <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}<span style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->DONVITINH }}
                                                                     1Kg.</span></span>

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text('PICTURE')->nullable();
             $table->tinyInteger('TINHTRANG')->nullable();
             $table->boolean('KHOILUONG')->nullable();
-            $table->integer('SOLUONG_TONKHO')->nullable();
             $table->decimal('SO_GAM', 18)->nullable();
             $table->string('MA_TH', 30)->nullable()->index('fk_mathang_thuonghieu');
         });

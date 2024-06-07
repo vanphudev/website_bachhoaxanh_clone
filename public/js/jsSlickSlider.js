@@ -21,6 +21,20 @@ $(".images-product-info-items").slick({
         "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' style='color: white; font-size: 30px' aria-hidden='true'></i></button>",
 });
 
+$(".slider-card-group-khuyyenmai").slick({
+    speed: 300,
+    slidesToShow: 5,
+    variableWidth: false,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    infinite: true,
+    prevArrow:
+        "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' style='color: #006133; font-size: 30px' aria-hidden='true'></i></button>",
+    nextArrow:
+        "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' style='color: #006133; font-size: 30px' aria-hidden='true'></i></button>",
+});
+
 $(".images-product-info-nav-items").slick({
     slide: ".images-product-info-nav-item",
     slidesToScroll: 1,

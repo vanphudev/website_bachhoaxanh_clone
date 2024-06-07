@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nhom_sanpham', function (Blueprint $table) {
-            $table->integer('MANHOM', true);
-            $table->string('TEN_NHOM', 30)->nullable();
-            $table->string('MAMH', 30)->nullable()->index('fk_nhomsanpham_mathang');
-            $table->string('MO_TA', 50)->nullable();
+        Schema::create('danhgia', function (Blueprint $table) {
+            $table->integer('MAKH');
+            $table->string('MAMH', 30)->index('fk_danhgia_mathang');
+            $table->integer('SO_SAO')->nullable();
+            $table->string('NOIDUNG', 500)->nullable();
+
+            $table->primary(['MAKH', 'MAMH']);
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nhom_sanpham');
+        Schema::dropIfExists('danhgia');
     }
 };

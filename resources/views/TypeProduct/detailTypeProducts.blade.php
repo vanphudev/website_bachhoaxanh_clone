@@ -21,7 +21,8 @@
                                 <img class="object-fit-contain" src="{{ env('PATH_IMAGE_TYPE_PRODUCT') }}{{ $firstTypeGroup->PICTURE }}" alt="Menu items Add" style="width: 100%; height: 100%" />
                             </div>
                             <div class="card-menu-img-top m-auto d-flex justify-content-center align-items-center" style="width: 100%; height: 50px; overflow: hidden">
-                                <a href="#" class="card-menu-content-bottom text-center m-0 truncate" style="color: var(--contentcolor); font-weight: bold; overflow-wrap: break-word; text-decoration: none; ">{{ $firstTypeGroup->TENLOAI }}</a>
+                                <a href="/TypeProduct/{{ convertVietnamese($firstTypeGroup->TENLOAI) . '--' . Str::lower($firstTypeGroup->MALOAI) }}" class="card-menu-content-bottom text-center m-0 truncate"
+                                    style="color: var(--contentcolor); font-weight: bold; overflow-wrap: break-word; text-decoration: none; ">{{ $firstTypeGroup->TENLOAI }}</a>
                             </div>
                         </div>
                         @php
@@ -48,14 +49,9 @@
                 @include('layouts.warningNotification')
                 <div class="container-fluid g-0 m-auto" style="width: calc(var(--width-menu) + var(--width-search) - var(--margin-left))">
                     <div class="filter-groups d-flex justify-content-start align-items-center gap-3 p-3 ps-4 px-4" style="background: var(--bgcolor-white); border-radius: 10px; width: 100%">
-                        <div class="filter-groups-item position-relative">
-                            <button type="button" class="btn btn-outline-success d-flex align-items-center gap-2">
-                                <i class="fa-solid fa-filter" style="font-size: 23px"></i>
-                                Bộ lộc
-                            </button>
-                            <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill" style="background: #ecd60f; color: black; font-weight: bold">
-                                99+
-                            </span>
+                        <div class="filter-groups-item position-relative" style="font-weight: bold; font-size: 25px;color:#04733C;">
+                            <i class="fa-solid fa-filter" style="color:#04733C; font-weight: bold; overflow-wrap: break-word; text-decoration: none; font-size: 23px;"></i>
+                            Bộ lọc
                         </div>
                         <div class="filter-groups-item">
                             <div class="dropdown">
@@ -63,52 +59,90 @@
                                     Sắp xếp theo
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="/TypeProduct/{{ convertVietnamese($firstTypeGroup->TENLOAI) . '--' . Str::lower($firstTypeGroup->MALOAI) }}?sortAsc={{ 'asc' }}">Giá bán tăng dần</a></li>
+                                    <li><a class="dropdown-item" href="/TypeProduct/{{ convertVietnamese($firstTypeGroup->TENLOAI) . '--' . Str::lower($firstTypeGroup->MALOAI) }}?sortDesc={{ 'desc' }}">Giá bán giảm dần</a></li>
+                                    <li><a class="dropdown-item" href="/TypeProduct/{{ convertVietnamese($firstTypeGroup->TENLOAI) . '--' . Str::lower($firstTypeGroup->MALOAI) }}?discount={{ 'discount' }}">Sản phẩm giảm giá</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="filter-groups-item">
-                            <div class="dropdown">
-                                <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Thương hiệu
-                                </button>
-                                <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton2">
-                                    <ul style="list-style-type: none; width: 400px" class="p-0 m-0 g-0 d-flex justify-content-start flex-nowrap align-items-center">
-                                        <li style="width: 100px; height: auto">
-                                            <a class="dropdown-item" href="#">
-                                                <img style="width: 100%" src="../folderImages/images/brand/dalat-milk-05092023143114.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li style="width: 100px; height: auto">
-                                            <a class="dropdown-item" href="#">
-                                                <img style="width: 100%" src="../folderImages/images/brand/felce-azzurra-0506202113525.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li style="width: 100px; height: auto">
-                                            <a class="dropdown-item" href="#">
-                                                <img style="width: 100%" src="../folderImages/images/brand/meadow-fresh-03082022162948.png" alt="" />
-                                            </a>
-                                        </li>
+                        @php
+                            $brands = null;
+                            $brands = DB::table('thuong_hieu')
+                                ->join('mat_hang', 'thuong_hieu.MA_TH', '=', 'mat_hang.MA_TH')
+                                ->where('mat_hang.MALOAI', $firstTypeGroup->MALOAI)
+                                ->select('thuong_hieu.*')
+                                ->distinct()
+                                ->get();
+                        @endphp
+                        @if (isset($brands))
+                            <div class="filter-groups-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Thương hiệu
+                                    </button>
+                                    <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton2">
+                                        <ul style="list-style-type: none; width: 400px" class="p-0 m-0 g-0 d-flex justify-content-start flex-nowrap align-items-center">
+                                            @foreach ($brands as $values)
+                                                <li style="width: 100px; height: auto">
+                                                    <a class="dropdown-item" href="/TypeProduct/{{ convertVietnamese($firstTypeGroup->TENLOAI) . '--' . Str::lower($firstTypeGroup->MALOAI) }}?filterBrand={{ Str::lower($values->MA_TH) }}">
+                                                        <img style="width: 100%" src="{{ env('PATH_IMAGE_BRAND') }}{{ $values->PICTURE }}" alt="" />
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                            <li style="width: 100px; height: auto">
+                                        </ul>
                                     </ul>
-                                </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="filter-groups-item"></div>
-                        <div class="filter-groups-item"></div>
+                        @endif
                     </div>
                 </div>
                 <div class="container-fluid g-0 m-auto mt-3 position-relative" style="width: calc(var(--width-menu) + var(--width-search) - var(--margin-left)); background: var(--bgcolor-white); border-radius: 8px; ">
-                    <div class="slider-card-group p-2 g-0 m-0 d-flex justify-content-between flex-wrap align-items-center" style="width: 100%">
-                        @php
-                            $roducts = DB::table('mat_hang')
-                                ->where('mat_hang.MALOAI', $firstTypeGroup->MALOAI)
-                                ->get();
-                        @endphp
+                    <div class="slider-card-group p-2 g-0 m-0 d-flex justify-content-start flex-wrap align-items-center" style="width: 100%">
+                        @if (isset($filterBrand))
+                            @php
+                                $roducts = DB::table('mat_hang')
+                                    ->join('thuong_hieu', 'mat_hang.MA_TH', '=', 'thuong_hieu.MA_TH')
+                                    ->where('mat_hang.MALOAI', $firstTypeGroup->MALOAI)
+                                    ->where('mat_hang.MA_TH', $filterBrand)
+                                    ->select('mat_hang.*')
+                                    ->get();
+                            @endphp
+                        @elseif (isset($sortAsc))
+                            @php
+                                $roducts = DB::table('mat_hang')
+                                    ->select('mat_hang.*', DB::raw('calculate_final_price(mat_hang.MAMH) as FINAL_PRICE'))
+                                    ->where('mat_hang.MALOAI', $firstTypeGroup->MALOAI)
+                                    ->orderBy('FINAL_PRICE', 'asc')
+                                    ->get();
+                            @endphp
+                        @elseif (isset($sortDesc))
+                            @php
+                                $roducts = DB::table('mat_hang as mh')
+                                    ->select('mh.*', DB::raw('calculate_final_price(mat_hang.MAMH) as FINAL_PRICE'))
+                                    ->where('mh.MALOAI', $firstTypeGroup->MALOAI)
+                                    ->orderBy('FINAL_PRICE', 'desc')
+                                    ->get();
+                            @endphp
+                        @elseif (isset($discount))
+                            @php
+                                $roducts = DB::table('mat_hang')
+                                    ->join('giam_gia', 'mat_hang.MAMH', '=', 'giam_gia.MAMH')
+                                    ->where('MALOAI', $firstTypeGroup->MALOAI)
+                                    ->orderBy('giam_gia.LAN_GIAM_GIA', 'desc')
+                                    ->select('mat_hang.*')
+                                    ->get();
+                            @endphp
+                        @else
+                            @php
+                                $roducts = DB::table('mat_hang')
+                                    ->where('MALOAI', $firstTypeGroup->MALOAI)
+                                    ->get();
+                            @endphp
+                        @endif
                         @if (isset($roducts))
                             @foreach ($roducts as $valueProduct)
-                                <div class="slider-card-group-item-spec p-1" style="width: calc((var(--width-menu) + var(--width-search) - var(--margin-left) - (8px * 4)) / 5); min-height: 300px; background: var(--bgcolor-white);  border-radius: 5px; ">
+                                <div class="slider-card-group-item-spec p-1" style="width: calc((var(--width-menu) + var(--width-search) - var(--margin-left) - (8px * 4) - 4px) / 5); min-height: 300px; background: var(--bgcolor-white);  border-radius: 5px; ">
                                     <div class="slider-card-group-item-inf g-0 p-0 position-relative">
                                         <div class="slider-card-group-item-top d-flex flex-column justify-content-center">
                                             <div class="slider-card-group-item-img m-auto d-flex justify-content-center align-items-center" style="width: 100%; height: 211px; overflow: hidden">
@@ -121,7 +155,6 @@
                                             </div>
                                         </div>
                                         <div class="slider-card-group-item-bottom g-0 p-0">
-                                            {{-- <div class="slider-card-group-item-content"></div> --}}
                                             <div class="slider-card-group-item-prices g-0 p-0 d-flex justify-content-center flex-column">
                                                 <div class="slider-card-group-item-price-spec g-0">
                                                     @php
@@ -133,30 +166,35 @@
                                                     @endphp
                                                     @if (isset($discount))
                                                         @if ($valueProduct->KHOILUONG == 1)
-                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000) * (100 - $discount->TILE_GIAM_GIA)) }}<span
-                                                                    style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000) * (1 - $discount->TILE_GIAM_GIA / 100)) }}<span
+                                                                    style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} gam.</span></span>
                                                         @else
-                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * (100 - $discount->TILE_GIAM_GIA)) }}</span>
+                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * (1 - $discount->TILE_GIAM_GIA / 100)) }}
+                                                                /{{ $valueProduct->DONVITINH }}
+                                                            </span>
                                                         @endif
                                                     @else
                                                         @if ($valueProduct->KHOILUONG == 1)
                                                             <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}<span
-                                                                    style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                                    style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} gam.</span></span>
                                                         @else
-                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                            <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}<span style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->DONVITINH }}.</span></span>
                                                         @endif
+                                                        <br>
+                                                    @endif
+                                                    @if (isset($discount))
+                                                        <div class="animaiton-badges badge bg-danger">- {{ $discount->TILE_GIAM_GIA }}%</div>
+                                                        <br>
                                                     @endif
                                                     @if (isset($discount))
                                                         @if ($valueProduct->KHOILUONG == 1)
-                                                            <span class="ms-2 text-decoration-line-through" style="font-size: 14px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}<span
-                                                                    style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->SO_GAM }} g.</span></span>
+                                                            <span class="ms-2 fw-bold text-decoration-line-through" style="font-size: 16px;  color: #9DA7BC">{{ format_currency_vnd($valueProduct->GIA_BAN * ($valueProduct->SO_GAM / 1000)) }}</span>
+                                                            <br>
                                                         @else
-                                                            <span class="ms-2 text-decoration-line-through" style="font-size: 13px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                            <span class="ms-2 fw-bold text-decoration-line-through" style="font-size: 16px;  color: #9DA7BC">{{ format_currency_vnd($valueProduct->GIA_BAN) }}</span>
+                                                            <br>
                                                         @endif
-                                                        <br />
-                                                        <div class="animaiton-badges badge bg-danger">- {{ $discount->TILE_GIAM_GIA }}%</div>
                                                     @endif
-                                                    <br />
                                                     @if ($valueProduct->KHOILUONG == 1)
                                                         <span class="ms-2 fw-bold" style="font-size: 16px; color: var(--contentcolor-dark)">{{ format_currency_vnd($valueProduct->GIA_BAN) }}<span style="font-size: 13px; color: #9DA7BC">/{{ $valueProduct->DONVITINH }}
                                                                 1Kg.</span></span>

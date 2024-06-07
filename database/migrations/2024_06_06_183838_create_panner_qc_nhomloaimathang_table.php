@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hinhthuc_thanhtoan', function (Blueprint $table) {
-            $table->string('ID_BANK', 30)->primary();
-            $table->string('TEN_HINHTHUC_TT', 100)->nullable();
+        Schema::create('panner_qc_nhomloaimathang', function (Blueprint $table) {
+            $table->string('MA_PN_QC', 30)->primary();
+            $table->text('PICTURE')->nullable();
+            $table->string('MANHOM_LOAI', 30)->nullable()->index('fk_pannerqcnhomloaimathang_nhomloaimathang');
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hinhthuc_thanhtoan');
+        Schema::dropIfExists('panner_qc_nhomloaimathang');
     }
 };

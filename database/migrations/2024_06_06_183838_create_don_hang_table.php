@@ -16,10 +16,9 @@ return new class extends Migration
             $table->decimal('TONGTIEN_DH', 18)->nullable();
             $table->integer('TONGSL_SANPHAM')->nullable();
             $table->decimal('TONGTIEN_KHUYENMAI', 18)->nullable();
-            $table->decimal('VAT', 18)->nullable();
             $table->dateTime('NGAYLAP_DH')->nullable();
             $table->integer('MAKH')->nullable()->index('fk_donhang_khachhang');
-            $table->string('ID_BANK', 30)->nullable()->index('fk_donhang_hinhthucthanhtoan');
+            $table->string('MA_NV', 30)->nullable()->index('fk_donhang_nhanvien');
             $table->string('TINHTRANG_NHANHANG', 50)->nullable();
         });
     }
