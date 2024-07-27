@@ -9,7 +9,7 @@
 -   **Members:**
     -   [Nguyen Van Phu](https://github.com/vanphudev) (Leader)
     -   [Nguyen Van Hoang](https://github.com/Hoang13052003) (Member)
--   **Instructor/ Mentor:** Teacher Mrs Nguyen Hai yen.
+-   **Instructor/ Mentor:** Teacher Mrs Nguyen Hai Yen.
 -   **Course:** Open Source Programming.
 -   **University:** Ho Chi Minh City University Industry And Trade (HUIT).
 -   **Development tools:**
@@ -57,7 +57,7 @@
 -   **Duration:** March 2024 - May 2024.
 -   **Project name:** Website "Bach Hoa Xanh" Clone.
 -   **Description:** This project is a website clone of the "Bach Hoa Xanh" website. It is developed as a part of the "Open Source Programming course".
--   **Instructor/ Mentor:** Teacher Mrs Nguyen Hai yen.
+-   **Instructor/ Mentor:** Teacher Mrs Nguyen Hai Yen.
 -   **Course:** Open Source Programming.
 
     ### :open_file_folder: Frontend:
