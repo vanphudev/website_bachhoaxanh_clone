@@ -13,8 +13,7 @@
 -   Course: Open Source Programming.
 -   University: Ho Chi Minh City University Industry And Trade (HUIT).
 -   Development tools:
-    <br>
-    &nbsp;
+
     <span><img src="https://img.shields.io/badge/JavaScript-282C34?logo=javascript&logoColor=F7DF1E" alt="JavaScript logo" title="JavaScript" height="25" /></span>
     &nbsp;
     <span><img src="https://img.shields.io/badge/HTML5-282C34?logo=html5&logoColor=E34F26" alt="HTML5 logo" title="HTML5" height="25" /></span>
@@ -40,16 +39,6 @@
     
 -   Results and Achievements: Achieved an average score of 9/10 in “Open Source Programming”.
 
-## :ledger: Index
-
--   [About](#beginner-about)
--   [Tools and Technologies](#tools-and-technologies)
--   [Installation](#electric_plug-installation)
--   [Development](#development)
-    -   [File Structure](#file_folder-file-structure)
-    -   [Branches](#cactus-branches)
--   [Gallery](#camera-gallery)
-
 ## :beginner: About
 
 -   E-Commerce Website Development Project.`
@@ -65,7 +54,7 @@
 -   Course: Open Source Programming.
 -   University: Ho Chi Minh City University Industry And Trade (HUIT).
 
-## :tools: Tools and Technologies
+## 📌 Tools and Technologies
 
 | Tools and Technologies | Description                                                                                                                                                                                                   | Link Webstie                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -97,7 +86,7 @@
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
 
 
-## :development: Development
+## 📌 Development
 
 > [!IMPORTANT]\
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
