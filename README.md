@@ -39,6 +39,14 @@
     
 -   Results and Achievements: Achieved an average score of 9/10 in “Open Source Programming”.
 
+## :ledger: Index
+
+- [About](#beginner-about)
+- [Installation](#electric_plug-installation)
+- [File Structure](#file_folder-file-structure)
+- [Branches](#cactus-branches)
+- [Gallery](#camera-gallery)
+
 ## :beginner: About
 
 -   E-Commerce Website Development Project.`
