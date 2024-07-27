@@ -42,6 +42,7 @@
 ## :ledger: Index
 
 - [About](#beginner-about)
+- [Tools and Technologies](#Tools-and-Technologies)
 - [Installation](#electric_plug-installation)
 - [File Structure](#file_folder-file-structure)
 - [Branches](#cactus-branches)
