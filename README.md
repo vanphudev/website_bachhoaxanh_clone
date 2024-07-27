@@ -41,12 +41,15 @@
 
 ## :ledger: Index
 
-- [About](#beginner-about)
+- [About](#About)
 - [Tools and Technologies](#Tools-and-Technologies)
-- [Installation](#electric_plug-installation)
-- [File Structure](#file_folder-file-structure)
-- [Branches](#cactus-branches)
-- [Gallery](#camera-gallery)
+- [Installation](#Installationn)
+    - [System Requirements](#System-Requirements)
+    - [Important Note](#Important-Note)
+- [Development](#Development)
+    - [File Structure](#File-Structure)
+    - [Branches](#Branches)
+- [Gallery](#Gallery)
 
 ## :beginner: About
 
@@ -63,7 +66,7 @@
 -   Course: Open Source Programming.
 -   University: Ho Chi Minh City University Industry And Trade (HUIT).
 
-## Tools and Technologies
+## :hammer_and_pick: Tools and Technologies
 
 | Tools and Technologies | Description                                                                                                                                                                                                   | Link Webstie                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -80,7 +83,7 @@
 
 ## :electric_plug: Installation
 
-### 📌 System Requirements
+### :triangular_flag_on_post: System Requirements
 
 - Here are the prerequisites for this project:
     -   PHP >= 7.3
@@ -89,13 +92,13 @@
     -   jQuery.
     -   Laravel 11
 
-### 📌 Important Note
+### :warning: Important Note
 
 > [!IMPORTANT]\
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
 
 
-## 📌 Development
+## :telescope: Development
 
 > [!IMPORTANT]\
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
