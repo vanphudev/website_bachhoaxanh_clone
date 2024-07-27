@@ -22,9 +22,11 @@
     &nbsp;
     <span><img src="https://img.shields.io/badge/Bootstrap 5-282C34?logo=bootstrap&logoColor=7952B3" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
     &nbsp;
-    <span><img src="https://img.shields.io/badge/Laravel 11-282C34?logo=Laravel&logoColor=FF2D20" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
+    <span><img src="https://img.shields.io/badge/Laravel 11-282C34?logo=Laravel&logoColor=FF2D20" alt="Laravel logo" title="Laravel" height="25" /></span>
     &nbsp;
-    <span><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
+    <span><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" alt="mysql logo" title="mysql" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/PHP-282C34?logo=php&logoColor=4479A1" alt="PHP logo" title="PHP" height="25" /></span>
     &nbsp;
     <span><img src="https://img.shields.io/badge/Slick-282C34"  height="25" /></span>
     &nbsp;
