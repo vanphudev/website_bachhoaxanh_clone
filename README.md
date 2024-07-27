@@ -41,8 +41,8 @@
 
 ## :ledger: Index
 
-- [About](#About)
-- [Tools and Technologies](#Tools-and-Technologies)
+- [About](#beginner-about)
+- [Tools and Technologies](#hammer_and_pick-Tools-and-Technologies)
 - [Installation](#electric_plug-installation)
     - [System Requirements](#System-Requirements)
     - [Important Note](#Important-Note)
