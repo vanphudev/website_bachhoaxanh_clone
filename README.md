@@ -44,12 +44,12 @@
 - [About](#beginner-about)
 - [Tools and Technologies](#hammer_and_pick-Tools-and-Technologies)
 - [Installation](#electric_plug-installation)
-    - [System Requirements](#System-Requirements)
-    - [Important Note](#Important-Note)
-- [Development](#Development)
-    - [File Structure](#File-Structure)
-    - [Branches](#Branches)
-- [Gallery](#Gallery)
+    - [System Requirements](#triangular_flag_on_post-System-Requirements)
+    - [Important Note](#warning-Important-Note)
+- [Development](#telescope-Development)
+    - [File Structure](#file_folder-File-Structure)
+    - [Branches](#cactus-Branches)
+- [Gallery](#camera-Gallery)
 
 ## :beginner: About
 
