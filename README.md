@@ -1,18 +1,18 @@
 ## :rocket: Introduction
 
--   E-Commerce Website Development Project.
--   Number members: 2.
--   Duration: March 2024 - May 2024.
--   Project name: Website "Bach Hoa Xanh" Clone.
--   Project type: Clone.
--   Description: This project is a website clone of the "Bach Hoa Xanh" website. It is developed as a part of the "Open Source Programming course".
--   Members:
+-   **E-Commerce Website Development Project.**
+-   **Number members:** 2.
+-   **Duration:** March 2024 - May 2024.
+-   **Project name:** Website "Bach Hoa Xanh" Clone.
+-   **Project type:** Clone.
+-   **Description:** This project is a website clone of the "Bach Hoa Xanh" website. It is developed as a part of the "Open Source Programming course".
+-   **Members:**
     -   [Nguyen Van Phu](https://github.com/vanphudev) (Leader)
     -   [Nguyen Van Hoang](https://github.com/Hoang13052003) (Member)
--   Mentor: Teacher Mrs Nguyen Hai yen.
--   Course: Open Source Programming.
--   University: Ho Chi Minh City University Industry And Trade (HUIT).
--   Development tools:
+-   **Mentor:** Teacher Mrs Nguyen Hai yen.
+-   **Course:** Open Source Programming.
+-   **University:** Ho Chi Minh City University Industry And Trade (HUIT).
+-   **Development tools:**
 
     <span><img src="https://img.shields.io/badge/JavaScript-282C34?logo=javascript&logoColor=F7DF1E" alt="JavaScript logo" title="JavaScript" height="25" /></span>
     &nbsp;
@@ -35,7 +35,7 @@
         <span><img src="https://img.shields.io/badge/Sweetalert2-282C34" height="25" /></span>
     &nbsp;
     
--   Results and Achievements: Achieved an average score of 9/10 in “Open Source Programming”.
+-   **Results and Achievements:** Achieved an average score of 9/10 in “Open Source Programming”.
 
 ## :ledger: Index
 
@@ -48,6 +48,7 @@
     - [File Structure](#file_folder-File-Structure)
     - [Branches](#cactus-Branches)
 - [Gallery](#camera-Gallery)
+- [Results and Achievements](#trophy-results-and-achievements)
 - [Known Limitations](#warning-known-limitations)
 
 ## :beginner: About
@@ -179,6 +180,12 @@
 ## :camera: Gallery
 
 Pictures of your project.
+
+### :trophy: Results and Achievements
+
+- **Average Score**: Achieved an average score of 9/10 in the “Open Source Programming” course, reflecting a strong understanding and application of open-source technologies.
+
+- **Skills Development**: Enhanced skills in modern web technologies, including Laravel, MySQL, and front-end frameworks, through practical application and problem-solving in real-world scenarios.
 
 ## :warning: Known Limitations
 
