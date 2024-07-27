@@ -43,7 +43,7 @@
 ## :ledger: Index
 
 -   [About](#beginner-about)
--   [Tools and Technologies](#tools-technologies)
+-   [Tools and Technologies](#tools-and-technologies)
 -   [Installation](#electric_plug-installation)
 -   [Development](#development)
     -   [File Structure](#file_folder-file-structure)
