@@ -2,7 +2,7 @@
 
 -   E-Commerce Website Development Project.
 -   Number members: 2.
--   Time: March 2024 - May 2024.
+-   Duration: March 2024 - May 2024.
 -   Project name: Website "Bách Hóa Xanh" Clone.
 -   Project type: Clone.
 -   Description: This project is a website clone of the "Bách Hóa Xanh" website. It is developed as a part of the "Open Source Programming course".
@@ -19,8 +19,6 @@
     <span><img src="https://img.shields.io/badge/HTML5-282C34?logo=html5&logoColor=E34F26" alt="HTML5 logo" title="HTML5" height="25" /></span>
     &nbsp;
     <span><img src="https://img.shields.io/badge/CSS3-282C34?logo=css3&logoColor=1572B6" alt="CSS3 logo" title="CSS3" height="25" /></span>
-    &nbsp;
-    <span><img src="https://img.shields.io/badge/Sass-282C34?logo=sass&logoColor=CC6699" alt="SASS logo" title="SASS" height="25" /></span>
     &nbsp;
     <span><img src="https://img.shields.io/badge/Bootstrap 5-282C34?logo=bootstrap&logoColor=7952B3" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
     &nbsp;
@@ -42,6 +40,8 @@
 ## :ledger: Index
 
 - [About](#beginner-about)
+    - [Frontend](#open_file_folder-frontend)
+    - [Backend](#card_index_dividers-backend)
 - [Tools and Technologies](#hammer_and_pick-Tools-and-Technologies)
 - [Installation](#electric_plug-installation)
     - [System Requirements](#triangular_flag_on_post-System-Requirements)
@@ -53,18 +53,31 @@
 
 ## :beginner: About
 
--   E-Commerce Website Development Project.`
 -   Number members: 2.
--   Time: March 2024 - May 2024.
+-   Duration: March 2024 - May 2024.
 -   Project name: Website "Bách Hóa Xanh" Clone.
 -   Project type: Clone.
 -   Description: This project is a website clone of the "Bách Hóa Xanh" website. It is developed as a part of the "Open Source Programming course".
--   Members:
-    -   [Nguyễn Văn Phú](https://github.com/vanphudev) (Leader)
-    -   [Nguyễn Văn Hoàng](https://github.com/Hoang13052003) (Member)
 -   Mentor: Giảng viên Cô Nguyễn Hải Yến.
 -   Course: Open Source Programming.
--   University: Ho Chi Minh City University Industry And Trade (HUIT).
+
+    ### :open_file_folder: Frontend:
+    - **Technologies Used**: HTML, CSS, JavaScript, jQuery, Ajax, Bootstrap, Slick, Fancybox, Sweetalert2.
+    - **Description**: 
+      - Applied Slick for creating responsive carousels and sliders.
+      - Used Fancybox for displaying images and other content in a modal window.
+      - Implemented Sweetalert2 for enhanced alert and popup notifications.
+
+    ### :card_index_dividers: Backend:
+    - **Technologies Used**: PHP, MySQL, Laravel 11, Datatables.
+    - **Description**:
+        - **MVC Architecture**: Utilizes the Model-View-Controller (MVC) architecture in conjunction with Laravel to develop the project. This approach separates data (Model), user interface (View), and business logic (Controller), facilitating maintainable and scalable code.      
+        - **Database Management**: Employs MySQL for organizing and storing data, integrated with Laravel for efficient database management. Laravel provides tools for seamless database interactions, ensuring data integrity and efficient querying.    
+        - **Core Features**:
+            - **Order Management**: Implements functionalities for order placement, including adding products to the cart, processing orders, and managing order history.
+            - **Product Management**: Develops features for managing products, including product filtering, category management, and promotional offers.
+            - **Full-Text Search**: Implements full-text search capabilities using MySQL and Laravel to enhance product search and retrieval.  
+        - **Admin Panel**: Constructs an admin panel for managing products, categories, and customer information. Utilizes Datatables for displaying and managing data relationships in tabular format, supporting CRUD (Create, Read, Update, Delete) operations efficiently.
 
 ## :hammer_and_pick: Tools and Technologies
 
