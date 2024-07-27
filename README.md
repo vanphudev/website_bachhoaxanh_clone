@@ -184,7 +184,21 @@
 
 ## :camera: Gallery
 
-Pictures of your project.
+-    **Here are some demo images showcasing the results of the project:**
+
+<div align="center">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/01.png" alt="Description of Image 1" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/02.png" alt="Description of Image 2" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/03.png" alt="Description of Image 3" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/04.png" alt="Description of Image 1" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/05.png" alt="Description of Image 2" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/06.png" alt="Description of Image 3" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/07.png" alt="Description of Image 1" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/08.png" alt="Description of Image 2" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/09.png" alt="Description of Image 3" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/10.png" alt="Description of Image 1" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <img src="https://github.com/vanphudev/website_bachhoaxanh_clone/blob/main/images_review/11.png" alt="Description of Image 2" width="300" style="margin: 10px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+</div>
 
 ### :trophy: Results and Achievements
 
