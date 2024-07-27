@@ -1,6 +1,6 @@
 # :rocket: Introduction
 
--   E-Commerce Website Development Project.`
+-   E-Commerce Website Development Project.
 -   Number members: 2.
 -   Time: March 2024 - May 2024.
 -   Project name: Website "Bách Hóa Xanh" Clone.
@@ -29,23 +29,26 @@
     &nbsp;
     <span><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
     &nbsp;
-    <br>
-    And Slick, Fancybox, Datatables , Sweetalert2.
+       <span><img src="https://img.shields.io/badge/Slick-282C34"  height="25" /></span>
+    &nbsp;
+        <span><img src="https://img.shields.io/badge/Fancybox-282C34"  height="25" /></span>
+    &nbsp;
+        <span><img src="https://img.shields.io/badge/Datatables-282C34" height="25" /></span>
+    &nbsp;
+        <span><img src="https://img.shields.io/badge/Sweetalert2-282C34" height="25" /></span>
+    &nbsp;
+    
 -   Results and Achievements: Achieved an average score of 9/10 in “Open Source Programming”.
 
 ## :ledger: Index
 
 -   [About](#beginner-about)
+-   [Tools and Technologies](#tools-technologies)
 -   [Installation](#electric_plug-installation)
--   [Commands](#package-commands)
--   [Development](#wrench-development)
+-   [Development](#Development)
     -   [File Structure](#file_folder-file-structure)
     -   [Branches](#cactus-branches)
--   [FAQ](#question-faq)
--   [Resources](#page_facing_up-resources)
 -   [Gallery](#camera-gallery)
--   [Credit/Acknowledgment](#star2-creditacknowledgment)
--   [License](#lock-license)
 
 ## :beginner: About
 
@@ -62,39 +65,46 @@
 -   Course: Open Source Programming.
 -   University: Ho Chi Minh City University Industry And Trade (HUIT).
 
-## Tools and Technologies
+## :tools: Tools and Technologies
 
 | Tools and Technologies | Description                                                                                                                                                                                                   | Link Webstie                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | JavaScript             | JavaScript is a programming language that adds interactivity to your website.                                                                                                                                 | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| HTML5                  | HTML5 is the latest version of Hypertext Markup Language, the code that describes web pages.                                                                                                                  | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| CSS3                   | CSS3 is the latest evolution of the Cascading Style Sheets language and aims at extending CSS2.1.                                                                                                             | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Sass                   | Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.                                                                                                        | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Bootstrap 5            | Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.                                                                                             | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Laravel 11             | Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern.                    | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| MySQL                  | MySQL is an open-source relational database management system.                                                                                                                                                | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Slick                  | Slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping & much more.                                                                          | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Fancybox               | Fancybox is a tool that offers a nice and elegant way to add zooming functionality for images, html content, and multi-media on your webpages.                                                                | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Datatables             | DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
-| Sweetalert2            | A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes.                                                                                                        | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| HTML5                  | HTML5 is the latest version of Hypertext Markup Language, the code that describes web pages.                                                                                                                  | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/HTML) |
+| CSS3                   | CSS3 is the latest evolution of the Cascading Style Sheets language and aims at extending CSS2.1.                                                                                                             | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/CSS) |
+| Bootstrap 5            | Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.                                                                                             | [Go to a website](https://getbootstrap.com/) |
+| Laravel 11             | Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern.                    | [Go to a website](https://laravel.com/) |
+| MySQL                  | MySQL is an open-source relational database management system.                                                                                                                                                | [Go to a website](https://www.mysql.com/) |
+| Slick                  | Slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping & much more.                                                                          | [Go to a website](https://kenwheeler.github.io/slick/) |
+| Fancybox               | Fancybox is a tool that offers a nice and elegant way to add zooming functionality for images, html content, and multi-media on your webpages.                                                                | [Go to a website](https://fancyapps.com/fancybox/) |
+| Datatables             | DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. | [Go to a website](https://datatables.net/) |
+| Sweetalert2            | A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes.                                                                                                        | [Go to a website](https://sweetalert2.github.io/) |
 
 ## :electric_plug: Installation
 
-### System Requirements
+### 📌 System Requirements
 
--   PHP >= 7.3
--   Composer
--   MySQL
+- Here are the prerequisites for this project:
+    -   PHP >= 7.3
+    -   Composer.
+    -   MySQL.
+    -   jQuery.
+    -   Laravel 11
 
-### Important Note
+### 📌 Important Note
 
-This is a personal project and is not intended for end-user usage. It is provided for educational and development purposes only. You can clone the repository and set it up on your local machine for personal use and experimentation.
+> [!IMPORTANT]\
+> This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
+
 
 ## :wrench: Development
 
-This is a personal project and is not intended for end-user usage. It is provided for educational and development purposes only. You can clone the repository and set it up on your local machine for personal use and experimentation.
+> [!IMPORTANT]\
+> This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
 
-## :file_folder: File Structure
+### :file_folder: File Structure
+
+- Here is the project file structure along with a detailed explanation of each component.
 
 ```
 DOAN_BACHHOAXANH_CLONE/
@@ -177,9 +187,9 @@ DOAN_BACHHOAXANH_CLONE/
 
 -   **vite.config.js**: Vite configuration file.
 
-## :cactus: Branches
+### :cactus: Branches
 
-I use an agile continuous integration methodology, so the version is frequently updated and development is really fast.
+- This project uses a single branch for team collaboration.
 
 1. **`main`** is the development and production branch.
 
