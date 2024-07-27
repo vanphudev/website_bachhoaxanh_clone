@@ -63,7 +63,7 @@
 -   Course: Open Source Programming.
 -   University: Ho Chi Minh City University Industry And Trade (HUIT).
 
-## 📌 Tools and Technologies
+## Tools and Technologies
 
 | Tools and Technologies | Description                                                                                                                                                                                                   | Link Webstie                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
