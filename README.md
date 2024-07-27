@@ -43,7 +43,7 @@
 
 - [About](#About)
 - [Tools and Technologies](#Tools-and-Technologies)
-- [Installation](#Installationn)
+- [Installation](#electric_plug-installation)
     - [System Requirements](#System-Requirements)
     - [Important Note](#Important-Note)
 - [Development](#Development)
