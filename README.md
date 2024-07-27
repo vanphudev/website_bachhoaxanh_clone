@@ -45,7 +45,7 @@
 -   [About](#beginner-about)
 -   [Tools and Technologies](#tools-technologies)
 -   [Installation](#electric_plug-installation)
--   [Development](#Development)
+-   [Development](#development)
     -   [File Structure](#file_folder-file-structure)
     -   [Branches](#cactus-branches)
 -   [Gallery](#camera-gallery)
@@ -97,7 +97,7 @@
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
 
 
-## :wrench: Development
+## :development: Development
 
 > [!IMPORTANT]\
 > This is a group development project. You can clone the repository and set it up on your local machine for personal use and testing. We will not provide information for using this project. Thank you for following the project we have developed.
