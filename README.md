@@ -48,6 +48,7 @@
     - [File Structure](#file_folder-File-Structure)
     - [Branches](#cactus-Branches)
 - [Gallery](#camera-Gallery)
+- [Known Limitations](#warning-known-limitations)
 
 ## :beginner: About
 
@@ -178,3 +179,14 @@
 ## :camera: Gallery
 
 Pictures of your project.
+
+## :warning: Known Limitations
+
+While this project provides a functional clone of the "Bach Hoa Xanh" website, there are a few limitations and areas for improvement:
+
+- **Not Responsive**: The current design does not fully support responsive layouts. Users may experience issues when accessing the website on different devices or screen sizes.
+
+- **Lack of Online Payment Integration**: The project does not include functionality for online payment. Users can place orders, but payment must be handled manually or through alternative methods.
+
+- **Interface Design**: The visual design of the interface is basic and may not be aesthetically pleasing. There is room for improvement in the overall look and feel of the website to enhance user experience.
+
