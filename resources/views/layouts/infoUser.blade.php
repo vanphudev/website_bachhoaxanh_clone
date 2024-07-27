@@ -62,7 +62,7 @@
                             <a href="#" class="list-group-item list-group-item-action" aria-current="true" style="background-color: #006133; color: white; font-weight: bold; font-size: 20px">
                                 Hệ thống
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="text-align: start; font-size: 18px">
+                            <a href="javascript:void(0)" onclick="dangXuat()" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" style="text-align: start; font-size: 18px">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <p class="p-0 m-0">Đăng xuất</p>
                                 <i class="fa-solid fa-chevron-right"></i>
@@ -74,3 +74,40 @@
         </div>
     </div>
 @endif
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function dangXuat() {
+        Swal.fire({
+            title: "Bnạ có chắc đăng xuất không?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Đăng xuất!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('Logout') }}",
+                    type: "GET",
+                    success: function(data) {
+                        if (data.status == true) {
+                            Swal.fire({
+                                title: "Đăng xuất thànhh công!",
+                                icon: "success"
+                            });
+                            setTimeout(() => {
+                                window.location.href = "/";
+                            }, 1000);
+                        }
+                    }
+                });
+            }
+        });
+
+    }
+</script>

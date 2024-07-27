@@ -119,7 +119,7 @@
                         @elseif (isset($sortDesc))
                             @php
                                 $roducts = DB::table('mat_hang as mh')
-                                    ->select('mh.*', DB::raw('calculate_final_price(mat_hang.MAMH) as FINAL_PRICE'))
+                                    ->select('mh.*', DB::raw('calculate_final_price(mh.MAMH) as FINAL_PRICE'))
                                     ->where('mh.MALOAI', $firstTypeGroup->MALOAI)
                                     ->orderBy('FINAL_PRICE', 'desc')
                                     ->get();

@@ -41,9 +41,8 @@
                     Tiếp tục Với Số Điện Thoại
                 </button>
                 <hr>
-                <div class="form-text mb-4 d-flex justify-content-between" style="width: 100%;">
-                    <a class="btn btn-outline-success d-flex justify-content-between align-items-center gap-2" href="{{ route('loginGmail') }}" style="color: black;"><img src="./folderImages/images/icons/gmail.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Gmail.</a>
-                    <a class="btn btn-outline-success  d-flex justify-content-between align-items-center gap-2" href="{{ route('Login') }}" style="color: black; "><img src="./folderImages/images/icons/account.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Account.</a>
+                <div class="form-text mb-4 m-auto text-center" style="width: 100%;">
+                    <a class="btn btn-outline-success " href="{{ route('loginGmail') }}" style="color: black;"><img src="./folderImages/images/icons/gmail.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Gmail.</a>
                 </div>
                 <div class="form-text mb-4 text-center">
                     Bạn chưa có tài khoản?

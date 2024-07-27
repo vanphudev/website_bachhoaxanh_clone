@@ -15,11 +15,13 @@ class CardsController extends Controller
         if (!Cookie::get('user_data')) {
             return redirect()->route('Login')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
         }
+
         // Lấy thông tin người dùng từ cookie.
         $user_data = json_decode(Crypt::decryptString(Cookie::get('user_data')), true);
         if (!$user_data) {
             return redirect()->route('Login')->with('error', 'Vui lòng đăng nhập để xem giỏ hàng !');
         }
+
         // Lấy thông tin người dùng từ database.
         $user = DB::table('khachhang')->where('MAKH', $user_data['id'])->first();
         // Lấy thông tin giỏ hàng từ database dựa vào id người dùng.
@@ -81,7 +83,6 @@ class CardsController extends Controller
             return view('cards.index', compact('user', 'cart', 'detail_cart', 'tongtien', 'count'));
         }
         return view('cards.index', compact('user', 'cart'));
-        return view('cards.index');
     }
 
     public function RemoveProductFromCart($mamh)

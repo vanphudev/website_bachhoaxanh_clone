@@ -6,20 +6,23 @@
                 Để xem "Đơn hàng của bạn" vui lòng <br />
                 nhập Gmail đã đặt hàng
             </p>
+            @if (session('success'))
+                <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">{{ session('success') }} !</div>
+            @endif
             @if (session('error'))
                 <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">Đã có lỗi - {{ session('error') }} !</div>
             @endif
             @if (session('message'))
                 <div class="p-4 text-danger text-center" style="color: red; font-size: 20px; font-weight: bold">{{ session('message') }}</div>
             @endif
-            <form action="{{ route('sendOtp') }}" method="POST">
+            <form action="{{ route('sendOTPEMmail') }}" method="POST">
                 @csrf
                 <div class="mb-3 form-login-textbox">
                     <div class="input-group input-group-lg">
                         <span class="input-group-text" style="background-color: white">
                             <img src="./folderImages/images/icons/gmail.png" alt="" style="width: 50px; height: 50px;">
                         </span>
-                        <input type="email" class="form-control" id="gmail" name="gmail" placeholder="Nhập Gmail của bạn" required />
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Nhập Email của bạn" required />
                     </div>
                 </div>
                 <button type="submit" class="animate-gradient btn mb-2"
@@ -33,15 +36,14 @@
                     Tiếp tục Với Gmail
                 </button>
                 <hr>
-                <div class="form-text mb-4 d-flex justify-content-between" style="width: 100%;">
-                    <a class="btn btn-outline-success d-flex justify-content-between align-items-center gap-2" href="{{ route('Login') }}" style="color: black;"><i class="icon fa-solid fa-phone"
+                <div class="form-text mb-4 text-center" style="width: 100%;">
+                    <a class="btn btn-outline-success d-flex justify-content-center align-items-center gap-2" href="{{ route('Login') }}" style="color: black;"><i class="icon fa-solid fa-phone"
                             style="
                       font-size: 40px;
                       background: var(--bgcolor-items);
                       background-clip: text;
                       color: transparent;
                    "></i>Đăng nhập bằng Phone.</a>
-                    <a class="btn btn-outline-success  d-flex justify-content-between align-items-center gap-2" href="{{ route('Login') }}" style="color: black; "><img src="./folderImages/images/icons/account.png" alt="" style="width: 50px; height: 50px;">Đăng nhập bằng Account.</a>
                 </div>
                 <div class="form-text mb-4 text-center">
                     Bạn chưa có tài khoản?

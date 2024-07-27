@@ -22,22 +22,24 @@
                 @if (session('success'))
                     <div class="p-4 text-success text-center" style="color: green; font-size: 20px; font-weight: bold">{{ session('success') }} !</div>
                 @endif
-                @php
-                    if (isset($user)) {
-                        $arr = explode('#', $user->DIA_CHI);
-                        $tenDuong = $arr[0];
-                        $tenTinh = $arr[1];
-                        $tenQuanHuyen = $arr[2];
-                        $tenXaPhuong = $arr[3];
-                    }
-                @endphp
+                @if (isset($user))
+                    @if ($user->DIA_CHI !== '' && $user->DIA_CHI !== null)
+                        @php
+                            $arr = explode('#', $user->DIA_CHI);
+                            $tenDuong = isset($arr[0]) ? $arr[0] : '';
+                            $tenTinh = isset($arr[1]) ? $arr[1] : '';
+                            $tenQuanHuyen = isset($arr[2]) ? $arr[2] : '';
+                            $tenXaPhuong = isset($arr[3]) ? $arr[3] : '';
+                        @endphp
+                    @endif
+                @endif
                 <form class="ms-5 mx-5" action="{{ route('SubmitUpdateAddress') }}" method="POST">
                     @csrf
                     <div class="mb-3 form-login-textbox">
                         <label for="exampleFormControlInput1" class="form-label fw-bold" style="font-size: 20px">Số đường:</label>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" style="background-color: white; width: 80px"><i class="fa-solid fa-address-book m-auto" style=" font-size: 25px;background: var(--bgcolor-items); background-clip: text;  color: transparent;  "></i></span>
-                            <input id="exampleFormControlInput1" type="text" class="form-control" value="{{ $tenDuong }}" name="tenDuong" placeholder="Nhập số điện thoại của bạn" required />
+                            <input id="exampleFormControlInput1" type="text" class="form-control" value="{{ isset($tenDuong) ? $tenDuong : '' }}" name="tenDuong" placeholder="Nhập số điện thoại của bạn" required />
                         </div>
                     </div>
                     <div class="mb-3 form-login-textbox">
@@ -45,7 +47,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" style="background-color: white; width: 80px">
                                 <i class="fa-solid fa-location-pin m-auto" style=" font-size: 25px;  background: var(--bgcolor-items); background-clip: text;  color: transparent; "></i></span>
-                            <input type="text" class="form-control" value="{{ $tenTinh }}" name="tenTinh" placeholder="Nhập tên tỉnh thành." required />
+                            <input type="text" class="form-control" value="{{ isset($tenTinh) ? $tenTinh : '' }}" name="tenTinh" placeholder="Nhập tên tỉnh thành." required />
                         </div>
                     </div>
                     <div class="mb-3 form-login-textbox">
@@ -53,7 +55,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" style="background-color: white; width: 80px">
                                 <i class="fa-solid fa-location-crosshairs m-auto" style="  font-size: 25px; background: var(--bgcolor-items);  background-clip: text;  color: transparent;  "></i></span>
-                            <input type="text" class="form-control" value="{{ $tenQuanHuyen }}" name="tenQuanHuyen" placeholder="Nhập quận huyện." required />
+                            <input type="text" class="form-control" value="{{ isset($tenQuanHuyen) ? $tenQuanHuyen : '' }}" name="tenQuanHuyen" placeholder="Nhập quận huyện." required />
                         </div>
                     </div>
                     <div class="mb-3 form-login-textbox">
@@ -61,7 +63,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" style="background-color: white; width: 80px">
                                 <i class="fa-solid fa-location-dot m-auto" style="  font-size: 25px; background: var(--bgcolor-items);  background-clip: text;  color: transparent;  "></i></span>
-                            <input type="text" class="form-control" value="{{ $tenXaPhuong }}" name="tenXaPhuong" placeholder="Nhập xã phường." required />
+                            <input type="text" class="form-control" value="{{ isset($tenXaPhuong) ? $tenXaPhuong : '' }}" name="tenXaPhuong" placeholder="Nhập xã phường." required />
                         </div>
                     </div>
                     <div class="container-fluid g-0 m-auto text-center" style="width: 100%">

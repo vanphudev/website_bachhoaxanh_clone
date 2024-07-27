@@ -39,9 +39,26 @@
 <script type="text/javascript" src="../../../js/jsPopup.js"></script>
 <script type="text/javascript" src="../../../js/jsSlickSlider.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.tang').forEach(function(element) {
+            element.addEventListener('click', function() {
+                var mamh = this.getAttribute('data-id');
+                updateSoLuong(mamh, 'tang');
+            });
+        });
+
+        document.querySelectorAll('.giam').forEach(function(element) {
+            element.addEventListener('click', function() {
+                var mamh = this.getAttribute('data-id');
+                updateSoLuong(mamh, 'giam');
+            });
+        });
+    });
+
     function updateSoLuong(mamh, action) {
-        var inputSoluong = document.getElementById("soluong");
-        var soluong = parseInt(inputSoluong.value);
+        var soluongInput = document.getElementById('soluong-' + mamh);
+        var soluong = parseInt(soluongInput.value);
+
         if (action === 'tang') {
             if (soluong < 15) {
                 soluong++;
@@ -57,7 +74,7 @@
             }
         }
 
-        inputSoluong.value = soluong;
+        soluongInput.value = soluong;
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -75,11 +92,7 @@
             dataType: "json",
             success: function(response) {
                 if (response.success) {
-                    $('#soLuongCard').text(response.count);
-                    $('#soLuongCardTwo').text(response.count);
-                    $('#tongTienCard').text(response.tongtien);
-                    $('#tongTienCardTwo').text(response.tongtien);
-                    $('#tongThanhTien').text(response.tongtien);
+                    location.reload();
                 }
                 if (response.error && response.message) {
                     console.log(response.message);

@@ -1,154 +1,188 @@
-# Introduction
-- Add your project logo.
-- Write a short introduction to the project.
-- If you are using badges, add them here.
+# :rocket: Introduction
+
+-   E-Commerce Website Development Project.`
+-   Number members: 2.
+-   Time: March 2024 - May 2024.
+-   Project name: Website "Bách Hóa Xanh" Clone.
+-   Project type: Clone.
+-   Description: This project is a website clone of the "Bách Hóa Xanh" website. It is developed as a part of the "Open Source Programming course".
+-   Members:
+    -   [Nguyễn Văn Phú](https://github.com/vanphudev) (Leader)
+    -   [Nguyễn Văn Hoàng](https://github.com/Hoang13052003) (Member)
+-   Mentor: Giảng viên Cô Nguyễn Hải Yến.
+-   Course: Open Source Programming.
+-   University: Ho Chi Minh City University Industry And Trade (HUIT).
+-   Development tools:
+    <br>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/JavaScript-282C34?logo=javascript&logoColor=F7DF1E" alt="JavaScript logo" title="JavaScript" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/HTML5-282C34?logo=html5&logoColor=E34F26" alt="HTML5 logo" title="HTML5" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/CSS3-282C34?logo=css3&logoColor=1572B6" alt="CSS3 logo" title="CSS3" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/Sass-282C34?logo=sass&logoColor=CC6699" alt="SASS logo" title="SASS" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/Bootstrap 5-282C34?logo=bootstrap&logoColor=7952B3" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/Laravel 11-282C34?logo=Laravel&logoColor=FF2D20" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
+    &nbsp;
+    <span><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" alt="Bootstrap logo" title="Bootstrap" height="25" /></span>
+    &nbsp;
+    <br>
+    And Slick, Fancybox, Datatables , Sweetalert2.
+-   Results and Achievements: Achieved an average score of 9/10 in “Open Source Programming”.
 
 ## :ledger: Index
 
-- [About](#beginner-about)
-- [Usage](#zap-usage)
-  - [Installation](#electric_plug-installation)
-  - [Commands](#package-commands)
-- [Development](#wrench-development)
-  - [Pre-Requisites](#notebook-pre-requisites)
-  - [Developmen Environment](#nut_and_bolt-development-environment)
-  - [File Structure](#file_folder-file-structure)
-  - [Build](#hammer-build)  
-  - [Deployment](#rocket-deployment)  
-- [Community](#cherry_blossom-community)
-  - [Contribution](#fire-contribution)
-  - [Branches](#cactus-branches)
-  - [Guideline](#exclamation-guideline)  
-- [FAQ](#question-faq)
-- [Resources](#page_facing_up-resources)
-- [Gallery](#camera-gallery)
-- [Credit/Acknowledgment](#star2-creditacknowledgment)
-- [License](#lock-license)
+-   [About](#beginner-about)
+-   [Installation](#electric_plug-installation)
+-   [Commands](#package-commands)
+-   [Development](#wrench-development)
+    -   [File Structure](#file_folder-file-structure)
+    -   [Branches](#cactus-branches)
+-   [FAQ](#question-faq)
+-   [Resources](#page_facing_up-resources)
+-   [Gallery](#camera-gallery)
+-   [Credit/Acknowledgment](#star2-creditacknowledgment)
+-   [License](#lock-license)
 
-##  :beginner: About
-Add a detailed introduction about the project here, everything you want the reader to know.
+## :beginner: About
 
-## :zap: Usage
-Write about how to use this project.
+-   E-Commerce Website Development Project.`
+-   Number members: 2.
+-   Time: March 2024 - May 2024.
+-   Project name: Website "Bách Hóa Xanh" Clone.
+-   Project type: Clone.
+-   Description: This project is a website clone of the "Bách Hóa Xanh" website. It is developed as a part of the "Open Source Programming course".
+-   Members:
+    -   [Nguyễn Văn Phú](https://github.com/vanphudev) (Leader)
+    -   [Nguyễn Văn Hoàng](https://github.com/Hoang13052003) (Member)
+-   Mentor: Giảng viên Cô Nguyễn Hải Yến.
+-   Course: Open Source Programming.
+-   University: Ho Chi Minh City University Industry And Trade (HUIT).
 
-###  :electric_plug: Installation
-- Steps on how to install this project, to use it.
-- Be very detailed here, For example, if you have tools which run on different operating systems, write installation steps for all of them.
+## Tools and Technologies
+
+| Tools and Technologies | Description                                                                                                                                                                                                   | Link Webstie                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| JavaScript             | JavaScript is a programming language that adds interactivity to your website.                                                                                                                                 | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| HTML5                  | HTML5 is the latest version of Hypertext Markup Language, the code that describes web pages.                                                                                                                  | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| CSS3                   | CSS3 is the latest evolution of the Cascading Style Sheets language and aims at extending CSS2.1.                                                                                                             | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Sass                   | Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.                                                                                                        | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Bootstrap 5            | Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.                                                                                             | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Laravel 11             | Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern.                    | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| MySQL                  | MySQL is an open-source relational database management system.                                                                                                                                                | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Slick                  | Slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping & much more.                                                                          | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Fancybox               | Fancybox is a tool that offers a nice and elegant way to add zooming functionality for images, html content, and multi-media on your webpages.                                                                | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Datatables             | DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| Sweetalert2            | A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes.                                                                                                        | [Go to a website](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+
+## :electric_plug: Installation
+
+### System Requirements
+
+-   PHP >= 7.3
+-   Composer
+-   MySQL
+
+### Important Note
+
+This is a personal project and is not intended for end-user usage. It is provided for educational and development purposes only. You can clone the repository and set it up on your local machine for personal use and experimentation.
+
+## :wrench: Development
+
+This is a personal project and is not intended for end-user usage. It is provided for educational and development purposes only. You can clone the repository and set it up on your local machine for personal use and experimentation.
+
+## :file_folder: File Structure
 
 ```
-$ add installations steps if you have to.
+DOAN_BACHHOAXANH_CLONE/
+├── app/
+│ ├── Helpers/
+│ ├── Http/
+│ ├── Models/
+│ └── Providers/
+├── bootstrap/
+├── config/
+├── database/
+│ └── folderImages/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+├── tests/
+├── vendor/
+├── .editorconfig
+├── .env
+├── .env.example
+├── .gitattributes
+├── .gitignore
+├── artisan
+├── composer.json
+├── composer.lock
+├── package.json
+├── phpunit.xml
+├── README.md
+└── vite.config.js
 ```
 
-###  :package: Commands
-- Commands to start the project.
+-   **app/**: Contains the core application code.
 
-##  :wrench: Development
-If you want other people to contribute to this project, this is the section, make sure you always add this.
+    -   **Helpers/**: Custom helper functions.
+    -   **Http/**: Controllers, middleware, and requests.
+    -   **Models/**: Eloquent models.
+    -   **Providers/**: Service providers.
 
-### :notebook: Pre-Requisites
-List all the pre-requisites the system needs to develop this project.
-- A tool
-- B tool
+-   **bootstrap/**: Initializes the framework.
+-   **config/**: Configuration files.
 
-###  :nut_and_bolt: Development Environment
-Write about setting up the working environment for your project.
-- How to download the project...
-- How to install dependencies...
+-   **database/**: Database migrations, seeders, and folder for images.
 
+    -   **folderImages/**: Folder to store images.
 
-###  :file_folder: File Structure
-Add a file structure here with the basic details about files, below is an example.
+-   **public/**: Publicly accessible files.
 
-```
-.
-├── assets
-│   ├── css
-│   │   ├── index-ui.css
-│   │   └── rate-ui.css
-│   ├── images
-│   │   ├── icons
-│   │   │   ├── shrink-button.png
-│   │   │   └── umbrella.png
-│   │   ├── logo_144.png
-│   │   └── Untitled-1.psd
-│   └── javascript
-│       ├── index.js
-│       └── rate.js
-├── CNAME
-├── index.html
-├── rate.html
-└── README.md
-```
+-   **resources/**: Views, assets, and language files.
 
-| No | File Name | Details 
-|----|------------|-------|
-| 1  | index | Entry point
+-   **routes/**: Route definitions.
 
-###  :hammer: Build
-Write the build Instruction here.
+-   **storage/**: Compiled Blade templates, file-based sessions, file caches, and other files generated by the application.
 
-### :rocket: Deployment
-Write the deployment instruction here.
+-   **tests/**: Test cases.
 
-## :cherry_blossom: Community
+-   **vendor/**: Composer dependencies.
 
-If it's open-source, talk about the community here, ask social media links and other links.
+-   **.editorconfig**: Configuration for coding styles.
 
- ###  :fire: Contribution
+-   **.env**: Environment variables.
 
- Your contributions are always welcome and appreciated. Following are the things you can do to contribute to this project.
+-   **.env.example**: Example environment variables file.
 
- 1. **Report a bug** <br>
- If you think you have encountered a bug, and I should know about it, feel free to report it [here]() and I will take care of it.
+-   **.gitattributes**: Git attributes.
 
- 2. **Request a feature** <br>
- You can also request for a feature [here](), and if it will viable, it will be picked for development.  
+-   **.gitignore**: Specifies files and directories that should be ignored by Git.
 
- 3. **Create a pull request** <br>
- It can't get better then this, your pull request will be appreciated by the community. You can get started by picking up any open issues from [here]() and make a pull request.
+-   **artisan**: Laravel's command-line interface.
 
- > If you are new to open-source, make sure to check read more about it [here](https://www.digitalocean.com/community/tutorial_series/an-introduction-to-open-source) and learn more about creating a pull request [here](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github).
+-   **composer.json**: Composer dependencies and scripts.
 
+-   **composer.lock**: Locked versions of Composer dependencies.
 
- ### :cactus: Branches
+-   **package.json**: Node.js dependencies and scripts.
 
- I use an agile continuous integration methodology, so the version is frequently updated and development is really fast.
+-   **phpunit.xml**: PHPUnit configuration.
 
-1. **`stage`** is the development branch.
+-   **README.md**: Project documentation.
 
-2. **`master`** is the production branch.
+-   **vite.config.js**: Vite configuration file.
 
-3. No other permanent branches should be created in the main repository, you can create feature branches but they should get merged with the master.
+## :cactus: Branches
 
-**Steps to work with feature branch**
+I use an agile continuous integration methodology, so the version is frequently updated and development is really fast.
 
-1. To start working on a new feature, create a new branch prefixed with `feat` and followed by feature name. (ie. `feat-FEATURE-NAME`)
-2. Once you are done with your changes, you can raise PR.
+1. **`main`** is the development and production branch.
 
-**Steps to create a pull request**
+## :camera: Gallery
 
-1. Make a PR to `stage` branch.
-2. Comply with the best practices and guidelines e.g. where the PR concerns visual elements it should have an image showing the effect.
-3. It must pass all continuous integration checks and get positive reviews.
-
-After this, changes will be merged.
-
-
-### :exclamation: Guideline
-coding guidelines or other things you want people to follow should follow.
-
-
-## :question: FAQ
-You can optionally add a FAQ section about the project.
-
-##  :page_facing_up: Resources
-Add important resources here
-
-##  :camera: Gallery
 Pictures of your project.
-
-## :star2: Credit/Acknowledgment
-Credit the authors here.
-
-##  :lock: License
-Add a license here, or a link to it.

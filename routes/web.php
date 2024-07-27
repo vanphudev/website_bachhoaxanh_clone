@@ -22,6 +22,7 @@ use App\Http\Controllers\ManagerTypeProductController;
 use App\Http\Controllers\LoginManagerController;
 use App\Http\Controllers\ManagerGroupTypeProductsController;
 use App\Http\Controllers\DonHangController;
+use App\Http\Controllers\AuthEmailController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home');
@@ -84,13 +85,17 @@ Route::get('/nhom-loai-mat-hang-delete/{ID}', [ManagerGroupTypeProductsControlle
 
 // Đăng nhập.
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
+Route::get('/Logout', [LoginController::class, 'logout'])->name('Logout');
 // Đăng nhập bằng Gmail.
 Route::get('/LoginGmail', [LoginController::class, 'loginGmail'])->name('loginGmail');
 // Xác thực OTP đăng nhập.
 Route::post('/send-otp', [AuthController::class, 'sendOTP'])->name('sendOtp');
+Route::post('/send-otp-Email', [AuthEmailController::class, 'sendOTPEMmail'])->name('sendOTPEMmail');
 // Xác thực OTP đăng nhập.
 Route::get('/verify-otp', [AuthController::class, 'verifyOtpForm'])->name('verifyOtpForm');
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP'])->name('verifyOTP');
+Route::get('/verify-otp-email', [AuthEmailController::class, 'verifyOTPEmailForm'])->name('verifyOTPEmailForm');
+Route::post('/verify-otp-email', [AuthEmailController::class, 'verifyOTPEmail'])->name('verifyOTPEmail');
 // Tạo tài khoản.
 Route::get('/createAccount', [LoginController::class, 'createAccount'])->name('createAccount');
 Route::post('/verifyAccount', [LoginController::class, 'verifyAccount'])->name('verifyAccount');

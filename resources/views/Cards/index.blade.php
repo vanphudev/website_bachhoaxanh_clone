@@ -20,7 +20,7 @@
                     <div class="text-center w-50" style="z-index: 99">
                         <h4 class="fw-bold" style="color: white">Tổng số sản phẩm trong giỏ</h4>
                         <h5 class="fw-bold" style="color: white">
-                            Có <span id="soLuongCard" style="color: #ebb319; font-size: 40px"> {{ $count }} </span> sản phẩm trong giỏ
+                            Có <span id="soLuongCard" style="color: #ebb319; font-size: 40px">{{ $count }}</span> sản phẩm trong giỏ
                         </h5>
                     </div>
                     <div class="text-center w-50" style="z-index: 99">
@@ -51,7 +51,7 @@
                                             <h4 class="fw-bold mb-3">{{ $valueProduct->TENMH }}</h4>
                                             <p class="fw-bold m-0" style="font-size: 25px; color: red">Giá bán: {{ format_currency_vnd($valueProduct->GIA_BAN_NEW) }}</p>
                                             @if ($valueProduct->TILE_GIAM_GIA != null)
-                                                <div class="badge bg-danger p-2">Giảm giá -{{ $valueProduct->TILE_GIAM_GIA }}</div>
+                                                <div class="badge bg-danger p-2">Giảm giá - {{ $valueProduct->TILE_GIAM_GIA }}%</div>
                                             @endif
                                         </div>
                                         <div class="col-6 d-flex flex-column justify-content-end gap-1 align-items-center">
@@ -63,11 +63,11 @@
                                             </div>
                                             <h5 class="m-0 fw-bold">Số lượng sản phẩm</h5>
                                             <div class="form-tangGiam d-flex justify-content-start align-items-center">
-                                                <a href="javascript:void(0)" id="tang" onclick="updateSoLuong('{{ $valueProduct->MAMH }}', 'tang')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <a href="javascript:void(0)" data-id="{{ $valueProduct->MAMH }}" class="btn fw-bold d-flex justify-content-center align-items-center tang" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-plus" style="font-weight: bold; font-size: 25px; color: white"></i>
                                                 </a>
-                                                <input id="soluong" type="text" value="{{ $valueProduct->SOLUONG }}" class="form-control" style="width: 70px; height: 40px; text-align: center; margin-left: 4px; margin-right: 4px; font-size: 25px;" />
-                                                <a id="giam" href="javascript:void(0)" onclick="updateSoLuong('{{ $valueProduct->MAMH }}', 'giam')" class="btn fw-bold d-flex justify-content-center align-items-center" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
+                                                <input id="soluong-{{ $valueProduct->MAMH }}" type="text" value="{{ $valueProduct->SOLUONG }}" class="form-control soluong" style="width: 70px; height: 40px; text-align: center; margin-left: 4px; margin-right: 4px; font-size: 25px;" />
+                                                <a href="javascript:void(0)" data-id="{{ $valueProduct->MAMH }}" class="btn fw-bold d-flex justify-content-center align-items-center giam" style="background-color: #469c4b; width: 40px; height: 40px; border-radius: 50%">
                                                     <i class="fa-solid fa-minus" style="font-weight: bold; font-size: 25px; color: white"></i>
                                                 </a>
                                             </div>
@@ -104,10 +104,6 @@
             <h6 class="float-end">Phụ phí/Phí giao hàng: <span class="fw-bold text-danger">Miễn Phí.</span></h6>
             <div class="clearfix mb-3"></div>
             <hr />
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label fw-bold">Ghi chú cho đơn hàng (Nếu có):</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
             <div class="mb-4 d-flex justify-content-around align-items-center">
                 <h5 class="fw-bold float-start m-0">Hình thức thanh toán:</h5>
             </div>

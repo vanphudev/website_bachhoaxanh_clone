@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
+
     protected $otpService;
 
     public function __construct(OTPService $otpService)
@@ -47,7 +48,6 @@ class AuthController extends Controller
 
         return redirect()->route('verifyOtpForm')->with('message', 'Mã xác thực OTP đã được gửi qua số điện thoại của bạn!');
     }
-
 
 
     public function verifyOtpForm()

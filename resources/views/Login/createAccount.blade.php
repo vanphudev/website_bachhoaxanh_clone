@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label fw-bold">Phone: </label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label fw-bold">Gmail: </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="" name="phone" value="{{ old('phone') }}" required>
+                        <input type="text" class="form-control" id="" name="email" value="{{ old('email') }}" required>
                     </div>
                 </div>
                 <fieldset class="row mb-3">
